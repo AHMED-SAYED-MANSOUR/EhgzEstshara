@@ -1,0 +1,558 @@
+
+ *{
+    margin: 0px;
+    padding: 0px;
+     box-sizing: border-box;
+     font-family: "Poppins", sans-serif;
+
+}
+.background img{
+    background-repeat: no-repeat;
+    width:100%;
+    height:100vh;
+    background-position:center;
+    background-size: cover;
+}
+
+
+/*** Navbar ***/
+
+.navbar{
+    background: -webkit-linear-gradient(left,#013262,#004080,#0059b3
+    , #2288ee);
+}
+.navbar h1{
+    margin-top: 5px;
+    color:white;
+    font-size: 30px;
+    padding: 0px;
+
+}
+
+.navbar .dropdown-toggle::after {
+    border: none;
+    content: "\f107";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    vertical-align: middle;
+    margin-left: 8px;
+
+}
+
+.navbar .navbar-nav .nav-link {
+    margin-right: 30px;
+    padding: 25px 0;
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    text-transform: uppercase;
+    outline: none;
+}
+.navbar-nav{
+    color: white;
+}
+.navbar .navbar-nav .nav-link:hover,
+.navbar .navbar-nav .nav-link.active {
+    color: white;
+    text-decoration: underline;
+}
+
+@media (max-width: 800px) {
+    .navbar .navbar-nav .nav-link  {
+        margin-right: 0;
+        padding: 10px 0;
+    }
+
+    .navbar .navbar-nav {
+        border-top: 1px solid #EEEEEE;
+    }
+}
+
+.navbar .navbar-brand,
+.navbar a.btn {
+    height: 75px;
+}
+
+.navbar .navbar-nav .nav-link {
+    color: white;
+    font-weight: 500;
+}
+
+.navbar.sticky-top {
+    top: -100px;
+    transition: .5s;
+}
+
+@media (min-width: 800px) {
+    .navbar .nav-item .dropdown-menu {
+        display: block;
+        border: none;
+        margin-top: 0;
+        top: 150%;
+        opacity: 0;
+        visibility: hidden;
+        transition: .5s;
+    }
+
+    .navbar .nav-item:hover .dropdown-menu {
+        top: 100%;
+        visibility: visible;
+        transition: .5s;
+        opacity: 1;
+    }
+}
+
+
+.logo {
+    margin-top: 12px;
+    width: 108px;
+    height: 76px;
+    margin-left: 20px;
+    color: black;
+}
+section{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: -50px;
+
+}
+
+section .box{
+    position: relative;
+    width:100%;
+    min-height: 550px;
+    display: flex;
+    display: inline;
+    margin: 0;
+}
+section .box.contactinfo{
+    position: absolute;
+    top:40px;
+    height: 290px;
+    width: 300px;
+    background-color:#013262;
+    padding: 40px;
+    border-radius:30% 80% 80% 30% / 40% 40% 70% 70% ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 10px 15px 15px rgba(1,1,1,0.2);
+    transform: translate(200%,50%);
+}
+section .box .contactinfo h2{
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+section .box .contactinfo .info{
+    position: relative;
+    margin: 15px;
+}
+section .box .contactinfo .info li{
+    position: relative;
+    list-style: none;
+    display: flex;
+    margin: 10px 0;
+    cursor: pointer;
+    align-items: flex-start;
+
+}
+.fa-envelope{
+    padding: 2px;
+    margin: 2px;
+    opacity: 0.6;
+
+}
+.fa-phone{
+    padding: 2px;
+    margin: 2px;
+    opacity: 0.6;
+}
+.fa-location-pin{
+    padding: 2px;
+    margin: 2px;
+    opacity: 0.6;
+}
+section .box .contactinfo .info li span{
+    color: white;
+    opacity: 0.6;
+
+}
+section .box .contactinfo .info li:hover span:nth-child(1){
+    opacity: 1;
+}
+section .box .contactinfo .info li:hover span:nth-child(2){
+    opacity: 1;
+}
+.icons{
+ position: relative;
+ display: flex;
+
+}
+section .box .contactinfo .icons{
+    list-style: none;
+    margin-right: 80px;
+    margin-left: 20px;
+    text-align: center;
+    justify-content: space-between;
+
+}
+.fa-facebook{
+    text-decoration: none;
+    margin: 5px;
+    color: white;
+    opacity: 0.5;
+}
+.fa-facebook:hover{
+    opacity: 1;
+    cursor: pointer;
+}
+.fa-instagram{
+    text-decoration: none;
+    margin: 5px;
+    color: white;
+    opacity: 0.5;
+}
+.fa-instagram:hover{
+    opacity: 1;
+    cursor: pointer;
+}
+.fa-linkedin-in{
+    text-decoration: none;
+    margin: 5px;
+    color: white;
+    opacity: 0.5;
+
+}
+.fa-linkedin-in:hover{
+    opacity: 1;
+    cursor: pointer;
+}
+section .box .contact-form{
+    position: absolute;
+    padding: 90px 60px;
+    /* margin-left: 50px;
+    padding-left: 100px; */
+    margin-top: 30px;
+    /* box-shadow: 20px 15px 15px rgba(1,1,1,0.2); */
+}
+
+@media screen and (max-width:600px){
+    section .box .contact-form{
+        width:100%;
+        position: absolute;
+        left:-25px;
+    }
+    section .box .contact-form .formBox .inputbox{
+        width:70%;
+    }
+}
+@media screen and (max-width:600px){
+    section .box .contactinfo{
+        width:100%;
+        position: absolute;
+        left:-25px;
+    }
+    section .box .contact-form .formBox .inputbox{
+        width:70%;
+    }
+}
+section .box .contact-form h1{
+    color: #0f3959;
+    font-size: 35px;
+    font-weight: bold;
+
+
+}
+section .box .contact-form .formbox{
+
+    display: flex;
+    flex-wrap: wrap;
+    padding-top:30px;
+    justify-content: space-between;
+
+}
+@media screen and(max-width:500px){
+    section .box .contact-form{
+       transform: translate(-50%,10%);
+   }
+}
+@media screen and(max-width:500px){
+    section .box .contactinfo{
+       transform: translate(-50%,10%);
+   }
+}
+section .box .contact-form .formBox{
+    position: relative;
+    display: flex;
+    padding-top:20px ;
+     flex-direction: column;
+    width: 500px;
+}
+section .box .contact-form .formbox .inputbox{
+position: relative;
+margin: 0 0 35px 0;
+}
+section .box .contact-form .formBox .inputbox{
+    position: relative;
+    margin: 0 0 35px 0;
+    }
+ section .box .contact-form .formbox .inputbox .w50{
+    width: 47%;
+}
+section .box .contact-form .formbox .inputbox .w100{
+    width: 100%;
+}
+section .box .contact-form .formbox .inputbox input{
+    width: 100% !important;
+    padding: 5px 0;
+    font-size: 15px;
+    font-weight: 300px;
+    border: none;
+    border-bottom: 1px solid #777;
+    outline: none;
+
+}
+section .box .contact-form .formBox .inputbox input,
+section .box .contact-form .formBox .inputbox textarea
+{
+    resize: none;
+    width: 100% !important;
+    padding: 5px 0;
+    font-size: 15px;
+    font-weight: 300px;
+    border: none;
+    border-bottom: 1px solid #777;
+    outline: none;
+
+}
+
+section .box .contact-form .formBox .inputbox span{
+    position: absolute;
+    left:0;
+    padding: 5px 0;
+    font-size: 15px;
+    font-weight: 300px;
+    color: #333;
+    transition: 0.5s;
+}
+section .box .contact-form .formbox .inputbox span{
+    position: absolute;
+    left:0;
+    padding: 5px 0;
+    font-size: 15px;
+    font-weight: 300px;
+    color: #333;
+    transition: 0.5s;
+    pointer-events: none;
+}
+
+section .box .contact-form .formbox .inputbox input:focus ~ span ,
+section .box .contact-form .formbox .inputbox input:valid ~ span
+
+{
+transform: translateY(-20px);
+font-size: 12px;
+font-weight: 400;
+letter-spacing: 1px;
+color: #ff568c;
+}
+section .box .contact-form .formBox .inputbox textarea:focus ~ span ,
+section .box .contact-form .formBox .inputbox textarea:valid ~ span
+{
+transform: translateY(-20px);
+font-size: 12px;
+font-weight: 400;
+letter-spacing: 1px;
+color: #ff568c;
+}
+section .box .contact-form .formBox .inputbox input:focus ~ span ,
+section .box .contact-form .formBox .inputbox input:valid ~ span {
+    transform: translateY(-20px);
+font-size: 12px;
+font-weight: 400;
+letter-spacing: 1px;
+color: #ff568c;
+}
+section .box .contact-form .formBox .inputbox input[type="submit"]{
+    position: relative;
+    cursor: pointer;
+    background: -webkit-linear-gradient(left,#012a53,#004080,#0059b3
+    , #3394f4);
+    color: white;
+    border: none;
+    max-width: 150px;
+    padding: 12px;
+}
+ section .box .contact-form .formBox .inputbox input[type="submit"]:hover
+{
+    background: -webkit-linear-gradient(right,#012a53,#004080,#0059b3
+    , #3394f4);
+}
+
+
+/* Google Fonts - Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+
+
+/* modal starts here */
+.show-modal {
+    position: relative;
+    cursor: pointer;
+    background: -webkit-linear-gradient(left,#012a53,#004080,#0059b3
+    , #3394f4);
+    color: white;
+    border: none;
+    max-width: 150px;
+    padding: 12px;
+    border-radius: 15px;
+}
+.show-modal:hover {
+
+    background: -webkit-linear-gradient(right,#012a53,#004080,#0059b3
+    , #3394f4);
+}
+
+.modal-box {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+section.active .show-modal {
+  display: none;
+}
+.overlay {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  pointer-events: none;
+}
+section.active .overlay {
+  pointer-events: auto;
+}
+.modal-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 380px;
+  width: 100%;
+  padding: 30px 20px;
+  border-radius: 24px;
+  background-color: #fff;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  transform: translate(-50%, -50%) scale(1.2);
+}
+section.active .modal-box {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+.modal-box i {
+  font-size: 70px;
+  color: #4070f4;
+}
+.modal-box h2 {
+  margin-top: 20px;
+  font-size: 25px;
+  font-weight: 500;
+  color: #333;
+}
+.modal-box h3 {
+  font-size: 16px;
+  font-weight: 400;
+  color: #333;
+  text-align: center;
+}
+.close-btn{
+    position: relative;
+    cursor: pointer;
+    color: white;
+    border: none;
+    max-width: 150px;
+    padding: 12px;
+    background-color:#4070f4;
+}
+#spinner {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .5s ease-out, visibility 0s linear .5s;
+    z-index: 99999;
+  }
+
+
+  #spinner.show {
+    transition: opacity .5s ease-out, visibility 0s linear 0s;
+    visibility: visible;
+    opacity: 1;
+  }
+
+/*** Footer ***/
+
+.container-fluid{
+    z-index: 9999;
+}
+.footer .btn.btn-social {
+    margin-right: 5px;
+    width: 35px;
+    height: 35px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--light);
+    border: 1px solid #FFFFFF;
+    transition: .3s;
+}
+
+.footer .btn.btn-social:hover {
+    color: var(--primary);
+}
+
+.footer .btn.btn-link {
+    display: block;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    padding: 0;
+    text-align: left;
+    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: normal;
+    text-transform: capitalize;
+    transition: .3s;
+}
+
+.footer .btn.btn-link::before {
+    position: relative;
+    content: "\f105";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    margin-right: 10px;
+}
+
+.footer .btn.btn-link:hover {
+    color: var(--primary);
+    letter-spacing: 1px;
+    box-shadow: none;
+}
+
+.footer .copyright {
+    padding: 25px 0;
+    font-size: 15px;
+    border-top: 1px solid rgba(256, 256, 256, .1);
+}
+
+.footer .copyright a {
+    color: var(--light);
+}
+
+.footer .copyright a:hover {
+    color: var(--primary);
+}
+

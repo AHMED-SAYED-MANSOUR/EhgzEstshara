@@ -1,0 +1,120 @@
+/* .site-section {
+    padding: 2.5em 0; }
+    @media (min-width: 768px) {
+      .site-section {
+        padding: 5em 0; } }
+    .site-section.site-section-sm {
+      padding: 4em 0; }
+
+  .site-section-heading {
+    font-size: 30px;
+    color: #25262a;
+    position: relative; }
+    .site-section-heading:before {
+      display: none;
+      content: "";
+      left: 0%;
+      top: 0;
+      position: absolute;
+      width: 40px;
+      height: 2px;
+     }
+    .site-section-heading.text-center:before {
+      display: none;
+      content: "";
+      left: 50%;
+      top: 0;
+      -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+      transform: translateX(-50%);
+      position: absolute;
+      width: 40px;
+      height: 2px;
+       } */
+
+      .site-blocks-table {
+        overflow: auto; }
+        .site-blocks-table .product-thumbnail {
+          width: 200px; }
+        .site-blocks-table thead th {
+          padding: 30px;
+          text-align: center;
+          border-width: 1px !important;
+          vertical-align: middle;
+          color: #212529;
+          font-size: 19px;
+          font-weight:550; }
+        .site-blocks-table td {
+          padding: 20px;
+          text-align: center;
+          vertical-align: middle;
+          color: #212529;
+         }
+
+
+
+
+
+
+.btn-outline{
+    border:2px solid  #0059b3 ;
+    border-radius: 0px;
+    text-align: center;
+    justify-content: center;
+    height:43px;
+  }
+  .js-btn-minus{
+    border-radius:3px 0px 0px 3px;
+
+  }
+  .js-btn-plus{
+    border-radius: 0px 3px 3px 0px;
+  }
+.input-group {
+
+    margin-left: 50px;
+}
+
+.btn-sm{
+    background-color: #0059b3;
+    color: white;
+    border-radius: 5px;
+}
+.btn-sm:hover{
+    background-color: white;
+    border: 3px solid #0059b3;
+    color: #0059b3;
+
+}
+.btn-md{
+    background-color: #0059b3;
+    color:white;
+    border-radius: 0px;
+    width: 250px;
+    height: 50px;
+    text-transform: uppercase;
+}
+.btn-md:hover{
+    background-color: white;
+    border: 3px solid #0059b3;
+    color: #0059b3;
+    text-transform: uppercase;
+}
+.btn-block{
+    background-color: white;
+    border: 3px solid #0059b3;
+    color: #0059b3;
+    border-radius: 0px;
+    width: 250px;
+    height: 50px;
+    text-transform: uppercase;
+}
+.btn-block:hover{
+    background-color: #0059b3;
+    color:white;
+    text-transform: uppercase;
+
+}
+.cart{
+   transform: translate(160%,0%);
+}

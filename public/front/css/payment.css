@@ -1,0 +1,330 @@
+
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');  */
+.logo {
+  margin-top: 12px;
+  width: 108px;
+  height: 76px;
+  margin-left: 20px;
+  color: black;
+}
+
+.navbar{
+background: -webkit-linear-gradient(left,#013262,#004080,#0059b3
+, #2288ee);
+}
+.navbar h1{
+margin-top: 5px;
+color:white;
+font-size: 30px;
+padding: 0px;    
+
+}
+
+.navbar .dropdown-toggle::after {
+border: none;
+content: "\f107";
+font-family: "Font Awesome 5 Free";
+font-weight: 900;
+vertical-align: middle;
+margin-left: 8px;
+
+}
+
+.navbar .navbar-nav .nav-link {
+margin-right: 30px;
+padding: 25px 0;
+color: white;
+font-size: 15px;
+font-weight: 500;
+text-transform: uppercase;
+outline: none;
+}
+.navbar-nav{
+color: white;
+}
+.navbar .navbar-nav .nav-link:hover,
+.navbar .navbar-nav .nav-link.active {
+color: white;
+text-decoration: underline;
+}
+
+@media (max-width: 800px) {
+.navbar .navbar-nav .nav-link  {
+    margin-right: 0;
+    padding: 10px 0;
+}
+
+.navbar .navbar-nav {
+    border-top: 1px solid #EEEEEE;
+}
+}
+
+.navbar .navbar-brand,
+.navbar a.btn {
+height: 75px;
+}
+
+.navbar .navbar-nav .nav-link {
+color: white;
+font-weight: 500;
+}
+
+.navbar.sticky-top {
+top: -100px;
+transition: .5s;
+}
+
+@media (min-width: 800px) {
+.navbar .nav-item .dropdown-menu {
+    display: block;
+    border: none;
+    margin-top: 0;
+    top: 150%;
+    opacity: 0;
+    visibility: hidden;
+    transition: .5s;
+}
+
+.navbar .nav-item:hover .dropdown-menu {
+    top: 100%;
+    visibility: visible;
+    transition: .5s;
+    opacity: 1;
+}
+}
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    border: none; 
+    outline: none; 
+    font-family: 'Poppins', sans-serif; 
+    text-transform: capitalize; 
+    transition: all 0.2s linear; 
+} 
+  
+.card { 
+    display: block; 
+    justify-content: center; 
+    align-items: center; 
+    min-height: 100vh; 
+    padding: 25px; 
+    
+} 
+  
+.card form { 
+    width: 700px; 
+    padding: 20px; 
+    background: #fff; 
+    transform: translate(50%,0%);
+    box-shadow: 5px 5px 40px rgba(0, 0, 0, 0.2); 
+} 
+  
+.card form .row { 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 15px; 
+} 
+  
+.card form .row .col { 
+    flex: 1 1 250px; 
+} 
+  
+.col .title { 
+    font-size: 20px; 
+    color:#004080;
+    padding-bottom: 5px; 
+} 
+  
+.col .inputBox { 
+    margin: 15px 0; 
+} 
+  
+.col .inputBox label { 
+    margin-bottom: 10px; 
+    display: block; 
+} 
+  
+.col .inputBox input, 
+.col .inputBox select { 
+    width: 100%; 
+    border: 1px solid #ccc; 
+    padding: 10px 15px; 
+    font-size: 15px; 
+} 
+  
+.col .inputBox input:focus, 
+.col .inputBox select:focus { 
+    border: 1px solid #0059b3; 
+} 
+  
+.col .flex { 
+    display: flex; 
+    gap: 15px; 
+} 
+  
+.col .flex .inputBox { 
+    flex: 1 1; 
+    margin-top: 5px; 
+} 
+  
+.col .inputBox img { 
+    height: 34px; 
+    margin-top: 5px; 
+    filter: drop-shadow(0 0 1px #0059b3); 
+} 
+  
+.card form .submit_btn { 
+    width: 100%; 
+    padding: 12px; 
+    font-size: 17px; 
+    background: -webkit-linear-gradient(left,#003366,#004080,#0059b3
+    , #0073e6); 
+    color: #fff; 
+    margin-top: 15px; 
+    cursor: pointer; 
+    letter-spacing: 1px; 
+   
+} 
+  
+.card form .submit_btn:hover { 
+  background: -webkit-linear-gradient(right,#003366,#004080,#0059b3
+  , #0073e6);
+} 
+  
+input::-webkit-inner-spin-button, 
+input::-webkit-outer-spin-button { 
+    display: none; 
+}
+
+#visa-form{
+  display: none;
+}
+
+.cash-on-delivery , .visa-card{
+    border: 2px solid lightgrey ;
+    width:100%;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+/*** Footer ***/
+.container-fluid{
+background-color: #012952;
+width: 112%;
+margin-left: -6%;
+margin-bottom: -3%;
+}
+.footer .btn.btn-social {
+    margin-right: 5px;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--light);
+    border: 1px solid #FFFFFF;
+    transition: .3s;
+}
+
+.footer .btn.btn-social:hover {
+    color: var(--primary);
+}
+
+.footer .btn.btn-link {
+    display: block;
+    margin-bottom: 5px;
+    padding: 0;
+    text-align: left;
+    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: normal;
+    text-transform: capitalize;
+    transition: .3s;
+}
+
+.footer .btn.btn-link::before {
+    position: relative;
+    content: "\f105";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    margin-right: 10px;
+}
+
+.footer .btn.btn-link:hover {
+    color: var(--primary);
+    letter-spacing: 1px;
+    box-shadow: none;
+}
+
+.footer .copyright {
+    padding: 25px 0;
+    font-size: 15px;
+    border-top: 1px solid rgba(256, 256, 256, .1);
+}
+
+.footer .copyright a {
+    color: var(--light);
+}
+
+.footer .copyright a:hover {
+    color: var(--primary);
+}
+@media (min-width:320px){
+    .card form{
+        width:100%;
+        transform: translate(0%,0%);
+    }
+}
+
+@media (min-width:400px){
+    .card form{
+        width:100%;
+        transform: translate(0%,0%);
+    }
+}
+@media (min-width:500px){
+    .card form{
+        width:100%;
+        transform: translate(0%,0%);
+    }
+}
+
+@media (min-width:600px){
+    .card form{
+        width:100%;
+        transform: translate(0%,0%);
+    }
+}
+
+@media (min-width:700px){
+    .card form{
+        width:90%;
+        transform: translate(6%,0%);
+    }
+}
+
+@media (min-width:800px){
+    .card form{
+        width:80%;
+        transform: translate(10%,0%);
+    }
+}
+
+
+
+@media (min-width:900px){
+    .card form{
+        width:70%;
+        transform: translate(20%,0%);
+    }
+}
+
+@media (min-width:1100px){
+    .card form{
+        width:53%;
+        transform: translate(43%,0%);
+    }
+}
+
