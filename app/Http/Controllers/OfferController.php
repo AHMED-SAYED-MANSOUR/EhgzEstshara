@@ -1,13 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\offer;
+use App\Models\Offer;
 use Illuminate\Http\Request;
 
 class OfferController extends Controller
 {   public function show()
     {
-        $offers= offer::get();
+        $offers= Offer::get();
         return view('offer.show',compact('offers'));
 
     }
@@ -28,7 +28,7 @@ class OfferController extends Controller
             $filename=Null;
         }
         // insert in DB
-      $offer = new offer();
+      $offer = new Offer();
       $offer->name= $request->name;
       $offer->price=$request->price;
       $offer->image=$filename;
@@ -37,12 +37,12 @@ class OfferController extends Controller
     }
     //delete
     public function delete($id){
-        $offer=offer::find($id);
+        $offer=Offer::find($id);
         $offer->delete();
         return redirect(url('show-offers'));
 }
   public function edit ($id) {
-    $offers=offer::find($id);
+    $offers=Offer::find($id);
     return view('offer.edit',compact('offers'));
 
   }
@@ -56,7 +56,7 @@ class OfferController extends Controller
         }else{
             $file_name=$request->original;
         }
-    $offer=offer::find($request->id);
+    $offer=Offer::find($request->id);
     $offer->update([
         'name'=>$request->name ,
         'price'=>$request->price ,

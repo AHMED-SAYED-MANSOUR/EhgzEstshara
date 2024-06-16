@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\user;
+use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 use App\Http\Requests\SignUpRequest;
@@ -23,7 +23,7 @@ class UserController extends Controller
 
          ]);
 
-            $user= new user();
+            $user= new User();
             $user->name=$request->name;
             $user->email=$request->email;
             $user->phone=$request->phone;
@@ -42,12 +42,13 @@ class UserController extends Controller
 
         public function find_email(Request $request)
         {
-              $User =   user::where('email',$request->email)->get();
-              foreach($User as $user){
+              $users =   User::where('email',$request->email)->get();
+              foreach($users as $user){
                    if(isset($user)){
-                      return view('payment',compact('user'));
+                      return view('payment', compact('user'));
                 }
               }
+              return "Test";
         }
 
     }

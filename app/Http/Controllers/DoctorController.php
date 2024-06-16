@@ -1,14 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\doctor;
+use App\Models\Doctor;
 use Illuminate\Http\Request;
 
 class DoctorController extends Controller
 {
     public function show()
     {
-        $doctors= doctor::get();
+        $doctors= Doctor::get();
         return view('doctor.show',compact('doctors'));
 
     }
@@ -29,7 +29,7 @@ class DoctorController extends Controller
             $filename=Null;
         }
         // insert in DB
-      $doctor = new doctor();
+      $doctor = new Doctor();
       $doctor->name= $request->name;
       $doctor->title=$request->title;
       $doctor->image=$filename;
@@ -38,17 +38,16 @@ class DoctorController extends Controller
     }
     //delete
     public function delete($id){
-        $doctor=doctor::find($id);
+        $doctor=Doctor::find($id);
         $doctor->delete();
         return redirect(url('show-doctors'));
 }
   public function edit ($id) {
-    $doctors=doctor::find($id);
+    $doctors=Doctor::find($id);
     return view('doctor.edit',compact('doctors'));
 
   }
   public function update (Request $request){
-
 
         $file_name='';
         if($request->hasfile('photo')){
@@ -57,7 +56,7 @@ class DoctorController extends Controller
         }else{
             $file_name=$request->original;
         }
-    $doctor=doctor::find($request->id);
+    $doctor=Doctor::find($request->id);
     $doctor->update([
         'name'=>$request->name ,
         'title'=>$request->title ,

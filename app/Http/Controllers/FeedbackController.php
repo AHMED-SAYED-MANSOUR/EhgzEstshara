@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\feedback;
+use App\Models\Feedback;
 
 class FeedbackController extends Controller
 {
@@ -19,7 +19,7 @@ class FeedbackController extends Controller
          ]);
 
         // Create a new contact record
-           $feedback= new feedback();
+           $feedback= new Feedback();
             $feedback->first_name=$request->first_name;
             $feedback->last_name=$request->last_name;
             $feedback->email=$request->email;

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\user;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class SignupController extends Controller
@@ -18,7 +18,7 @@ class SignupController extends Controller
 
          ]);
 
-         $user= new user();
+         $user= new User();
          $user->name= $request->input('name');
          $user->email= $request->input('email');
          $user->phone= $request->input('phone');

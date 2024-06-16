@@ -1,14 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\trainer;
+use App\Models\Trainer;
 use Illuminate\Http\Request;
 
 class TrainerController extends Controller
 {
     public function show()
     {
-        $trainers= trainer::get();
+        $trainers= Trainer::get();
         return view('trainer.show',compact('trainers'));
 
     }
@@ -29,7 +29,7 @@ class TrainerController extends Controller
             $filename=Null;
         }
         // insert in DB
-      $trainer = new trainer();
+      $trainer = new Trainer();
       $trainer->name= $request->name;
       $trainer->title=$request->title;
       $trainer->image=$filename;
@@ -38,12 +38,12 @@ class TrainerController extends Controller
     }
     //delete
     public function delete($id){
-        $trainer=trainer::find($id);
+        $trainer=Trainer::find($id);
         $trainer->delete();
         return redirect(url('show-trainer'));
 }
   public function edit ($id) {
-    $trainers=trainer::find($id);
+    $trainers=Trainer::find($id);
     return view('trainer.edit',compact('trainers'));
 
   }
@@ -57,7 +57,7 @@ class TrainerController extends Controller
         }else{
             $file_name=$request->original;
         }
-    $trainer=trainer::find($request->id);
+    $trainer=Trainer::find($request->id);
     $trainer->update([
         'name'=>$request->name ,
         'title'=>$request->title ,

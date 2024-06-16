@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\userController;
-use App\Http\Controllers\offercontroller;
+use App\Http\Controllers\offerController;
 use App\Http\Controllers\feedbackController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\doctorController;
@@ -77,23 +77,23 @@ Route::get('/dashboard',function(){
      return view('trainer.show');
   });
 
- route::post('/save-offer',[offercontroller::class,'store']);
- route::get('/show-offers',[offercontroller::class,'show']);
- route::get('/delete-offers/{id}',[offercontroller::class,'delete']);
- route::get('/edit-offers/{id}',[offercontroller::class,'edit']);
- route::post('/offer-update',[offercontroller::class,'update']);
+ route::post('/save-offer',[offerController::class,'store']);
+ route::get('/show-offers',[offerController::class,'show']);
+ route::get('/delete-offers/{id}',[offerController::class,'delete']);
+ route::get('/edit-offers/{id}',[offerController::class,'edit']);
+ route::post('/offer-update',[offerController::class,'update']);
 
-  route::post('/save',[doctorcontroller::class,'store']);
-   route::get('/show',[doctorcontroller::class,'show']);
-   route::get('/delete-doctors/{id}',[doctorcontroller::class,'delete']);
-   route::get('/edit-doctors/{id}',[doctorcontroller::class,'edit']);
-   route::post('/update-doctors',[doctorcontroller::class,'update']);
+  route::post('/save',[doctorController::class,'store']);
+   route::get('/show',[doctorController::class,'show']);
+   route::get('/delete-doctors/{id}',[doctorController::class,'delete']);
+   route::get('/edit-doctors/{id}',[doctorController::class,'edit']);
+   route::post('/update-doctors',[doctorController::class,'update']);
 
-  route::post('/save-trainers',[trainercontroller::class,'store']);
-  route::get('/show-trainers',[trainercontroller::class,'show']);
-  route::get('/delete-trainers/{id}',[trainercontroller::class,'delete']);
-  route::get('/edit-trainers/{id}',[trainercontroller::class,'edit']);
-  route::post('/trainer-update',[trainercontroller::class,'update']);
+  route::post('/save-trainers',[trainerController::class,'store']);
+  route::get('/show-trainers',[trainerController::class,'show']);
+  route::get('/delete-trainers/{id}',[trainerController::class,'delete']);
+  route::get('/edit-trainers/{id}',[trainerController::class,'edit']);
+  route::post('/trainer-update',[trainerController::class,'update']);
 
  Route::get('/test-db', function () {
 

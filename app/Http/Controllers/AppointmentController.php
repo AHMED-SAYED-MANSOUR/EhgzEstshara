@@ -8,8 +8,8 @@ class AppointmentController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'date' => 'required|date|max:255',
-            'time' => 'required|time|max:255',
+            'date' => 'required|date',
+            'time' => 'required|time',
             'doctor' => 'required|max:255',
             'name' => 'required|max:255',
             'phone' => 'required|numeric|max:20',
