@@ -109,6 +109,3 @@ Route::post('/Signup', [UserController::class, 'store']);
 Route::post('/check-email',[UserController::class,'find_email']);
 
 
-
-
-
