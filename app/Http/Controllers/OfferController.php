@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\offer;
 use Illuminate\Http\Request;
 
-class offercontroller extends Controller
+class OfferController extends Controller
 {   public function show()
     {
         $offers= offer::get();

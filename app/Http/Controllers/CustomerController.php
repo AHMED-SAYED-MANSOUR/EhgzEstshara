@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class customercontroller extends Controller
+class CustomerController extends Controller
 {
     public function store(Request $request){
         $request->validate([

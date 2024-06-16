@@ -1,15 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\trainer;
+use App\Models\doctor;
 use Illuminate\Http\Request;
 
-class trainercontroller extends Controller
+class DoctorController extends Controller
 {
     public function show()
     {
-        $trainers= trainer::get();
-        return view('trainer.show',compact('trainers'));
+        $doctors= doctor::get();
+        return view('doctor.show',compact('doctors'));
 
     }
     public function store(Request $request)
@@ -29,22 +29,22 @@ class trainercontroller extends Controller
             $filename=Null;
         }
         // insert in DB
-      $trainer = new trainer();
-      $trainer->name= $request->name;
-      $trainer->title=$request->title;
-      $trainer->image=$filename;
-      $trainer->save() ;
-      return redirect(url('show-trainers'));
+      $doctor = new doctor();
+      $doctor->name= $request->name;
+      $doctor->title=$request->title;
+      $doctor->image=$filename;
+      $doctor->save() ;
+      return redirect(url('show-doctors'));
     }
     //delete
     public function delete($id){
-        $trainer=trainer::find($id);
-        $trainer->delete();
-        return redirect(url('show-trainer'));
+        $doctor=doctor::find($id);
+        $doctor->delete();
+        return redirect(url('show-doctors'));
 }
   public function edit ($id) {
-    $trainers=trainer::find($id);
-    return view('trainer.edit',compact('trainers'));
+    $doctors=doctor::find($id);
+    return view('doctor.edit',compact('doctors'));
 
   }
   public function update (Request $request){
@@ -57,13 +57,13 @@ class trainercontroller extends Controller
         }else{
             $file_name=$request->original;
         }
-    $trainer=trainer::find($request->id);
-    $trainer->update([
+    $doctor=doctor::find($request->id);
+    $doctor->update([
         'name'=>$request->name ,
         'title'=>$request->title ,
         'image'=>$file_name
     ]);
-    return redirect(url('show-trainers'));
+    return redirect(url('show'));
   }
 
 }

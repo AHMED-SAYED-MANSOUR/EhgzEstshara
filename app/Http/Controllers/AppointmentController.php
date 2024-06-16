@@ -23,7 +23,9 @@ class AppointmentController extends Controller
         $appointment->name = $request->name;
         $appointment->phone = $request->phone;
         $appointment->email = $request->email;
-        $appointment->save();
-        return redirect()->back()->with('success', 'Appointment created successfully');
+
+        if($appointment->save())
+            return redirect()->back()->with('success', 'Appointment created successfully');
+        return redirect()->back()->with('fail', 'Appointment Failed');
     }
 }

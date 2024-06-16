@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\user;
 use Illuminate\Http\Request;
 
-class signupcontroller extends Controller
+class SignupController extends Controller
 {
     public function store(Request $request){
         $request->validate([

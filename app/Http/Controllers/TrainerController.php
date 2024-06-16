@@ -1,15 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\doctor;
+use App\Models\trainer;
 use Illuminate\Http\Request;
 
-class doctorcontroller extends Controller
+class TrainerController extends Controller
 {
     public function show()
     {
-        $doctors= doctor::get();
-        return view('doctor.show',compact('doctors'));
+        $trainers= trainer::get();
+        return view('trainer.show',compact('trainers'));
 
     }
     public function store(Request $request)
@@ -29,22 +29,22 @@ class doctorcontroller extends Controller
             $filename=Null;
         }
         // insert in DB
-      $doctor = new doctor();
-      $doctor->name= $request->name;
-      $doctor->title=$request->title;
-      $doctor->image=$filename;
-      $doctor->save() ;
-      return redirect(url('show-doctors'));
+      $trainer = new trainer();
+      $trainer->name= $request->name;
+      $trainer->title=$request->title;
+      $trainer->image=$filename;
+      $trainer->save() ;
+      return redirect(url('show-trainers'));
     }
     //delete
     public function delete($id){
-        $doctor=doctor::find($id);
-        $doctor->delete();
-        return redirect(url('show-doctors'));
+        $trainer=trainer::find($id);
+        $trainer->delete();
+        return redirect(url('show-trainer'));
 }
   public function edit ($id) {
-    $doctors=doctor::find($id);
-    return view('doctor.edit',compact('doctors'));
+    $trainers=trainer::find($id);
+    return view('trainer.edit',compact('trainers'));
 
   }
   public function update (Request $request){
@@ -57,13 +57,13 @@ class doctorcontroller extends Controller
         }else{
             $file_name=$request->original;
         }
-    $doctor=doctor::find($request->id);
-    $doctor->update([
+    $trainer=trainer::find($request->id);
+    $trainer->update([
         'name'=>$request->name ,
         'title'=>$request->title ,
         'image'=>$file_name
     ]);
-    return redirect(url('show'));
+    return redirect(url('show-trainers'));
   }
 
 }
