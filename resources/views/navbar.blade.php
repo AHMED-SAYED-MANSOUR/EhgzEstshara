@@ -20,7 +20,7 @@
                     <div class="dropdown-menu rounded-0 rounded-bottom m-0">
                         <a href="{{ url('/trainers') }}" class="dropdown-item">Our Trainers</a>
                         <a href="{{ url('/doctors') }}" class="dropdown-item active">Our Doctors</a>
-                        <a href="{{ url('/shop') }}" class="dropdown-item">Our Shop</a>
+                        <a href="{{ url('/shop') }}" class="dropdown-item">Tax</a>
                         <a href="{{ url('/#aboutus') }}" class="dropdown-item">About Us</a>
                         <a href="{{ url('/#services') }}" class="dropdown-item">Services</a>
 
