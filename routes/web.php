@@ -102,11 +102,13 @@ Route::post('/submit-appointment-form', [AppointmentController::class, 'store'])
 Route::post('/check-email',[UserController::class,'find_email']);
 
 
-Route::get('/Sign', function () {
+
+
+                    // Sign-in & sign-up
+Route::get('/sign', function () {
     return view('Signup');
 })->name('sign');
 
-//Route::post('/Sign', [UserController::class, 'store'])->name('sign');
-Route::get('/sign_up_route', function (){return "signup route";})->name('signup_route');
-Route::get('/sign_in_route', function (){return "signin route";})->name('signin_route');
+Route::post('/sign_in_route', [UserController::class,'sign_in'])->name('sign_in_route');
+Route::post('/sign_up_route', [UserController::class,'sign_up'])->name('sign_up_route');
 

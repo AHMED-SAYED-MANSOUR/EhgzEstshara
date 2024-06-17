@@ -39,8 +39,7 @@ class UserController extends Controller
     //    }
 
         }
-
-        public function find_email(Request $request)
+    public function find_email(Request $request)
         {
               $users =   User::where('email',$request->email)->get();
               foreach($users as $user){
@@ -51,7 +50,16 @@ class UserController extends Controller
               return "Test";
         }
 
+
+    public function sign_in(Request $request)
+    {
+        return $request;
     }
+    public function sign_up(Request $request)
+    {
+        return $request;
+    }
+}
 
 
 
