@@ -95,7 +95,6 @@
 
 
 
-
     <form id="signup-form" method="POST" action="{{ route('sign') }}">
     @csrf
 
