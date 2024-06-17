@@ -1,14 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\userController;
-use App\Http\Controllers\offerController;
-use App\Http\Controllers\feedbackController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\OfferController;
+use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\AppointmentController;
-use App\Http\Controllers\doctorController;
-use App\Http\Controllers\trainerController;
-
-
+use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\TrainerController;
 
 
 
@@ -103,7 +101,7 @@ Route::post('/test-form', function (Illuminate\Http\Request $request) {
 });
 
 Route::post('/submit-contact-form', [feedbackController::class, 'store']);
-Route::post('/submit-appointment-form', [AppointmentController::class, 'store']);
+Route::post('/submit-appointment-form', [AppointmentController::class, 'store'])->name("Appointment");
 Route::post('/Signup', [UserController::class, 'store']);
 
 Route::post('/check-email',[UserController::class,'find_email']);

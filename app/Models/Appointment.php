@@ -9,7 +9,10 @@ class Appointment extends Model
 {
     use HasFactory;
     protected $table ='appointments';
+//    protected $guarded;
+
     protected $fillable = [
-        'date', 'time', 'doctor', 'name', 'phone', 'email'
+        'id', 'date', 'time', 'doctor', 'name', 'phone', 'email', 'created_at', 'updated_at'
     ];
+    public $hidden = [];
 }
