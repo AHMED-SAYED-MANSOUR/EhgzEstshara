@@ -13,8 +13,8 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav">
                 <a href="{{ url('/') }}" class="nav-item nav-link text-white">Home</a>
-                <a href="{{ url('/Signup') }}" class="nav-item nav-link text-white">Log In</a>
-                <a href="{{ url('/Signup') }}" class="nav-item nav-link text-white">Sign up</a>
+                <a href="{{ url('/sign') }}" class="nav-item nav-link text-white">Log In</a>
+                <a href="{{ url('/sign') }}" class="nav-item nav-link text-white">Sign up</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown">Pages</a>
                     <div class="dropdown-menu rounded-0 rounded-bottom m-0">

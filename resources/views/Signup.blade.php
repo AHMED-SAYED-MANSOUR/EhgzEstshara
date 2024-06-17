@@ -84,8 +84,8 @@
         <p>If you already has an account, just sign in. We've missed you!</p>
       </div>
       <div class="img__btn">
-        <span class="m--up">Sign Up</span>
-        <span class="m--in">Sign In</span>
+        <span id="signUpBtn" class="m--up">Sign Up</span>
+        <span id="signInBtn" class="m--in">Sign In</span>
       </div>
     </div>
 
@@ -96,7 +96,7 @@
 
 
 
-    <form id="signup-form" method="POST" action="{{ url('/Signup') }}">
+    <form id="signup-form" method="POST" action="{{ route('sign') }}">
     @csrf
 
     <div class="form sign-up">
@@ -180,7 +180,20 @@
  <!-- Back to Top -->
  <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
 
-<!-- JavaScript Libraries -->
+
+    <!-- JavaScript to handle the redirection -->
+    <script>
+        document.getElementById('signUpBtn').addEventListener('click', function() {
+            window.location.href = "/sign_up_route"; // Replace with your sign-up route
+        });
+
+        document.getElementById('signInBtn').addEventListener('click', function() {
+            window.location.href = "/sign_in_route"; // Replace with your sign-in route
+        });
+    </script>
+
+
+    <!-- JavaScript Libraries -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{{asset('front/lib/wow/wow.min.js')}}"></script>

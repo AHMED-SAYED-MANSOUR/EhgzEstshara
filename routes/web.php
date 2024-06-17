@@ -9,7 +9,6 @@ use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\TrainerController;
 
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,9 +29,6 @@ Route::get('/contactus', function () {
 });
 Route::get('/shop', function () {
     return view('shop');
-});
-Route::get('/Signup', function () {
-    return view('Signup');
 });
 
 Route::get('/doctors', function () {
@@ -102,9 +98,15 @@ Route::post('/test-form', function (Illuminate\Http\Request $request) {
 
 Route::post('/submit-contact-form', [feedbackController::class, 'store']);
 Route::post('/submit-appointment-form', [AppointmentController::class, 'store'])->name("Appointment");
-Route::post('/Signup', [UserController::class, 'store']);
 
 Route::post('/check-email',[UserController::class,'find_email']);
 
 
+Route::get('/Sign', function () {
+    return view('Signup');
+})->name('sign');
+
+//Route::post('/Sign', [UserController::class, 'store'])->name('sign');
+Route::get('/sign_up_route', function (){return "signup route";})->name('signup_route');
+Route::get('/sign_in_route', function (){return "signin route";})->name('signin_route');
 
