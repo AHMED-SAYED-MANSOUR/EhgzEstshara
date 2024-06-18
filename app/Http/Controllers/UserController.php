@@ -53,11 +53,28 @@ class UserController extends Controller
 
     public function sign_in(Request $request)
     {
-        return $request;
+        $user = User::where('email', $request->input('email'))->first();
+        $user_password = Hash::check($request->input('password'), $user->password);
+
+        if ($user && $user_password)
+            return "User Found";
+        return "Not Found";
     }
+
     public function sign_up(Request $request)
     {
-        return $request;
+        $user = User::create([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'phone' => $request['phone'],
+            'password' => $request['password'],
+            'DOB' => $request['DOB'],
+            'gender' => $request['gender'],
+        ]);
+
+        if($user)
+            return "Created Successfully";
+        return "Failed";
     }
 }
 

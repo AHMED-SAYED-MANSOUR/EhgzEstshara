@@ -105,6 +105,7 @@
         </div>
 
 
+                            {{-- Signin Form --}}
         <form id="signup-form" method="POST" action="{{ route('sign_up_route') }}">
             @csrf
 
