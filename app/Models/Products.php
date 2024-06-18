@@ -9,7 +9,7 @@ class Products extends Model
 {
     use HasFactory;
     protected $table = 'products';
-    protected $labels = ['ProductId' , 'ProductName' , 'Quantity' , 'Price', 'Category', 'Discription'];
+    protected $labels2 = ['ProductId' , 'ProductName' , 'Quantity' , 'Price', 'Category', 'Discription'];
 
 
 }
