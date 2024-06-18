@@ -48,7 +48,7 @@
         @if($user)
             <p>Hello, {{ $user->name }}! You are logged in.</p>
         @else
-            <p>Hello, Guest! Please <a href="{{ url('/login') }}">login</a>.</p>
+            <p>Hello, Guest! Please <a href="{{ url('/sign_in_route') }}">login</a>.</p>
         @endif
 
     </div>
