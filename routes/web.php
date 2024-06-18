@@ -29,7 +29,7 @@ Route::get('/', function () {
 
 
 // Show All Product
-Route::get('/products', [ProductController::class, 'All_Products']);
+Route::get('/products', [ProductController::class, 'All_Products'])->name('products.index');
 
 
 Route::get('/contactus', function () {
