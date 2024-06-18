@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 use App\Http\Requests\SignUpRequest;
@@ -51,13 +52,26 @@ class UserController extends Controller
         }
 
 
+    public function showAppointmentForm()
+    {
+        $user = Auth::user();
+        return view('appointment', compact('user'));
+    }
+
+
     public function sign_in(Request $request)
     {
         $user = User::where('email', $request->input('email'))->first();
         $user_password = Hash::check($request->input('password'), $user->password);
 
         if ($user && $user_password)
-            return "User Found";
+        {
+            // Log the user in
+            Auth::login($user);
+
+            // Redirect to the homepage or intended page
+            return redirect()->intended('/');
+        }
         return "Not Found";
     }
 

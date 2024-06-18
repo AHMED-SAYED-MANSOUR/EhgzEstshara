@@ -13,8 +13,11 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav">
                 <a href="{{ url('/') }}" class="nav-item nav-link text-white">Home</a>
-                <a href="{{ url('/sign') }}" class="nav-item nav-link text-white">Log In</a>
-                <a href="{{ url('/sign') }}" class="nav-item nav-link text-white">Sign up</a>
+
+                @guest
+                    <a href="{{ url('/sign') }}" class="nav-item nav-link text-white">Log In</a>
+                    <a href="{{ url('/sign') }}" class="nav-item nav-link text-white">Sign up</a>
+                @endguest
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown">Pages</a>
                     <div class="dropdown-menu rounded-0 rounded-bottom m-0">
@@ -23,11 +26,11 @@
                         <a href="{{ url('/shop') }}" class="dropdown-item">Tax</a>
                         <a href="{{ url('/#aboutus') }}" class="dropdown-item">About Us</a>
                         <a href="{{ url('/#services') }}" class="dropdown-item">Services</a>
-
                     </div>
                 </div>
-                <a href="{{ url('/contactus') }}" class="nav-item nav-link text-white">Contact</a>
+                    <a href="{{ url('/contactus') }}" class="nav-item nav-link text-white">Contact</a>
             </div>
+
             <div class="col-xl-3 col-lg-3 d-none d-lg-block">
                 <div class="Appointment">
                     <div class="book_btn d-none d-lg-block">
@@ -35,19 +38,26 @@
                     </div>
                 </div>
             </div>
+
             <div class="icons">
             <!-- <input type="text"  class="search-text"placeholder="search"> -->
                 <a href="#" class="icons-btn d-inline-block js-search-open">
                     <div class="fa-solid fa-magnifying-glass"></div>
                 </a>
-                    </div>
-                <div>
-                <a href="{{url('/cart')}}" class="icons-btn d-inline-block bag">
-                    <span class="fa-solid fa-cart-shopping"></span>
-                    <span class="number">2</span>
-                </a>
-</div>
             </div>
+
+            @auth
+                <div>
+                    <a href="{{ url('/cart') }}" class="icons-btn d-inline-block bag">
+                        <span class="fa-solid fa-cart-shopping"></span>
+                        <span class="number">2</span>
+                    </a>
+                </div>
+                <form method="POST" action="{{ route('logout') }}" class="nav-item nav-link text-white">
+                    @csrf
+                    <button type="submit" class="btn btn-link text-white p-0 m-0">Logout</button>
+                </form>
+            @endauth
         </div>
     </nav>
 
@@ -95,21 +105,21 @@
                 </div>
 
                 <div class="col-xl-6">
-                    <input type="text" name="name" placeholder="Name">
+                    <input type="text" name="name" placeholder="Name" value="{{ old('name', $user->name ?? '') }}" />
                     @error('name')
                         <span class="text-danger">{{$message}}
                     @enderror
                 </div>
 
                 <div class="col-xl-6">
-                    <input type="text" name="phone" placeholder="Phone no.">
+                    <input type="text" name="phone" placeholder="Phone no." value="{{ old('phone', $user->phone ?? '') }}">
                     @error('phone')
                         <span class="text-danger">{{$message}}
                     @enderror
                 </div>
 
                 <div class="col-xl-12">
-                    <input type="email" name="email" placeholder="Email">
+                    <input type="email" name="email" placeholder="Email" value="{{ old('email', $user->email ?? '') }}">
                     @error('email')
                         <span class="text-danger">{{$message}}
                     @enderror

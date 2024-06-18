@@ -42,7 +42,18 @@
 	@include('navbar')
 	  <!-- Navbar End -->
 
-	  <!-- BANNER starts here -->
+    <div class="container mt-5">
+        <h1 class="text-center">Welcome</h1>
+
+        @if($user)
+            <p>Hello, {{ $user->name }}! You are logged in.</p>
+        @else
+            <p>Hello, Guest! Please <a href="{{ url('/login') }}">login</a>.</p>
+        @endif
+
+    </div>
+
+    <!-- BANNER starts here -->
     <div class="hero-wrap">
 	    <div class="home-slider owl-carousel">
 	      <div class="slider-item" style="background-image:url({{asset('front/images/images/background.jpeg);')}}">
