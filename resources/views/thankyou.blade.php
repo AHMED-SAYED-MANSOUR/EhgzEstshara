@@ -72,14 +72,14 @@
           <i class="fa-solid fa-circle-check text-primary"></i>
             <h2 class="display-3 text-black">Thank you!</h2>
             <p class="lead mb-5">You order was successfuly completed.</p>
-            <p><a href="{{ url('/shop') }}" class="btn btn-md height-auto px-4 py-3 ">Back to store</a></p>
+            <p><a href="{{ url('/products') }}" class="btn btn-md height-auto px-4 py-3 ">Back to store</a></p>
           </div>
         </div>
       </div>
     </div>
 
     @include('footer')
-   
+
      <!-- Back to Top -->
  <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
     <!-- form itself end -->

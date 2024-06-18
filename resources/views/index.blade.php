@@ -131,7 +131,7 @@
               <div class="media-body pl-3">
                 <h3 class="heading">Our shop</h3>
                 <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
-                <p><a href="{{url('/shop')}}" class="btn-custom">Know more</a></p>
+                <p><a href="{{url('/products')}}" class="btn-custom">Know more</a></p>
               </div>
             </div>
             <div class="d-block d-flex">
