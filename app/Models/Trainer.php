@@ -9,5 +9,5 @@ class Trainer extends Model
 {
     use HasFactory;
     protected $table = 'trainers';
-    protected $fillable=[ 'name','title','image' ];
+    protected $fillable=['id', 'name','title','image', 'facebook', 'instagram', 'twitter', 'created_at', 'updated_at' ];
 }
