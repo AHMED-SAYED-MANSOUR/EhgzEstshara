@@ -121,7 +121,7 @@
                         <h4>Categories</h4>
                         @foreach($categories as $category)
                             <div>
-                                <input type="checkbox" name="Category[]" value="{{ $category }}" {{ in_array($category, request('category', [])) ? 'checked' : '' }}> {{ $category->category }}
+                                <input type="checkbox" name="category[]" value="{{ $category }}" {{ in_array($category, request('category', [])) ? 'checked' : '' }}> {{ $category->category }}
                             </div>
                         @endforeach
                     </div>

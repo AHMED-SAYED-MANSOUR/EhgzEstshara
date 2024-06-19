@@ -21,10 +21,42 @@ class ProductController extends Controller
         if ($request->filled('max_price')) {
             $query->where('price', '<=', $request->max_price);
         }
+        if ($request->filled('color')) {
+            $query->whereIn('Color', $request->color);
+        }
+        if ($request->filled('Brand')) {
+            $query->whereIn('Brand', $request->Brand);
+        }
+        if ($request->filled('Material')) {
+            $query->whereIn('Material', $request->Material);
+        }
         if ($request->filled('sort_by')) {
             $sort_by = $request->sort_by;
             $query->orderBy($sort_by === 'newest' ? 'created_at' : 'updated_at', $sort_by === 'newest' ? 'desc' : 'asc');
         }
+
+        // New code for filtering by intersection
+        if ($request->filled('Brand') && $request->filled('Color') && $request->filled('Material')) {
+            $query->whereIn('Brand', $request->Brand)
+                ->whereIn('Color', $request->Color)
+                ->whereIn('Material', $request->Material);
+        } elseif ($request->filled('Brand') && $request->filled('Color')) {
+            $query->whereIn('Brand', $request->Brand)
+                ->whereIn('Color', $request->Color);
+        } elseif ($request->filled('Brand') && $request->filled('Material')) {
+            $query->whereIn('Brand', $request->Brand)
+                ->whereIn('Material', $request->Material);
+        } elseif ($request->filled('Color') && $request->filled('Material')) {
+            $query->whereIn('Color', $request->Color)
+                ->whereIn('Material', $request->Material);
+        } elseif ($request->filled('Brand')) {
+            $query->whereIn('Brand', $request->Brand);
+        } elseif ($request->filled('Color')) {
+            $query->whereIn('Color', $request->Color);
+        } elseif ($request->filled('Material')) {
+            $query->whereIn('Material', $request->Material);
+        }
+
 
         // Pagination
         $products = $query->paginate(8);
