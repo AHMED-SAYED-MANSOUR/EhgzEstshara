@@ -21,6 +21,7 @@
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.1/nouislider.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
@@ -75,6 +76,14 @@
             margin-right: 20px;
         }
 
+        .price-range-container
+        {
+            margin: 20px 0;
+        }
+        .price-range-container p {
+            text-align: center;
+        }
+
     </style>
 </head>
 
@@ -110,50 +119,77 @@
                     <!-- Category Filters -->
                     <div>
                         <h4>Categories</h4>
-                            @foreach($categories as $category)
-                                <div>
-                                    <input type="checkbox" name="category[]" value="{{ $category }}" {{ in_array($category, request('category', [])) ? 'checked' : '' }}> {{ $category->category }}
-                                </div>
-                            @endforeach
+                        @foreach($categories as $category)
+                            <div>
+                                <input type="checkbox" name="Category[]" value="{{ $category }}" {{ in_array($category, request('category', [])) ? 'checked' : '' }}> {{ $category->category }}
+                            </div>
+                        @endforeach
                     </div>
+                    <hr>
 
                     <!-- Price Range Filter -->
                     <div>
                         <h4>Price Range</h4>
-                        <input type="range" min="0" max="10000" step="100" value="0" id="priceRange" />
-                        <!-- Display selected price range -->
-                        <p>Price: <span id="priceRangeValue"></span></p>
+                        <div id="priceRange" class="price-range-container"></div>
+                        <p>Price: <span id="priceRangeValue">0 - 10000</span><button type="submit" class="btn btn-primary mt-2">Go</button></p>
+                        <input type="hidden" id="minPrice" name="min_price" value="0">
+                        <input type="hidden" id="maxPrice" name="max_price" value="10000">
                     </div>
+                    <hr>
 
                     <!-- Brand Filter -->
                     <div>
                         <h4>Brand</h4>
                         @foreach($brands as $brand)
-                            <div>
-                                <input type="checkbox" name="Brand[]" value="{{ $brand }}" {{ in_array($brand, request('Brand', [])) ? 'checked' : '' }}> {{ $brand->Brand }}
-                            </div>
+                            @if(!is_null($brand->Brand))
+                                <div>
+                                    <input type="checkbox" name="Brand[]" value="{{ $brand->Brand }}" {{ in_array($brand->Brand, request('Brand', [])) ? 'checked' : '' }}> {{ $brand->Brand }}
+                                </div>
+                            @endif
                         @endforeach
+                        @if($brands->contains(function ($brand) { return is_null($brand->Brand); }))
+                            <div>
+                                <input type="checkbox" name="Brand[]" value="other" {{ in_array('other', request('Brand', [])) ? 'checked' : '' }}> Other
+                            </div>
+                        @endif
                     </div>
+                    <hr>
 
                     <!-- Material Filter -->
                     <div>
                         <h4>Material</h4>
                         @foreach($materials as $material)
-                            <div>
-                                <input type="checkbox" name="Material[]" value="{{ $material }}" {{ in_array($material, request('Material', [])) ? 'checked' : '' }}> {{ $material->Material }}
-                            </div>
+                            @if(!is_null($material->Material))
+                                <div>
+                                    <input type="checkbox" name="Material[]" value="{{ $material }}" {{ in_array($material, request('Material', [])) ? 'checked' : '' }}> {{ $material->Material }}
+                                </div>
+                            @endif
                         @endforeach
+                        @if($materials->contains(function ($material) { return is_null($material->Material); }))
+                            <div>
+                                <input type="checkbox" name="Material[]" value="other" {{ in_array('other', request('Material', [])) ? 'checked' : '' }}> Other
+                            </div>
+                        @endif
                     </div>
+                    <hr>
 
                     <!-- Color Filter -->
                     <div>
                         <h4>Color</h4>
                         @foreach($colors as $color)
-                            <div>
-                                <input type="checkbox" name="Color[]" value="{{ $color }}" {{ in_array($color, request('Color', [])) ? 'checked' : '' }}> {{ $color->Color }}
-                            </div>
+                            @if(!is_null($color->Color))
+                                <div>
+                                    <input type="checkbox" name="Color[]" value="{{ $color }}" {{ in_array($color, request('Color', [])) ? 'checked' : '' }}> {{ $color->Color }}
+                                </div>
+                            @endif
                         @endforeach
+                        @if($colors->contains(function ($color) { return is_null($color->Color); }))
+                            <div>
+                                <input type="checkbox" name="Color[]" value="other" {{ in_array('other', request('Color', [])) ? 'checked' : '' }}> Other
+                            </div>
+                        @endif
                     </div>
+                    <hr>
 
                     <!-- Sort By Filter -->
                     <div>
@@ -163,20 +199,21 @@
                             <option value="oldest" {{ request('sort_by') == 'oldest' ? 'selected' : '' }}>Oldest</option>
                         </select>
                     </div>
+                    <hr>
 
                     <!-- Submit Button -->
-                    <button type="submit">Apply Filters</button>
+                    <button type="submit" class="btn btn-primary">Apply Filters</button>
                 </form>
             </div>
             <!-- Filters Section End -->
 
             <!-- Products Listing Start -->
             <div class="col-lg-9">
-                    <div id="products-list">
+                <div id="products-list">
                         @include('partials.products', ['products' => $products])
                     </div>
-                    <!-- Pagination -->
-                    <div class="d-flex justify-content-center mt-4">
+                <!-- Pagination -->
+                <div class="d-flex justify-content-center mt-4">
                         @if ($products->onFirstPage())
                             <span class="btn btn-secondary disabled">First</span>
                         @else
@@ -205,7 +242,7 @@
                             <span class="btn btn-secondary disabled">Last</span>
                         @endif
                     </div>
-                </div>
+            </div>
             </div>
             <!-- Products Listing End -->
         </div>
@@ -221,44 +258,41 @@
 <!-- Back to Top -->
 <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
 
+
 <!-- AJAX Filter -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.1/nouislider.min.js"></script>
 <script>
-    $(function() {
-        // Initialize the price range slider
-        $("#slider-range").slider({
-            range: true,
-            min: 0,
-            max: 1000,
-            values: [{{ request('min_price', 0) }}, {{ request('max_price', 1000) }}],
-            slide: function(event, ui) {
-                $("#min_price").val(ui.values[0]);
-                $("#max_price").val(ui.values[1]);
-                $("#priceRange").text("$" + ui.values[0] + " - $" + ui.values[1]);
+    var priceSlider = document.getElementById('priceRange');
+    noUiSlider.create(priceSlider, {
+        start: [0, 10000],
+        connect: true,
+        range: {
+            'min': 0,
+            'max': 10000
+        },
+        step: 100,
+        tooltips: [true, true],
+        format: {
+            to: function (value) {
+                return Math.round(value) + ' EGP';
             },
-            stop: function(event, ui) {
-                loadProducts();
+            from: function (value) {
+                return Number(value.replace(' EGP', ''));
             }
-        });
-        $("#priceRange").text("$" + $("#slider-range").slider("values", 0) + " - $" + $("#slider-range").slider("values", 1));
-
-        // Bind change event to form elements
-        $('#filterForm input, #filterForm select').change(function() {
-            loadProducts();
-        });
-
-        function loadProducts() {
-            $.ajax({
-                url: "{{ route('products.index') }}",
-                type: "GET",
-                data: $('#filterForm').serialize(),
-                success: function(data) {
-                    $('#productsList').html($(data).find('#productsList').html());
-                    $('#paginationLinks').html($(data).find('#paginationLinks').html());
-                }
-            });
         }
     });
+
+    var priceRangeValue = document.getElementById('priceRangeValue');
+    var minPrice = document.getElementById('minPrice');
+    var maxPrice = document.getElementById('maxPrice');
+
+    priceSlider.noUiSlider.on('update', function (values, handle) {
+        priceRangeValue.innerHTML = values[0].replace(' EGP', '') + ' EGP - ' + values[1].replace(' EGP', '') + ' EGP';
+        minPrice.value = values[0].replace(' EGP', '');
+        maxPrice.value = values[1].replace(' EGP', '');
+    });
 </script>
+
 
 <!-- JavaScript Libraries -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

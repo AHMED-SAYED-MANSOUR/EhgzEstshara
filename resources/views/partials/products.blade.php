@@ -1,6 +1,6 @@
 <div class="row g-4" id="productsList">
     @foreach($products as $product)
-        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
             <div class="team-item position-relative rounded overflow-hidden">
                 <div class="overflow-hidden">
                     <img class="img-fluid fixed-size" src="{{ asset('products images/'.$product->img) }}" alt="">
