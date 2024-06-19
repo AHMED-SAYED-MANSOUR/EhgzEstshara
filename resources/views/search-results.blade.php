@@ -8,7 +8,7 @@
         @else
             <ul>
                 @foreach($results as $result)
-                    <li>{{ $result->name }} - {{ $result->doctor }} on {{ $result->date }}</li> <!-- Adjust based on your data -->
+                    <li>{{ $result->name }} - {{ $result->doctor }} on {{ $result->date }}</li>
                 @endforeach
             </ul>
         @endif
