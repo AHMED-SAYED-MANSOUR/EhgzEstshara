@@ -45,7 +45,7 @@ Route::get('/dashboard',function(){
  });
  Route::get('/cart',function(){
     return view('cart');
- });
+ })->name('cart');
 
  Route::get('/trainers',function(){
     return view('trainers');
