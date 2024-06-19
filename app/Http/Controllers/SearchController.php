@@ -2,7 +2,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Appointment; // Adjust this model based on where you're searching
+use App\Models\Appointment;
 
 class SearchController extends Controller
 {
