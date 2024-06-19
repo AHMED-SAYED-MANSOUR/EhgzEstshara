@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -31,10 +32,16 @@ Route::get('/', function () {
 // Show All Product
 Route::get('/products', [ProductController::class, 'All_Products'])->name('products.index');
 
+// Cart
+Route::get('/cart', [CartController::class, 'index'])->name('cart');
+
+
+
 
 Route::get('/contactus', function () {
     return view('contactus');
 });
+
 
 
 Route::get('/doctors', function () {
@@ -43,9 +50,6 @@ Route::get('/doctors', function () {
 Route::get('/dashboard',function(){
     return view('home');
  });
- Route::get('/cart',function(){
-    return view('cart');
- })->name('cart');
 
  Route::get('/trainers',function(){
     return view('trainers');
