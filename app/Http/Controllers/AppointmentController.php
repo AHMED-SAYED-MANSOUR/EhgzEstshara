@@ -43,7 +43,9 @@ class AppointmentController extends Controller
         $validator = Validator::make($request->all(), $rules, $messages);
 
         if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->withInput($request->all());
+            return response()->json([
+                'errors' => $validator->errors(),
+            ], 422);
         }
 
         $appointment = Appointment::create([
@@ -56,9 +58,10 @@ class AppointmentController extends Controller
         ]);
 
         if ($appointment) {
-            return redirect()->back()->with('success', 'Appointment created successfully');
+            return response()->json(['message' => 'Appointment created successfully']);
         }
 
-        return redirect()->back()->with('error', 'An error occurred while creating the appointment.');
+        return response()->json(['message' => 'An error occurred while creating the appointment'], 500);
     }
+
 }

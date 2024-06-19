@@ -32,6 +32,11 @@ Route::get('/', function () {
 // Show All Product
 Route::get('/products', [ProductController::class, 'All_Products'])->name('products.index');
 
+//Search
+use App\Http\Controllers\SearchController;
+
+Route::get('/search', [SearchController::class, 'search'])->name('search');
+
 // Cart
 Route::get('/cart', [CartController::class, 'index'])->name('cart');
 
