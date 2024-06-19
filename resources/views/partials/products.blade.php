@@ -7,7 +7,19 @@
                 </div>
                 <div class="team-text bg-light text-center p-4">
                     <h5>{{ $product->ProductName }}</h5>
-                    <p class="text-primary">{{ $product->Category }}</p>
+                    @if($product->offer)
+                            <?php
+                            $newPrice = $product->Price - ($product->Price * $product->offer / 100);
+                            ?>
+                        <p>
+                            <span style="text-decoration: line-through; color: red;">{{ $product->Price }} LE</span>
+                            <span>{{ $product->offer }}% Discount</span>
+                        </p>
+                        <p>{{ $newPrice }} LE</p>
+                    @else
+                        <p>{{ $product->Price }} LE</p>
+                    @endif
+{{--                    <p class="text-primary">{{ $product->Category }}</p>--}}
                     <div class="team-social text-center">
                         <a style="padding-right: 10px" class="btn btn-square" href=""><i class="fa-solid fa-cart-shopping"></i></a>
                         <a class="btn btn-square" href=""><i class="fa fa-heart"></i></a>
