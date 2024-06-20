@@ -35,7 +35,6 @@ Route::get('/', function () {
     // All Trainers
     $trainers = Trainer::get();
 
-
     return view('index', compact('user', 'trainers'));
 });
 
@@ -46,7 +45,12 @@ Route::get('/products', [ProductController::class, 'All_Products'])->name('produ
 //Search
 Route::get('/search', [SearchController::class, 'search'])->name('search');
 
+// Show Our Doctors
+Route::get('/doctors', function () {
+    return view('team');
+});
 
+// Contact Us
 Route::get('/contactus', function () {
     return view('contactus');
 });

@@ -7,9 +7,6 @@ use App\Http\Controllers\Admin\TrainerController;
 
                         // All Admin Routes
 
-Route::get('/doctors', function () {
-    return view('team');
-});
 Route::get('/dashboard',function(){
     return view('admin.home');
 });
