@@ -60,6 +60,8 @@
                     @csrf
                     <button type="submit" class="btn btn-link text-white p-0 m-0">Logout</button>
                 </form>
+                <a href="{{route('edit-info')}}" class="btn btn-link text-white p-0 m-0">info</a>
+
             @endauth
         </div>
     </nav>

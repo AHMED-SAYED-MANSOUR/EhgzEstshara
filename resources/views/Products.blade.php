@@ -211,7 +211,7 @@
             <div class="col-lg-9">
                 <div id="products-list">
                         @include('partials.products', ['products' => $products])
-                    </div>
+                </div>
                 <!-- Pagination -->
                 <div class="d-flex justify-content-center mt-4">
                         @if ($products->onFirstPage())
