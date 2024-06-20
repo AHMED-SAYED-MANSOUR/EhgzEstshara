@@ -42,16 +42,35 @@
 	@include('navbar')
 	  <!-- Navbar End -->
 
-    <div class="container mt-5">
-        <h1 class="text-center">Welcome</h1>
 
-        @if($user)
-            <p>Hello, {{ $user->name }}! You are logged in.</p>
-        @else
-            <p>Hello, Guest! Please <a href="{{ url('/sign_in_route') }}">login</a>.</p>
+    <div class="container mt-5">
+
+        @if(!$user)
+            <p>Hello, Guest! Please <a href="{{ url('/sign') }}">login</a>.</p>
+{{--            <p>Hello, {{ $user->name }}! You are logged in.</p>--}}
         @endif
 
+        <div class="alert alert-success" id="messageAlert" style="display: none;"></div>
     </div>
+
+    <script>
+        function showMessage(message, type) {
+            var alertDiv = document.getElementById('messageAlert');
+            alertDiv.textContent = message;
+            alertDiv.className = 'alert alert-' + type;
+            alertDiv.style.display = 'block';
+
+            setTimeout(function() {
+                alertDiv.style.display = 'none';
+            }, 180000);
+        }
+
+
+        // Example usage
+        // if($)
+        // showMessage('This is an error message', 'danger');
+    </script>
+
 
     <!-- BANNER starts here -->
     <div class="hero-wrap">
@@ -540,10 +559,29 @@
 <!-- Footer Start -->
 @include('footer')
  <!-- Footer End -->
+    <script>
+        function showMessage(message, type) {
+            // Create a new div element
+            var alertDiv = document.createElement('div');
+            alertDiv.className = 'alert alert-' + type;
+            alertDiv.innerHTML = message;
+
+            // Append the div to the body
+            document.body.appendChild(alertDiv);
+
+            // Automatically remove the alert after 3 seconds
+            setTimeout(function() {
+                alertDiv.remove();
+            }, 3000);
+        }
+
+        // Example usage
+        showMessage("This is a success message", 'success');
+        showMessage("This is an error message", 'danger');
+    </script>
 
 
-
-  <!-- loader -->
+    <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
            <!-- Back to Top -->
            <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>

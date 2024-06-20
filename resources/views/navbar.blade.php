@@ -16,7 +16,7 @@
 
                 @guest
                     <a href="{{ url('/sign') }}" class="nav-item nav-link text-white">Log In</a>
-                    <a href="{{ url('/sign') }}" class="nav-item nav-link text-white">Sign up</a>
+{{--                    <a href="{{ url('/sign') }}" class="nav-item nav-link text-white">Sign up</a>--}}
                 @endguest
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown">Pages</a>
