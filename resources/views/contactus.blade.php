@@ -54,9 +54,7 @@
         <div class="contact-form ">
             <h1>Contact Us</h1>
             <form method="POST" action="{{route('submit-contact-form')}}">
-
                 @csrf
-
                 <div class="formbox">
                     <div class="inputbox w50">
                         <input type="text" name="first_name"class=" @error('first_name')is-invalid @enderror" >
@@ -74,6 +72,7 @@
                     </div>
                 </div>
 
+
                 <div class="formBox">
                     <div class="inputbox w50 row ">
                         <input type="text" name="email"  class=" @error('email')is-invalid @enderror">
@@ -82,6 +81,7 @@
                             <span class="text-danger">{{$message}}
                         @enderror
                     </div>
+
                     <div class="inputbox w50 row ">
                         <input type="phone" name="phone" class=" @error('phone')is-invalid @enderror" >
                         <span>Your Phone</span>
@@ -89,23 +89,23 @@
                             <span class="text-danger">{{$message}}
                         @enderror
                     </div>
-                </div>
 
-                <div class="inputbox w100 row ">
-                    <textarea type="text" name="message"  class=" @error('message')is-invalid @enderror"></textarea>
-                    <span>Write your Message here...</span>
-                    @error('message')
-                        <span class="text-danger">{{$message}}
-                    @enderror
-                </div>
+                    <div class="inputbox w100 row ">
+                        <textarea type="text" name="message"  class=" @error('message')is-invalid @enderror"></textarea>
+                        <span>Write your Message here...</span>
+                        @error('message')
+                            <span class="text-danger">{{$message}}
+                        @enderror
+                    </div>
 
-                <div class="inputbox w50 row ">
-                    <input type="submit"  value= "Send" name="submit" class="show-modal"></button>
-                </div>
 
+                    <div class="inputbox w50 row ">
+                        <input type="submit"  value= "Send" name="submit" class="show-modal"></button>
+                    </div>
             </form>
         </div>
     </div>
+
 
     <div class="contactinfo ">
         <div>
@@ -119,30 +119,34 @@
                     <span> <i class="fa-regular fa-envelope"></i></span>
                     <span>phsyiorevive@gmail.com</span>
                 </li>
-                <li><span>
-                    <i class="fa-solid fa-phone"></i></span>
+                <li>
+                    <span> <i class="fa-solid fa-phone"></i></span>
                     <span>01197035791</span>
                 </li>
             </ul>
-        <ul class="icons">
-            <li><i class="fa-brands fa-facebook"></i></li>
-            <li><i class="fa-brands fa-instagram"></i></li>
-            <li><i class="fa-brands fa-linkedin-in"></i></li>
-        </ul>
+            <ul class="icons">
+                <li><i class="fa-brands fa-facebook"></i></li>
+                <li><i class="fa-brands fa-instagram"></i></li>
+                <li><i class="fa-brands fa-linkedin-in"></i></li>
+            </ul>
         </div>
     </div>
-
-    <section>
-        <span class="overlay"></span>
-        <div class="modal-box">
-            <i class="fa-regular fa-circle-check"></i>
-            <h2>Completed</h2>
-            <h3>Your Message have been successfully sent.</h3>
-            <div class="buttons">
-                <button class="close-btn">Ok, Close</button>
-            </div>
+    <!-- </div>
+    <div class="background">
+        <img src="{{asset('front/images/background.jpeg')}}">
+    </div>
+</div> -->
+<section>
+    <span class="overlay"></span>
+    <div class="modal-box">
+        <i class="fa-regular fa-circle-check"></i>
+        <h2>Completed</h2>
+        <h3>Your Message have been successfully sent.</h3>
+        <div class="buttons">
+            <button class="close-btn">Ok, Close</button>
         </div>
-    </section>
+    </div>
+</section>
 </section>
 
 
