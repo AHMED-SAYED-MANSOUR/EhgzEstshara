@@ -4,12 +4,12 @@
 <head>
     <meta charset="utf-8">
     <title>phsyiorevive</title>
-    <link rel="icon" href="{{asset('front/images/IMG_2837.PNG')}}">
+    <link rel="icon" href="{{asset('images/Icons/IMG_2837.PNG')}}">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
     <title>phsyiorevive</title>
-    <link rel="icon" href="{{asset('front/images/IMG_2837.PNG')}}">
+    <link rel="icon" href="{{asset('images/Icons/IMG_2837.PNG')}}">
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">

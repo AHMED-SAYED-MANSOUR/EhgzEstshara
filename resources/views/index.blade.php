@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <title>phsyiorevive</title>
-    <link rel="icon" href="{{asset('front/images/IMG_2837.PNG')}}">
+    <link rel="icon" href="{{asset('images/Icons/IMG_2837.PNG')}}">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -141,7 +141,7 @@
           <div class="col-md-4 services ftco-animate">
             <div class="d-block d-flex">
               <div class="icon d-flex justify-content-center align-items-center">
-              <image src="{{asset('front/images/icons8-doctor-48.png')}}"></image>
+              <image src="{{asset('images/Icons/icons8-doctor-48.png')}}"></image>
 
               </div>
               <div class="media-body pl-3">
@@ -152,7 +152,7 @@
             </div>
             <div class="d-block d-flex">
               <div class="icon d-flex justify-content-center align-items-center">
-              <image src="{{asset('front/images/icons8-physical-therapy-48.png')}}"></image>
+              <image src="{{asset('images/Icons/icons8-physical-therapy-48.png')}}"></image>
               </div>
               <div class="media-body pl-3">
                 <h3 class="heading">Our Expert Trainers</h3>
@@ -165,7 +165,7 @@
           <div class="col-md-4 services ftco-animate">
             <div class="d-block d-flex">
               <div class="icon d-flex justify-content-center align-items-center">
-              <image src="{{asset('front/images/icons8-add-to-cart-100 (1).png')}}"></image>
+              <image src="{{asset('images/Icons/icons8-add-to-cart-100 (1).png')}}"></image>
               </div>
               <div class="media-body pl-3">
                 <h3 class="heading">Our shop</h3>
@@ -175,7 +175,7 @@
             </div>
             <div class="d-block d-flex">
               <div class="icon d-flex justify-content-center align-items-center">
-              <image src="{{asset('front/images/icons8-blog-64.png')}}">
+              <image src="{{asset('images/Icons/icons8-blog-64.png')}}">
               </div>
               <div class="media-body pl-3">
                 <h3 class="heading" >Our Blogs</h3>
@@ -230,7 +230,7 @@
                                 <div class="trainer-item">
                                     <div class="staff bg-primary">
                                         <div class="img-wrap d-flex align-items-stretch">
-                                            <div class="img align-self-stretch" style="background-image: url({{ asset('images/Trainers_Images/' . $trainer->image) }});"></div>
+                                            <div class="img align-self-stretch" style="background-image: url({{ asset('images/Trainers/' . $trainer->image) }});"></div>
                                         </div>
                                         <div class="text pt-3 px-3 pb-4 text-center">
                                             <h3>{{ $trainer->name }}</h3>
@@ -325,7 +325,7 @@
 
 					<div class="testimony">
 					  <blockquote>
-						<img src="{{asset('front/images/person_1.jpg')}}" alt="Image" class="img-fluid">
+						<img src="{{asset('images/Persons/person_1.jpg')}}" alt="Image" class="img-fluid">
 						<p>&ldquo;Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo omnis voluptatem consectetur quam tempore obcaecati maiores voluptate aspernatur iusto eveniet, placeat ab quod tenetur ducimus. Minus ratione sit quaerat unde.&rdquo;</p>
 					  </blockquote>
 
@@ -334,7 +334,7 @@
 
 					<div class="testimony">
 					  <blockquote>
-						<img src="{{asset('front/images/person_2.jpg')}}" alt="Image" class="img-fluid">
+						<img src="{{asset('images/Persons/person_2.jpg')}}" alt="Image" class="img-fluid">
 						<p>&ldquo;Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo omnis voluptatem consectetur quam tempore
 						  obcaecati maiores voluptate aspernatur iusto eveniet, placeat ab quod tenetur ducimus. Minus ratione sit quaerat
 						  unde.&rdquo;</p>
@@ -345,7 +345,7 @@
 
 					<div class="testimony">
 					  <blockquote>
-						<img src="{{asset('front/images/person_3.jpg')}}" alt="Image" class="img-fluid">
+						<img src="{{asset('images/Persons/person_3.jpg')}}" alt="Image" class="img-fluid">
 						<p>&ldquo;Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo omnis voluptatem consectetur quam tempore
 						  obcaecati maiores voluptate aspernatur iusto eveniet, placeat ab quod tenetur ducimus. Minus ratione sit quaerat
 						  unde.&rdquo;</p>
@@ -356,7 +356,7 @@
 
 					<div class="testimony">
 					  <blockquote>
-						<img src="{{asset('front/images/person_4.jpg')}}" alt="Image" class="img-fluid">
+						<img src="{{asset('images/Persons/person_4.jpg')}}" alt="Image" class="img-fluid">
 						<p>&ldquo;Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo omnis voluptatem consectetur quam tempore
 						  obcaecati maiores voluptate aspernatur iusto eveniet, placeat ab quod tenetur ducimus. Minus ratione sit quaerat
 						  unde.&rdquo;</p>
@@ -398,8 +398,8 @@
 			<div class="container-fluid px-md-0" >
 				<div class="row no-gutters">
           <div class="col-md-3 ftco-animate">
-            <div class="work img d-flex align-items-center" style="background-image: url({{asset('front/images/images/work-1.jpg);')}}">
-            	<a href="{{asset('front/images/-1.jpg')}}" class="icon image-popup d-flex justify-content-center align-items-center">
+            <div class="work img d-flex align-items-center" style="background-image: url({{asset('images/Work/work-1.jpg);')}}">
+            	<a href="{{asset('images/Work/work-1.jpg')}}" class="icon image-popup d-flex justify-content-center align-items-center">
 	    					<span class="fa-solid fa-up-right-and-down-left-from-center text-light"></span>
 	    				</a>
             	<div class="desc w-100 px-4 text-center pt-5 mt-5" >
@@ -410,8 +410,8 @@
             </div>
           </div>
           <div class="col-md-3 ftco-animate">
-            <div class="work img d-flex align-items-center" style="background-image: url({{asset('front/images/images/work-2.jpg);')}}">
-            	<a href="images/work-2.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+            <div class="work img d-flex align-items-center" style="background-image: url({{asset('images/Work/work-2.jpg);')}}">
+            	<a href="images/Work/work-2.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
 	    					<span class="fa-solid fa-up-right-and-down-left-from-center text-light"></span>
 	    				</a>
             	<div class="desc w-100 px-4 text-center pt-5 mt-5">
@@ -422,8 +422,8 @@
             </div>
           </div>
           <div class="col-md-3 ftco-animate">
-            <div class="work img d-flex align-items-center" style="background-image: url({{asset('front/images/images/work-3.jpg);')}}">
-            	<a href="{{asset('front/images/images/work-3.jpg')}}" class="icon image-popup d-flex justify-content-center align-items-center">
+            <div class="work img d-flex align-items-center" style="background-image: url({{asset('images/Work/work-3.jpg);')}}">
+            	<a href="{{asset('images/Work/work-3.jpg')}}" class="icon image-popup d-flex justify-content-center align-items-center">
 	    					<span class="fa-solid fa-up-right-and-down-left-from-center text-light"></span>
 	    				</a>
             	<div class="desc w-100 px-4 text-center pt-5 mt-5">
@@ -434,8 +434,8 @@
             </div>
           </div>
           <div class="col-md-3 ftco-animate">
-            <div class="work img d-flex align-items-center" style="background-image: url({{asset('front/images/images/work-4.jpg);')}}">
-            	<a href="{{asset('front/images/work-4.jpg')}}" class="icon image-popup d-flex justify-content-center align-items-center">
+            <div class="work img d-flex align-items-center" style="background-image: url({{asset('images/Work/work-4.jpg);')}}">
+            	<a href="{{asset('images/Work/work-4.jpg')}}" class="icon image-popup d-flex justify-content-center align-items-center">
 	    					<span class="fa-solid fa-up-right-and-down-left-from-center text-light"></span>
 	    				</a>
             	<div class="desc w-100 px-4 text-center pt-5 mt-5">
@@ -462,11 +462,11 @@
         <div class="row d-flex">
           <div class="col-md-4 d-flex ftco-animate">
             <div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20 rounded" style="background-image: url({{asset('front/images/images/image_1.jpg);')}}">
+              <a href="blog-single.html" class="block-20 rounded" style="background-image: url({{asset('images/Work/work-8.jpg);')}}">
               </a>
               <div class="text mt-3">
               	<div class="posted mb-3 d-flex">
-              		<div class="img author" style="background-image: url({{asset('front/images/images/person_2.jpg);')}}"></div>
+              		<div class="img author" style="background-image: url({{asset('images/Persons/person_2.jpg);')}}"></div>
               		<div class="desc pl-3">
               			<span>Posted by John doe</span>
               			<span>24 February 2020</span>
@@ -478,11 +478,11 @@
           </div>
           <div class="col-md-4 d-flex ftco-animate">
             <div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20 rounded" style="background-image: url({{asset('front/images/images/image_2.jpg);')}}">
+              <a href="blog-single.html" class="block-20 rounded" style="background-image: url({{asset('images/Work/work-7.jpg);')}}">
               </a>
               <div class="text mt-3">
               	<div class="posted mb-3 d-flex">
-              		<div class="img author" style="background-image: url({{asset('front/images/images/person_3.jpg);')}}"></div>
+              		<div class="img author" style="background-image: url({{asset('images/Persons/person_3.jpg);')}}"></div>
               		<div class="desc pl-3">
               			<span>Posted by John doe</span>
               			<span>24 February 2020</span>
@@ -494,11 +494,11 @@
           </div>
           <div class="col-md-4 d-flex ftco-animate">
             <div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20 rounded" style="background-image: url({{asset('front/images/images/image_3.jpg);')}}">
+              <a href="blog-single.html" class="block-20 rounded" style="background-image: url({{asset('images/Work/work-4.jpg);')}}">
               </a>
               <div class="text mt-3">
               	<div class="posted mb-3 d-flex">
-              		<div class="img author" style="background-image: url({{asset('front/images/images/person_1.jpg);')}}"></div>
+              		<div class="img author" style="background-image: url({{asset('images/Persons/person_1.jpg);')}}"></div>
               		<div class="desc pl-3">
               			<span>Posted by John doe</span>
               			<span>24 February 2020</span>
@@ -525,6 +525,7 @@
            <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
 
 
+            {{--    Trainer Section    --}}
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function() {

@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>sign-up</title>
-    <link rel="icon" href="{{asset('front/images/IMG_2837.PNG')}}">
+    <link rel="icon" href="{{asset('images/Icons/IMG_2837.PNG')}}">
     <link rel="stylesheet" href="{{asset('front/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('front/css/all.css')}}">
     <link rel="stylesheet" href="{{asset('front/js/all.js')}}">
     <link rel="stylesheet" href="{{asset('front/js/bootstrap.bundle.min.js')}}">
-    <link rel="icon" href="{{asset('front/images/IMG_2837.PNG')}}">
+    <link rel="icon" href="{{asset('images/Icons/IMG_2837.PNG')}}">
     <link rel="stylesheet" href="{{asset('front/css/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{asset('front/css//owl.theme.default.min.css')}}">
     <link rel="stylesheet" href="{{asset('front/css//magnific-popup.css')}}">

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us-phsyiorevive</title>
-    <link rel="icon" href="{{asset('front/images/IMG_2837.PNG')}}">
+    <link rel="icon" href="{{asset('images/Icons/IMG_2837.PNG')}}">
 
     <link rel="stylesheet" href="{{asset('front/css/all.css')}}">
     <link rel="stylesheet" href="{{asset('front/css/bootstrap.min.css')}}">
