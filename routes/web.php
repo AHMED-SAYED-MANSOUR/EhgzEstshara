@@ -67,11 +67,7 @@ Route::get('/contactus', function () {
 Route::post('/send-message', [ContactCoctroller::class, 'send_message'])->name('submit-contact-form');
 
 
-Route::post('/test-form', function (Request $request) {
-    return $request->all();
-});
-
-Route::post('/submit-contact-form', [feedbackController::class, 'store']);
+// Appointment
 Route::post('/submit-appointment-form', [AppointmentController::class, 'store'])->name("Appointment");
 
 
