@@ -93,7 +93,7 @@
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="team-item position-relative rounded overflow-hidden">
                         <div class="overflow-hidden">
-                            <img class="img-fluid" src="{{asset('images/Teams/team-1.jpg')}}" alt="">
+                            <img class="img-fluid" src="{{asset('images/Team/team-1.jpg')}}" alt="">
                         </div>
                         <div class="team-text bg-light text-center p-4">
                             <h5>trainer Name</h5>
@@ -109,7 +109,7 @@
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="team-item position-relative rounded overflow-hidden">
                         <div class="overflow-hidden">
-                            <img class="img-fluid" src="{{asset('images/Teams/team-2.jpg')}}" alt="">
+                            <img class="img-fluid" src="{{asset('images/Team/team-2.jpg')}}" alt="">
                         </div>
                         <div class="team-text bg-light text-center p-4">
                             <h5>trainer Name</h5>
@@ -125,7 +125,7 @@
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="team-item position-relative rounded overflow-hidden">
                         <div class="overflow-hidden">
-                            <img class="img-fluid" src="{{asset('images/Teams/team-3.jpg')}}" alt="">
+                            <img class="img-fluid" src="{{asset('images/Team/team-3.jpg')}}" alt="">
                         </div>
                         <div class="team-text bg-light text-center p-4">
                             <h5>Trainer Name</h5>
@@ -141,7 +141,7 @@
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
                     <div class="team-item position-relative rounded overflow-hidden">
                         <div class="overflow-hidden">
-                            <img class="img-fluid" src="{{asset('images/Teams/team-4.jpg')}}" alt="">
+                            <img class="img-fluid" src="{{asset('images/Team/team-4.jpg')}}" alt="">
                         </div>
                         <div class="team-text bg-light text-center p-4">
                             <h5>Trainer Name</h5>
@@ -157,7 +157,7 @@
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="team-item position-relative rounded overflow-hidden">
                         <div class="overflow-hidden">
-                            <img class="img-fluid" src="{{asset('images/Teams/team-2.jpg')}}" alt="">
+                            <img class="img-fluid" src="{{asset('images/Team/team-2.jpg')}}" alt="">
                         </div>
                         <div class="team-text bg-light text-center p-4">
                             <h5>Trainer Name</h5>
@@ -173,7 +173,7 @@
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="team-item position-relative rounded overflow-hidden">
                         <div class="overflow-hidden">
-                            <img class="img-fluid" src="{{asset('images/Teams/team-3.jpg')}}" alt="">
+                            <img class="img-fluid" src="{{asset('images/Team/team-3.jpg')}}" alt="">
                         </div>
                         <div class="team-text bg-light text-center p-4">
                             <h5>Trainer Name</h5>
@@ -189,7 +189,7 @@
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="team-item position-relative rounded overflow-hidden">
                         <div class="overflow-hidden">
-                            <img class="img-fluid" src="{{asset('images/Teams/team-4.jpg')}}" alt="">
+                            <img class="img-fluid" src="{{asset('images/Team/team-4.jpg')}}" alt="">
                         </div>
                         <div class="team-text bg-light text-center p-4">
                             <h5>Trainer Name</h5>
@@ -205,7 +205,7 @@
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
                     <div class="team-item position-relative rounded overflow-hidden">
                         <div class="overflow-hidden">
-                            <img class="img-fluid" src="{{asset('images/Teams/team-1.jpg')}}" alt="">
+                            <img class="img-fluid" src="{{asset('images/Team/team-1.jpg')}}" alt="">
                         </div>
                         <div class="team-text bg-light text-center p-4">
                             <h5>Trainer Name</h5>
