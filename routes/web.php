@@ -25,6 +25,8 @@ use App\Http\Controllers\SearchController;
 |
 */
 
+                        // All Public Routes
+
 Route::get('/', function () {
 
     // Current User

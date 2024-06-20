@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\UserController;
 
 
+                            // All User Router
+
 // Show Home Page
 Route::get('/', function () {
 
