@@ -9,7 +9,7 @@ class Cart extends Model
 {
     use HasFactory;
     protected $table='carts';
-    protected $guarded;
+    protected $fillable = ['id', 'quantity', 'user_id', 'product_id', 'created_at', 'updated_at'];
 
 
                         // Relations
@@ -23,7 +23,7 @@ class Cart extends Model
     // One-To-Many Relation [Cart -> Products]
     public function product()
     {
-        return $this->hasMany(Product::class);
+        return $this->belongsTo(Product::class);
     }
 
 }

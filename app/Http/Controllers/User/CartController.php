@@ -6,50 +6,48 @@ use App\Http\Controllers\Controller;
 use App\Models\Cart;
 use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
-    protected $user;
-    protected $cart;
-
-    public function __construct()
-    {
-        // Get the current authenticated user
-        $this->user = Auth::user();
-
-        // Find or create the cart for the current user
-        if ($this->user) {
-            $this->cart = Cart::firstOrCreate(['user_id' => $this->user->id]);
-        }
-    }
-
-    public function get_cart_items()
-    {
-        if (!$this->user) {
-            return [];
-        }
-
-        $items = explode('-', $this->cart->items);
-        $products = [];
-
-        foreach ($items as $item)
-        {
-            $product = Product::where('ProductName', $item)->first();
-            if ($product) {
-                $products[] = $product;
-            }
-        }
-
-        return $products;
-    }
 
     public function index()
     {
-//        if (!$this->user) {
-//            return redirect('/sign');
-//        }
+        $cartItems = Auth::user()->cartItems()->with('product')->get();
+//        return view('cart.index', compact('cartItems'));
+        return Auth::user()->cartItems()->with('product')->get();
+    }
 
-        $products = $this->get_cart_items();
-        return view('user.cart', compact('products'));
+    public function add(Request $request, $productId)
+    {
+        $product = Product::find($productId);
+        $cartItem = Auth::user()->cartItems()->where('product_id', $productId)->first();
+
+        if ($cartItem) {
+            $cartItem->quantity += 1;
+            $cartItem->save();
+        } else {
+            Auth::user()->cartItems()->create([
+                'product_id' => $productId,
+                'quantity' => 1
+            ]);
+        }
+
+        return redirect()->route('cart.index');
+    }
+
+    public function update(Request $request, $cartId)
+    {
+        $cartItem = Cart::find($cartId);
+        $cartItem->quantity = $request->quantity;
+        $cartItem->save();
+
+        return response()->json(['success' => true]);
+    }
+
+    public function delete($cartId)
+    {
+        Cart::find($cartId)->delete();
+        return redirect()->route('cart.index');
     }
 }

@@ -1,13 +1,15 @@
 <?php
 
 use App\Http\Controllers\User\CartController;
+use App\Http\Controllers\User\OrderController;
 use App\Models\Trainer;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\UserController;
 
 
-                            // All User Router
+
+// All User Router
 
 // Show Home Page
 Route::get('/', function () {
@@ -42,9 +44,6 @@ Route::post('/logout', function () {
 Route::post('/check-email',[UserController::class,'find_email']);
 
 
-// Cart
-Route::get('/cart', [CartController::class, 'index'])->name('cart');
-
 
 // Payment
 route::get('/payment',function(){
@@ -55,4 +54,16 @@ route::get('/payment',function(){
 // Thank Page After Payment
 Route::get('/thankyou',function(){
     return view('user.thankyou');
+});
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+    Route::post('/cart/add/{productId}', [CartController::class, 'add'])->name('cart.add');
+    Route::patch('/cart/update/{cartId}', [CartController::class, 'update'])->name('cart.update');
+    Route::delete('/cart/delete/{cartId}', [CartController::class, 'delete'])->name('cart.delete');
+
+    Route::post('/orders/create', [OrderController::class, 'create'])->name('orders.create');
+    Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
+    Route::patch('/orders/update-status/{orderId}/{status}', [OrderController::class, 'updateStatus'])->name('orders.update-status');
 });

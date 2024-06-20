@@ -9,8 +9,8 @@ class Order extends Model
 {
     use HasFactory;
 
-    protected $guarded;
-
+    protected $table = 'orders';
+    protected $fillable = ['id', 'user_id', 'status', 'total_price', 'created_at', 'updated_at'];
 
 
                                 // Relations

@@ -5,6 +5,7 @@ use App\Http\Controllers\User\CartController;
 use App\Http\Controllers\ProductController;
 use App\Models\Doctor;
 use App\Models\Trainer;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\UserController;
@@ -66,10 +67,7 @@ Route::get('/contactus', function () {
 Route::post('/send-message', [ContactCoctroller::class, 'send_message'])->name('submit-contact-form');
 
 
- Route::get('/test-db', function () {
-
-});
-Route::post('/test-form', function (Illuminate\Http\Request $request) {
+Route::post('/test-form', function (Request $request) {
     return $request->all();
 });
 
