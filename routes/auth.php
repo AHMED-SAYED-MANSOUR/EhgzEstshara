@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Trainer;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
@@ -7,8 +8,14 @@ use App\Http\Controllers\UserController;
 
 // Show Home Page
 Route::get('/', function () {
+
+    // Current User
     $user = Auth::user();
-    return view('index', ['user' => $user]);
+
+    // All Trainers
+    $trainers = Trainer::get();
+
+    return view('index', compact('user', 'trainers'));
 });
 
 
