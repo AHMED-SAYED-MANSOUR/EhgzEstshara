@@ -51,10 +51,9 @@
 @include('navbar')
 <!-- Navbar End -->
 
-@if(Session()->has('success'))
-    <div class="alert alert-success" id="alert">
-        <button type="button" class="close" data-dismiss="alert">x</button>
-        {{session()->get('success')}}
+@if(Session::has('success'))
+    <div class="alert alert-success">
+        {{ Session::get('success') }}
     </div>
 @elseif(Session()->has('failed'))
     <div class="alert alert-failed" id="alert">
@@ -62,6 +61,11 @@
         {{session()->get('failed')}}
     </div>
 @endif
+<script>
+    setTimeout(function(){
+        $('.alert').fadeOut('slow');
+    }, 3000); // 3 seconds
+</script>
 
 
 <p class="tip"></p>
@@ -105,7 +109,7 @@
         </div>
 
 
-                            {{-- Signin Form --}}
+                            {{-- SignUp Form --}}
         <form id="signup-form" method="POST" action="{{ route('sign_up_route') }}">
             @csrf
 
@@ -186,14 +190,13 @@
 <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
 
 
-<!-- JavaScript to handle the redirection -->
 <script>
     document.getElementById('signUpBtn').addEventListener('click', function () {
-        window.location.href = "/sign_up_route"; // Replace with your sign-up route
+        window.location.href = "/sign_up_route";
     });
 
     document.getElementById('signInBtn').addEventListener('click', function () {
-        window.location.href = "/sign_in_route"; // Replace with your sign-in route
+        window.location.href = "/sign_in_route";
     });
 </script>
 
@@ -225,6 +228,7 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 <script src="{{asset('front/js/js/google-map.js')}}"></script>
 <script src="{{asset('front/js/index.js')}}"></script>
+
 <script src="{{asset('front/js/signup.js')}}"></script>
 
 
