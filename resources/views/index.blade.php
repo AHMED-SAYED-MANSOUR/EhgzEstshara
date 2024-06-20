@@ -32,6 +32,45 @@
 		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap" rel="stylesheet">
 
 
+      <style>
+          .trainer-carousel {
+              position: relative;
+              overflow: hidden;
+              width: 100%;
+              max-width: 100%;
+          }
+
+          .trainers-wrapper {
+              display: flex;
+              transition: transform 0.5s ease;
+          }
+
+          .trainer-item {
+              min-width: 20%; /* Each item takes 20% width for 5 items to fit in one row */
+              box-sizing: border-box;
+          }
+
+          .prev-arrow,
+          .next-arrow {
+              position: absolute;
+              top: 50%;
+              transform: translateY(-50%);
+              background-color: #000;
+              color: #fff;
+              border: none;
+              padding: 10px;
+              cursor: pointer;
+              z-index: 1000;
+          }
+
+          .prev-arrow {
+              left: 0;
+          }
+
+          .next-arrow {
+              right: 0;
+          }
+      </style>
   </head>
   <body>
 
@@ -191,113 +230,50 @@
     	</div> -->
     </section>
 
+
+                {{--    Trainer Section    --}}
     <section class="ftco-section ftco-no-pb ftco-no-pt">
-			<div class="container-fluid px-md-0">
-				<div class="row no-gutters justify-content-center pb-5 mb-3">
-          <div class="col-md-7 heading-section text-center ftco-animate">
-          	<span class="subheading">Team &amp; Staff</span>
-            <h2>Our Experts Trainers</h2>
-          </div>
+        <div class="container-fluid px-md-0">
+            <div class="row no-gutters justify-content-center pb-5 mb-3">
+                <div class="col-md-7 heading-section text-center ftco-animate">
+          	        <span class="subheading">Team &amp; Staff</span>
+                    <h2>Our Experts Trainers</h2>
+                </div>
+            </div>
+            <div class="row no-gutters">
+                <div class="container">
+                    <div class="trainer-carousel">
+                        <button class="prev-arrow" style="display: none;">←</button>
+                        <div class="trainers-wrapper">
+                            @foreach($trainers as $trainer)
+                                <div class="trainer-item">
+                                    <div class="staff bg-primary">
+                                        <div class="img-wrap d-flex align-items-stretch">
+                                            <div class="img align-self-stretch" style="background-image: url({{ asset('images/Trainers_Images/' . $trainer->image) }});"></div>
+                                        </div>
+                                        <div class="text pt-3 px-3 pb-4 text-center">
+                                            <h3>{{ $trainer->name }}</h3>
+                                            <span class="position mb-2">{{ $trainer->title }}</span>
+                                            <div class="faded">
+                                                <ul class="ftco-social text-center">
+                                                    <li class="ftco-animate"><a href="{{ $trainer->facebook }}" class="d-flex align-items-center justify-content-center"><span class="fa-brands fa-facebook"></span></a></li>
+                                                    <li class="ftco-animate"><a href="{{ $trainer->instagram }}" class="d-flex align-items-center justify-content-center"><span class="fa-brands fa-instagram"></span></a></li>
+                                                    <li class="ftco-animate"><a href="{{ $trainer->twitter }}" class="d-flex align-items-center justify-content-center"><span class="fa-brands fa-twitter"></span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                        <button class="next-arrow">→</button>
+                    </div>
+                </div>
+            </div>
         </div>
-				<div class="row no-gutters">
-					<div class="col-md-4 col-lg ftco-animate d-flex">
-						<div class="staff bg-primary">
-							<div class="img-wrap d-flex align-items-stretch">
-								<div class="img align-self-stretch" style="background-image: url({{asset('front/images/images/staff-1.jpg);')}}"></div>
-							</div>
-							<div class="text pt-3 px-3 pb-4 text-center">
-								<h3>Hassan Samir</h3>
-								<span class="position mb-2">Trainer</span>
-								<div class="faded">
-									<!-- <p>I am an ambitious workaholic, but apart from that, pretty simple person.</p> -->
-									<ul class="ftco-social text-center">
-		                <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa-brands fa-facebook"></span></a></li>
-		                <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa-brands fa-instagram"></span></a></li>
-		                <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa-brands fa-twitter"></span></a></li>
-		              </ul>
-	              </div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4 col-lg ftco-animate d-flex">
-						<div class="staff bg-primary">
-							<div class="img-wrap d-flex align-items-stretch">
-								<div class="img align-self-stretch" style="background-image: url({{asset('front/images/images/staff-2.jpg);')}}"></div>
-							</div>
-							<div class="text pt-3 px-3 pb-4 text-center">
-								<h3>Mohamed Ahmed</h3>
-								<span class="position mb-2">personal trainer</span>
-								<div class="faded">
-									<!-- <p>I am an ambitious workaholic, but apart from that, pretty simple person.</p> -->
-									<ul class="ftco-social text-center">
-		                <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa-brands fa-facebook"></span></a></li>
-		                <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa-brands fa-instagram"></span></a></li>
-		                <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa-brands fa-twitter"></span></a></li>
-		              </ul>
-	              </div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4 col-lg ftco-animate d-flex">
-						<div class="staff bg-primary">
-							<div class="img-wrap d-flex align-items-stretch">
-								<div class="img align-self-stretch" style="background-image: url({{asset('front/images/images/staff-3.jpg);')}}"></div>
-							</div>
-							<div class="text pt-3 px-3 pb-4 text-center">
-								<h3>Eslam Amr</h3>
-								<span class="position mb-2">trainer</span>
-								<div class="faded">
-									<!-- <p>I am an ambitious workaholic, but apart from that, pretty simple person.</p> -->
-									<ul class="ftco-social text-center">
-		                <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa-brands fa-facebook"></span></a></li>
-		                <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa-brands fa-instagram"></span></a></li>
-		                <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa-brands fa-twitter"></span></a></li>
-		              </ul>
-	              </div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4 col-lg ftco-animate d-flex">
-						<div class="staff bg-primary">
-							<div class="img-wrap d-flex align-items-stretch">
-								<div class="img align-self-stretch" style="background-image: url({{asset('front/images/images/staff-4.jpg);')}}"></div>
-							</div>
-							<div class="text pt-3 px-3 pb-4 text-center">
-								<h3>Aly Ashraf</h3>
-								<span class="position mb-2">Trainer</span>
-								<div class="faded">
-									<!-- <p>I am an ambitious workaholic, but apart from that, pretty simple person.</p> -->
-									<ul class="ftco-social text-center">
-		                <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa-brands fa-facebook"></span></a></li>
-		                <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa-brands fa-instagram"></span></a></li>
-		                <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa-brands fa-twitter"></span></a></li>
-		              </ul>
-	              </div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4 col-lg ftco-animate d-flex">
-						<div class="staff bg-primary">
-							<div class="img-wrap d-flex align-items-stretch">
-								<div class="img align-self-stretch" style="background-image: url({{asset('front/images/images/staff-5.jpg);')}}"></div>
-							</div>
-							<div class="text pt-3 px-3 pb-4 text-center">
-								<h3>Asser Ehab</h3>
-								<span class="position mb-2">Trainer</span>
-								<div class="faded">
-									<!-- <p>I am an ambitious workaholic, but apart from that, pretty simple person.</p> -->
-									<ul class="ftco-social text-center">
-		                <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa-brands fa-facebook"></span></a></li>
-		                <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa-brands fa-instagram"></span></a></li>
-		                <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa-brands fa-twitter"></span></a></li>
-		              </ul>
-	              </div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+    </section>
+
+
 
     <section class="ftco-section ftco-no-pt ftco-no-pb">
     	<div class="container">
@@ -587,7 +563,48 @@
            <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
 
 
-  <script src="{{asset('front/js/js/jquery.min.js')}}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            let currentSlide = 0;
+            const itemCount = $('.trainer-item').length;
+            const itemWidth = $('.trainer-item').outerWidth(true);
+
+            function updateArrows() {
+                if (currentSlide === 0) {
+                    $('.prev-arrow').hide();
+                } else {
+                    $('.prev-arrow').show();
+                }
+
+                if (currentSlide >= itemCount - 5) {
+                    $('.next-arrow').hide();
+                } else {
+                    $('.next-arrow').show();
+                }
+            }
+
+            updateArrows();
+
+            $('.next-arrow').click(function() {
+                if (currentSlide < itemCount - 5) {
+                    currentSlide++;
+                    $('.trainers-wrapper').css('transform', `translateX(-${itemWidth * currentSlide}px)`);
+                    updateArrows();
+                }
+            });
+
+            $('.prev-arrow').click(function() {
+                if (currentSlide > 0) {
+                    currentSlide--;
+                    $('.trainers-wrapper').css('transform', `translateX(-${itemWidth * currentSlide}px)`);
+                    updateArrows();
+                }
+            });
+        });
+    </script>
+
+    <script src="{{asset('front/js/js/jquery.min.js')}}"></script>
   <script src="{{asset('front/js/js/jquery-migrate-3.0.1.min.js')}}"></script>
   <script src="{{asset('front/js/js/popper.min.js')}}"></script>
   <script src="{{asset('front/js/js/slick.min.js')}}"></script>

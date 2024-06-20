@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
+use App\Models\Trainer;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
@@ -10,6 +11,7 @@ use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\TrainerController;
+use App\Http\Controllers\SearchController;
 
 
 /*
@@ -24,8 +26,15 @@ use App\Http\Controllers\TrainerController;
 */
 
 Route::get('/', function () {
+
+    // Current User
     $user = Auth::user();
-    return view('index', ['user' => $user]);
+
+    // All Trainers
+    $trainers = Trainer::get();
+
+
+    return view('index', compact('user', 'trainers'));
 });
 
 
@@ -33,8 +42,6 @@ Route::get('/', function () {
 Route::get('/products', [ProductController::class, 'All_Products'])->name('products.index');
 
 //Search
-use App\Http\Controllers\SearchController;
-
 Route::get('/search', [SearchController::class, 'search'])->name('search');
 
 // Cart
