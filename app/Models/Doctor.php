@@ -10,5 +10,5 @@ class Doctor extends Model
 {
     use HasFactory;
     protected $table = 'doctors';
-    protected $fillable=[ 'name','title','image' ];
+    protected $fillable=['id', 'name','department','image', 'facebook', 'twitter', 'instagram', 'created_at', 'updated_at'];
 }
