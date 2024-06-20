@@ -21,7 +21,7 @@ Route::get('/', function () {
 
 // Sign-in & sign-up
 Route::get('/sign', function () {
-    return view('Signup');
+    return view('user.Signup');
 })->name('sign');
 
 Route::post('/sign_in_route', [UserController::class,'sign_in'])->name('sign_in_route');

@@ -45,7 +45,7 @@ class UserController extends Controller
               $users =   User::where('email',$request->email)->get();
               foreach($users as $user){
                    if(isset($user)){
-                      return view('payment', compact('user'));
+                      return view('user.payment', compact('user'));
                 }
               }
               return "Test";

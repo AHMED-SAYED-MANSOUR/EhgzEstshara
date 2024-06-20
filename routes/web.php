@@ -60,25 +60,25 @@ Route::get('/doctors', function () {
     return view('team');
 });
 Route::get('/dashboard',function(){
-    return view('home');
+    return view('admin.home');
  });
 
  Route::get('/trainers',function(){
     return view('trainers');
  });
  route::get('/payment',function(){
-    return view('payment');
+    return view('user.payment');
  });
  Route::get('/thankyou',function(){
-    return view('thankyou');
+    return view('user.thankyou');
  });
 
 
  route::get('/create',function(){
-    return view('offer.create');
+    return view('admin.offer.create');
  });
  route::get('/show',function(){
-    return view('offer.show');
+    return view('admin.offer.show');
  });
   route::get('/create-doctor',function(){
      return view('doctor.create');

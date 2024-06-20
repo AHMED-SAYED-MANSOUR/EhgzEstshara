@@ -8,7 +8,7 @@ class OfferController extends Controller
 {   public function show()
     {
         $offers= Offer::get();
-        return view('offer.show',compact('offers'));
+        return view('admin.offer.show',compact('offers'));
 
     }
     public function store(Request $request)
@@ -43,7 +43,7 @@ class OfferController extends Controller
 }
   public function edit ($id) {
     $offers=Offer::find($id);
-    return view('offer.edit',compact('offers'));
+    return view('admin.offer.edit',compact('offers'));
 
   }
   public function update (Request $request){

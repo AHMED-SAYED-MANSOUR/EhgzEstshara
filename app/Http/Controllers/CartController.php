@@ -49,6 +49,6 @@ class CartController extends Controller
 //        }
 
         $products = $this->get_cart_items();
-        return view('cart', compact('products'));
+        return view('user.cart', compact('products'));
     }
 }
