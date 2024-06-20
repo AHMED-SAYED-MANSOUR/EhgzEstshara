@@ -12,4 +12,10 @@ class Product extends Model
     protected $table = 'products';
     protected $fillable = ['id' , 'ProductName' , 'Quantity' , 'Price', 'Category', 'Description', 'img', 'offer','Brand', 'Material', 'Color', 'created_at', 'updated_at'];
 
+
+    public function cartItems()
+    {
+        return $this->hasMany(CartItem::class);
+    }
+
 }

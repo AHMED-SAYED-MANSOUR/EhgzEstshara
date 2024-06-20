@@ -40,8 +40,6 @@
 
 
 
-@section('content')
-    <div class="container">
         <h1>Your Cart</h1>
         <ul>
             @foreach($cartItems as $item)
@@ -63,13 +61,14 @@
                 </li>
             @endforeach
         </ul>
+
+
         <div>Total: ${{ $cartItems->sum(function($item) { return $item->product->Price * $item->Quantity; }) }}</div>
         <form action="{{ route('orders.create') }}" method="POST">
             @csrf
             <button type="submit">Checkout</button>
         </form>
     </div>
-@endsection
 
 @section('scripts')
     <script>

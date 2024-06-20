@@ -52,10 +52,16 @@ class User extends Authenticatable
                      // Relations
 
     // One-To-Many Relation [User -> CartItems]
+    public function cart()
+    {
+        return $this->hasOne(Cart::class);
+    }
+
     public function cartItems()
     {
-        return $this->hasMany(Cart::class);
+        return $this->hasMany(CartItem::class);
     }
+
 
     // One-To-Many Relation [User -> Orders]
     public function orders()

@@ -59,14 +59,15 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td  >
-                      <img src="{{asset('front/images/download.jpeg')}}" alt="Image" class="img-fluid">
+                @foreach($cartItems as $item)
+                    <tr>
+                    <td >
+                      <img src="{{asset('images/products images/' . $item->img)}}" alt="Image" class="img-fluid">
                     </td>
                     <td class="product-name">
-                      <h2 class="h5 text-black">Lorem ipsum </h2>
+                      <h2 class="h5 text-black">{{$item->ProductName}} </h2>
                     </td>
-                    <td>$55.00</td>
+                    <td>{{$item->price}}</td>
                     <td>
                       <div class="input-group mb-3" style="max-width: 120px;">
                         <div class="input-group-prepend">
@@ -80,34 +81,10 @@
                       </div>
 
                     </td>
-                    <td>$55.00</td>
+                    <td>{{$item->price}}</td>
                     <td><a href="#" class="btn btn height-auto btn-sm">X</a></td>
                   </tr>
 
-                  <tr>
-                    <td>
-                      <img src="{{asset('front/images/download.jpeg')}}" alt="Image" class="img-fluid">
-                    </td>
-                    <td class="product-name">
-                      <h2 class="h5 text-black">Lorem ipsum </h2>
-                    </td>
-                    <td>$49.00</td>
-                    <td>
-                      <div class="input-group mb-3" style="max-width: 120px;">
-                        <div class="input-group-prepend">
-                          <button class="btn btn-outline js-btn-minus" type="button">&minus;</button>
-                        </div>
-                        <input type="text" class="form-control text-center " value="1" placeholder=""
-                          aria-label="Example text with button addon " aria-describedby="button-addon1">
-                        <div class="input-group-append">
-                          <button class="btn btn-outline js-btn-plus" type="button">&plus;</button>
-                        </div>
-                      </div>
-
-                    </td>
-                    <td>$49.00</td>
-                    <td><a href="#" class="btn btn height-auto btn-sm">X</a></td>
-                  </tr>
                 </tbody>
               </table>
             </div>
