@@ -12,4 +12,12 @@ class Product extends Model
     protected $table = 'products';
     protected $fillable = ['id' , 'ProductName' , 'Quantity' , 'Price', 'Category', 'Description', 'img', 'offer','Brand', 'Material', 'Color', 'created_at', 'updated_at'];
 
+
+
+    // One-To-Many Relation [Products -> Cart]
+    public function cart()
+    {
+        return $this->belongsTo(Cart::class);
+    }
+
 }

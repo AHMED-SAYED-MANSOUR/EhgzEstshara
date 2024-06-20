@@ -24,7 +24,6 @@ class User extends Authenticatable
         'email',
         'phone',
         'password',
-//        'conpassword',
         'DOB',
         'gender'
     ];
@@ -50,9 +49,19 @@ class User extends Authenticatable
     ];
 
 
-    public function cart()
+                     // Relations
+
+    // One-To-Many Relation [User -> CartItems]
+    public function cartItems()
     {
-        return $this->hasOne(Cart::class);
+        return $this->hasMany(Cart::class);
     }
+
+    // One-To-Many Relation [User -> Orders]
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
 
 }
