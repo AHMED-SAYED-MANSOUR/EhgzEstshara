@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\User\CartController;
 use App\Http\Controllers\ProductController;
+use App\Models\Doctor;
 use App\Models\Trainer;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -47,7 +48,9 @@ Route::get('/search', [SearchController::class, 'search'])->name('search');
 
 // Show Our Doctors
 Route::get('/doctors', function () {
-    return view('team');
+
+    $doctors = Doctor::get();
+    return view('team', compact('doctors'));
 });
 
 // Contact Us
