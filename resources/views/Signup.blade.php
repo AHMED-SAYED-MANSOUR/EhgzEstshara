@@ -228,6 +228,7 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 <script src="{{asset('front/js/js/google-map.js')}}"></script>
 <script src="{{asset('front/js/index.js')}}"></script>
+
 <script src="{{asset('front/js/signup.js')}}"></script>
 
 
