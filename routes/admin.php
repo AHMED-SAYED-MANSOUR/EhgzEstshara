@@ -11,10 +11,6 @@ Route::get('/dashboard',function(){
     return view('admin.home');
 });
 
-Route::get('/trainers',function(){
-    return view('trainers');
-});
-
 route::get('/create',function(){
     return view('admin.offer.create');
 });

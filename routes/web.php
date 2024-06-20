@@ -48,9 +48,14 @@ Route::get('/search', [SearchController::class, 'search'])->name('search');
 
 // Show Our Doctors
 Route::get('/doctors', function () {
-
     $doctors = Doctor::get();
     return view('team', compact('doctors'));
+});
+
+// Show Our Trainers
+Route::get('/trainers',function(){
+    $trainers = Trainer::get();
+    return view('trainers', compact('trainers'));
 });
 
 // Contact Us
