@@ -1,15 +1,16 @@
 <?php
 
-namespace App\Http\Controllers;
-use App\Models\Trainer;
+namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller;
+use App\Models\Doctor;
 use Illuminate\Http\Request;
 
-class TrainerController extends Controller
+class DoctorController extends Controller
 {
     public function show()
     {
-        $trainers= Trainer::get();
-        return view('trainer.show',compact('trainers'));
+        $doctors= Doctor::get();
+        return view('doctor.show',compact('doctors'));
 
     }
     public function store(Request $request)
@@ -29,26 +30,25 @@ class TrainerController extends Controller
             $filename=Null;
         }
         // insert in DB
-      $trainer = new Trainer();
-      $trainer->name= $request->name;
-      $trainer->title=$request->title;
-      $trainer->image=$filename;
-      $trainer->save() ;
-      return redirect(url('show-trainers'));
+      $doctor = new Doctor();
+      $doctor->name= $request->name;
+      $doctor->title=$request->title;
+      $doctor->image=$filename;
+      $doctor->save() ;
+      return redirect(url('show-doctors'));
     }
     //delete
     public function delete($id){
-        $trainer=Trainer::find($id);
-        $trainer->delete();
-        return redirect(url('show-trainer'));
+        $doctor=Doctor::find($id);
+        $doctor->delete();
+        return redirect(url('show-doctors'));
 }
   public function edit ($id) {
-    $trainers=Trainer::find($id);
-    return view('trainer.edit',compact('trainers'));
+    $doctors=Doctor::find($id);
+    return view('doctor.edit',compact('doctors'));
 
   }
   public function update (Request $request){
-
 
         $file_name='';
         if($request->hasfile('photo')){
@@ -57,13 +57,13 @@ class TrainerController extends Controller
         }else{
             $file_name=$request->original;
         }
-    $trainer=Trainer::find($request->id);
-    $trainer->update([
+    $doctor=Doctor::find($request->id);
+    $doctor->update([
         'name'=>$request->name ,
         'title'=>$request->title ,
         'image'=>$file_name
     ]);
-    return redirect(url('show-trainers'));
+    return redirect(url('show'));
   }
 
 }

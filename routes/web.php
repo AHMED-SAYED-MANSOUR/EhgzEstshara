@@ -1,16 +1,16 @@
 <?php
 
-use App\Http\Controllers\CartController;
+use App\Http\Controllers\User\CartController;
 use App\Http\Controllers\ProductController;
 use App\Models\Trainer;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\OfferController;
-use App\Http\Controllers\FeedbackController;
-use App\Http\Controllers\AppointmentController;
-use App\Http\Controllers\DoctorController;
-use App\Http\Controllers\TrainerController;
+use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\Admin\OfferController;
+use App\Http\Controllers\User\FeedbackController;
+use App\Http\Controllers\User\AppointmentController;
+use App\Http\Controllers\Admin\DoctorController;
+use App\Http\Controllers\Admin\TrainerController;
 use App\Http\Controllers\SearchController;
 
 

@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Http\Controllers;
-use App\Models\Doctor;
+namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller;
+use App\Models\Offer;
 use Illuminate\Http\Request;
 
-class DoctorController extends Controller
-{
-    public function show()
+class OfferController extends Controller
+{   public function show()
     {
-        $doctors= Doctor::get();
-        return view('doctor.show',compact('doctors'));
+        $offers= Offer::get();
+        return view('admin.offer.show',compact('offers'));
 
     }
     public function store(Request $request)
@@ -18,7 +18,7 @@ class DoctorController extends Controller
         $request->validate([
             'photo'=>'image|mimes:jpg,jpeg,png',
             'name'=>'required',
-            'title'=>'required|string'
+            'price'=>'required|numeric'
         ]);
         //save the image in folder and get its path
         $file_name='';
@@ -29,25 +29,26 @@ class DoctorController extends Controller
             $filename=Null;
         }
         // insert in DB
-      $doctor = new Doctor();
-      $doctor->name= $request->name;
-      $doctor->title=$request->title;
-      $doctor->image=$filename;
-      $doctor->save() ;
-      return redirect(url('show-doctors'));
+      $offer = new Offer();
+      $offer->name= $request->name;
+      $offer->price=$request->price;
+      $offer->image=$filename;
+      $offer->save() ;
+      return redirect(url('show-offers'));
     }
     //delete
     public function delete($id){
-        $doctor=Doctor::find($id);
-        $doctor->delete();
-        return redirect(url('show-doctors'));
+        $offer=Offer::find($id);
+        $offer->delete();
+        return redirect(url('show-offers'));
 }
   public function edit ($id) {
-    $doctors=Doctor::find($id);
-    return view('doctor.edit',compact('doctors'));
+    $offers=Offer::find($id);
+    return view('admin.offer.edit',compact('offers'));
 
   }
   public function update (Request $request){
+
 
         $file_name='';
         if($request->hasfile('photo')){
@@ -56,13 +57,14 @@ class DoctorController extends Controller
         }else{
             $file_name=$request->original;
         }
-    $doctor=Doctor::find($request->id);
-    $doctor->update([
+    $offer=Offer::find($request->id);
+    $offer->update([
         'name'=>$request->name ,
-        'title'=>$request->title ,
+        'price'=>$request->price ,
         'image'=>$file_name
     ]);
-    return redirect(url('show'));
+    return redirect(url('show-offers'));
   }
+
 
 }
