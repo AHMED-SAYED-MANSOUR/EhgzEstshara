@@ -38,84 +38,79 @@
 
 
 
-       <!-- Navbar Start -->
+<!-- Navbar Start -->
+@include('navbar')
 
-	@include('navbar')
-	  <!-- Navbar End -->
-      @if(Session()->has('success'))
-        <div class="alert alert-success" id="alert">
-            <button type="button"class="close" data-dismiss="alert">x</button>
-            {{session()->get('success')}}
-        </div>
-      @endif
-    <section>
+   <!-- Navbar End -->
+@if(Session()->has('success'))
+    <div class="alert alert-success" id="alert">
+        <button type="button"class="close" data-dismiss="alert">x</button>
+        {{session()->get('success')}}
+    </div>
+@endif
 
+<section>
     <div class="box ">
-    <div class="contact-form ">
-        <h1>Contact Us</h1>
-        <form method="POST" action="/submit-contact-form">
-        {{csrf_field()}}
-        <div class="formbox">
-        <div class="inputbox w50">
-            <input type="text" name="first_name"class=" @error('first_name')is-invalid @enderror" >
-            <span>First Name</span>
-            @error('first_name')
-        <span class="text-danger">{{$message}}
-        @enderror
-        </div>
-        <div class="inputbox w50,sh">
-            <input type="text" name="last_name"  class=" @error('last_name')is-invalid @enderror">
-            <span>Last Name</span>
-            @error('last_name')
-        <span class="text-danger">{{$message}}
-        </div>
-        @enderror
-        </div>
-        </div>
+        <div class="contact-form ">
+            <h1>Contact Us</h1>
+            <form method="POST" action="{{route('submit-contact-form')}}">
 
+                @csrf
 
-        <div class="formBox">
-        <div class="inputbox w50 row ">
-            <input type="text" name="email"  class=" @error('email')is-invalid @enderror">
-            <span>Email Address</span>
-            @error('email')
-        <span class="text-danger">{{$message}}
-        @enderror
-        </div>
+                <div class="formbox">
+                    <div class="inputbox w50">
+                        <input type="text" name="first_name"class=" @error('first_name')is-invalid @enderror" >
+                        <span>First Name</span>
+                        @error('first_name')
+                            <span class="text-danger">{{$message}}
+                        @enderror
+                    </div>
+                    <div class="inputbox w50,sh">
+                        <input type="text" name="last_name"  class=" @error('last_name')is-invalid @enderror">
+                        <span>Last Name</span>
+                        @error('last_name')
+                            <span class="text-danger">{{$message}}
+                        @enderror
+                    </div>
+                </div>
 
-        <div class="inputbox w50 row ">
-            <input type="phone" name="phone" class=" @error('phone')is-invalid @enderror" >
-            <span>Your Phone</span>
-            @error('phone')
-        <span class="text-danger">{{$message}}
-        @enderror
-        </div>
+                <div class="formBox">
+                    <div class="inputbox w50 row ">
+                        <input type="text" name="email"  class=" @error('email')is-invalid @enderror">
+                        <span>Email Address</span>
+                        @error('email')
+                            <span class="text-danger">{{$message}}
+                        @enderror
+                    </div>
+                    <div class="inputbox w50 row ">
+                        <input type="phone" name="phone" class=" @error('phone')is-invalid @enderror" >
+                        <span>Your Phone</span>
+                        @error('phone')
+                            <span class="text-danger">{{$message}}
+                        @enderror
+                    </div>
+                </div>
 
+                <div class="inputbox w100 row ">
+                    <textarea type="text" name="message"  class=" @error('message')is-invalid @enderror"></textarea>
+                    <span>Write your Message here...</span>
+                    @error('message')
+                        <span class="text-danger">{{$message}}
+                    @enderror
+                </div>
 
+                <div class="inputbox w50 row ">
+                    <input type="submit"  value= "Send" name="submit" class="show-modal"></button>
+                </div>
 
-        <div class="inputbox w100 row ">
-            <textarea type="text" name="message"  class=" @error('message')is-invalid @enderror"></textarea>
-            <span>Write your Message here...</span>
-            @error('message')
-        <span class="text-danger">{{$message}}
-        @enderror
-        </div>
-
-
-
-        <div class="inputbox w50 row ">
-            <input type="submit"  value= "Send" name="submit" class="show-modal"></button>
-        </div>
-       </form>
+            </form>
         </div>
     </div>
 
-
-        <div class="contactinfo ">
-            <div>
+    <div class="contactinfo ">
+        <div>
             <h2>contact info</h2>
-
-              <ul class="info">
+            <ul class="info">
                 <li>
                     <span> <i class="fa-solid fa-location-pin"></i></span>
                     <span>9 iran street-dokki</span>
@@ -124,35 +119,30 @@
                     <span> <i class="fa-regular fa-envelope"></i></span>
                     <span>phsyiorevive@gmail.com</span>
                 </li>
-                <li>
-                    <span> <i class="fa-solid fa-phone"></i></span>
+                <li><span>
+                    <i class="fa-solid fa-phone"></i></span>
                     <span>01197035791</span>
                 </li>
             </ul>
-            <ul class="icons">
-                <li><i class="fa-brands fa-facebook"></i></li>
-                <li><i class="fa-brands fa-instagram"></i></li>
-                <li><i class="fa-brands fa-linkedin-in"></i></li>
-            </ul>
+        <ul class="icons">
+            <li><i class="fa-brands fa-facebook"></i></li>
+            <li><i class="fa-brands fa-instagram"></i></li>
+            <li><i class="fa-brands fa-linkedin-in"></i></li>
+        </ul>
         </div>
-
-    <!-- </div>
-    <div class="background">
-        <img src="{{asset('front/images/background.jpeg')}}">
     </div>
-</div> -->
-<section>
 
-    <span class="overlay"></span>
-    <div class="modal-box">
-      <i class="fa-regular fa-circle-check"></i>
-      <h2>Completed</h2>
-      <h3>Your Message have been successfully sent.</h3>
-      <div class="buttons">
-        <button class="close-btn">Ok, Close</button>
-      </div>
-    </div>
-  </section>
+    <section>
+        <span class="overlay"></span>
+        <div class="modal-box">
+            <i class="fa-regular fa-circle-check"></i>
+            <h2>Completed</h2>
+            <h3>Your Message have been successfully sent.</h3>
+            <div class="buttons">
+                <button class="close-btn">Ok, Close</button>
+            </div>
+        </div>
+    </section>
 </section>
 
 

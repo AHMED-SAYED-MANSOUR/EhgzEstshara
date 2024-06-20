@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactCoctroller;
 use App\Http\Controllers\User\CartController;
 use App\Http\Controllers\ProductController;
 use App\Models\Doctor;
@@ -62,7 +63,7 @@ Route::get('/trainers',function(){
 Route::get('/contactus', function () {
     return view('contactus');
 });
-
+Route::post('/send-message', [ContactCoctroller::class, 'send_message'])->name('submit-contact-form');
 
 
  Route::get('/test-db', function () {
