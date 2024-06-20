@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
+use function Laravel\Prompts\alert;
 
 class UserController extends Controller
 {
@@ -67,10 +69,11 @@ class UserController extends Controller
             // Log the user in
             Auth::login($user);
 
+            Session::flash('success', 'Login successful!');
             // Redirect to the homepage or intended page
             return redirect()->intended('/');
         }
-        return "Not Found";
+        return "Failed";
     }
 
     public function sign_up(Request $request)
@@ -84,9 +87,10 @@ class UserController extends Controller
             'gender' => $request['gender'],
         ]);
 
-        if($user)
-            return "Created Successfully";
-        return "Failed";
+        if ($user) {
+            return redirect()->back()->with('success', 'Created Successfully');
+        }
+        return redirect()->back()->with('fail', 'Failed');
     }
 }
 
