@@ -17,7 +17,10 @@ Route::get('/', function () {
 
     // Current User
     $user = Auth::user();
-    $count = CartItem::where('user_id', $user->id)->count();
+    $count = '';
+
+    if ($user)
+        $count = CartItem::where('user_id', $user->id)->count();
 
     // All Trainers
     $trainers = Trainer::get();
@@ -37,7 +40,7 @@ Route::post('/sign_up_route', [UserController::class,'sign_up'])->name('sign_up_
 
 // Logout
 Route::post('/logout', function () {
-    Auth::guard('user')->logout();
+    Auth::logout();
     return redirect('/');
 })->name('logout');
 
@@ -50,7 +53,11 @@ Route::post('/check-email',[UserController::class,'find_email']);
 // Payment
 route::Post('/payment',function(){
     $user = Auth::user();
-    $count = CartItem::where('user_id', $user->id)->count();
+    $count = '';
+
+    if ($user)
+        $count = CartItem::where('user_id', $user->id)->count();
+
     return view('user.payment' , compact('count'));
 });
 
@@ -60,7 +67,11 @@ Route::get('/thankyou',function(){
     $cartItems = Auth::user()->cartItems()->with('product')->get();
 
     $user = Auth::user();
-    $count = CartItem::where('user_id', $user->id)->count();
+    $count = '';
+
+    if ($user)
+        $count = CartItem::where('user_id', $user->id)->count();
+
     return view('user.thankyou' , compact('count'));
 })->name('thankyou');
 

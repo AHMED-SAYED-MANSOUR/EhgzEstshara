@@ -17,7 +17,10 @@ class CartController extends Controller
         $cartItems = Auth::user()->cartItems()->with('product')->get();
 
         $user = Auth::user();
-        $count = CartItem::where('user_id', $user->id)->count();
+        $count = '';
+
+        if ($user)
+            $count = CartItem::where('user_id', $user->id)->count();
 
         return view('cart.index', compact('cartItems' , 'count'));
 

@@ -8,12 +8,13 @@ use App\Http\Controllers\Admin\TrainerController;
 
                         // All Admin Routes
 
-    Route::get('/login', [AdminController::class, 'showLoginForm'])->name('login');
-    Route::post('/login', [AdminController::class, 'login']);
-    Route::post('/logout', [AdminController::class, 'logout'])->name('logout');
+    Route::group(['prefix'=>'admin'], function () {
+        Route::get('/login', [AdminController::class, 'showLoginForm'])->name('admin.login');
+        Route::post('/login', [AdminController::class, 'login'])->name('adminGO');
+        Route::post('/logout', [AdminController::class, 'logout'])->name('admin.logout');
+    });
 
-
-Route::group(['middleware'=>'auth:admin', 'prefix'=>'admin', 'name'=>'admin.'], function (){
+Route::group(['middleware'=>'auth:admin', 'prefix'=>'admin'], function (){
 
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
 
