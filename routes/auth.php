@@ -17,7 +17,10 @@ Route::get('/', function () {
 
     // Current User
     $user = Auth::user();
-    $count = CartItem::where('user_id', $user->id)->count();
+    $count = '';
+
+    if ($user)
+        $count = CartItem::where('user_id', $user->id)->count();
 
     // All Trainers
     $trainers = Trainer::get();
