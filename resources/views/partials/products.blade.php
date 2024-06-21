@@ -18,12 +18,25 @@
                         <p>{{ $newPrice }} LE</p>
                     @else
                         <p>{{ $product->Price }} LE</p>
+
                     @endif
-{{--                    <p class="text-primary">{{ $product->Category }}</p>--}}
+
+                    @if(Auth::check())
+                        <form method="post" action="{{ route('cart.add', ['productId' => $product->id]) }}">
+                            @csrf
+                            <button type="submit" class="btn btn-success">Add to Cart</button>
+                        </form>
+                    @endif
+
                     <div class="team-social text-center">
-                        <a style="padding-right: 10px" class="btn btn-square" href="{{ Auth::check() ? route('cart.index') : route('sign') }}"><i class="fa-solid fa-cart-shopping"></i></a>
-                        <a class="btn btn-square" href="{{ Auth::check() ? route('cart.index') : route('sign') }}"><i class="fa fa-heart"></i></a>
+                        <a style="padding-right: 10px" class="btn btn-square" href="{{ Auth::check() ? route('cart.index') : route('sign') }}">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </a>
+                        <a class="btn btn-square" href="{{ Auth::check() ? route('cart.index') : route('sign') }}">
+                            <i class="fa fa-heart"></i>
+                        </a>
                     </div>
+
                 </div>
             </div>
         </div>
