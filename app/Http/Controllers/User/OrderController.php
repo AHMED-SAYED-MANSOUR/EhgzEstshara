@@ -31,7 +31,7 @@ class OrderController extends Controller
             $cartItem->delete();
         }
 
-        return redirect()->route('orders.index');
+        return redirect()->route('thankyou');
     }
 
     public function index()

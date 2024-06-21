@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CartItem;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
     public function All_Products(Request $request)
     {
         $query = Product::query();
+
 
         // Filtering
         if ($request->filled('category')) {
@@ -77,6 +80,9 @@ class ProductController extends Controller
         // Colors
         $colors = Product::select('Color')->distinct()->get();
 
-        return view('Products', compact('products', 'categories', 'brands', 'materials', 'colors'));
+        $user = Auth::user();
+        $count = CartItem::where('user_id', $user->id)->count();
+
+        return view('Products', compact('products', 'categories', 'brands', 'materials', 'colors' , 'count' ));
     }
 }
