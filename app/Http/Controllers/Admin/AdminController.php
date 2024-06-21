@@ -15,7 +15,6 @@ class AdminController extends Controller
         return view('admin.login');
     }
 
-
     public function login(Request $request)
     {
         // Retrieve the admin user by email
@@ -38,8 +37,6 @@ class AdminController extends Controller
             'email' => 'These credentials do not match our records.',
         ]);
     }
-
-
 
     public function dashboard()
     {
