@@ -81,7 +81,10 @@ class ProductController extends Controller
         $colors = Product::select('Color')->distinct()->get();
 
         $user = Auth::user();
-        $count = CartItem::where('user_id', $user->id)->count();
+        $count = '';
+
+        if ($user)
+            $count = CartItem::where('user_id', $user->id)->count();
 
         return view('Products', compact('products', 'categories', 'brands', 'materials', 'colors' , 'count' ));
     }

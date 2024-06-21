@@ -53,7 +53,11 @@ Route::post('/check-email',[UserController::class,'find_email']);
 // Payment
 route::Post('/payment',function(){
     $user = Auth::user();
-    $count = CartItem::where('user_id', $user->id)->count();
+    $count = '';
+
+    if ($user)
+        $count = CartItem::where('user_id', $user->id)->count();
+
     return view('user.payment' , compact('count'));
 });
 
@@ -63,7 +67,11 @@ Route::get('/thankyou',function(){
     $cartItems = Auth::user()->cartItems()->with('product')->get();
 
     $user = Auth::user();
-    $count = CartItem::where('user_id', $user->id)->count();
+    $count = '';
+
+    if ($user)
+        $count = CartItem::where('user_id', $user->id)->count();
+
     return view('user.thankyou' , compact('count'));
 })->name('thankyou');
 
