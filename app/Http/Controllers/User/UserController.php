@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\CartItem;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -96,8 +97,9 @@ class UserController extends Controller
 
     public function edit_info()
     {
-        $user = Auth::user();
-        return view('user.info', compact('user'));
+        $user = Auth::user(); $user = Auth::user();
+        $count = CartItem::where('user_id', $user->id)->count();
+        return view('user.info', compact('user' , 'count'));
     }
 
     public function update_info(Request $request, $id)

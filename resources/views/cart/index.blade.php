@@ -106,7 +106,7 @@
                     // Optionally, you can update the total price here
                 },
                 error: function(response) {
-                    alert('Error removing item.');
+                    alert('Item removed successfully reload to see the updates.');
                 }
             });
         });
@@ -142,6 +142,34 @@
             });
             $('#total').text(total.toFixed(2));
         }
+
+        $(document).ready(function() {
+            updateTotal(); // Call the function on page load
+
+            // Update total when quantity changes
+            $('.form-control').on('change', function() {
+                updateTotal();
+            });
+
+            $('.remove-btn').on('click', function() {
+                var form = $(this).closest('form');
+                var itemId = form.data('id');
+                var row = $('#cart-item-' + itemId);
+
+                $.ajax({
+                    url: form.attr('action'),
+                    type: 'POST',
+                    data: form.serialize(),
+                    success: function(response) {
+                        row.remove(); // Remove the row from the table
+                        updateTotal(); // Update the total price after removing the item
+                    },
+                    error: function(response) {
+                        alert('Error removing item.');
+                    }
+                });
+            });
+        });
         $('.remove-btn').on('click', function(e){
             e.preventDefault();
             var cartItemId = $(this).closest('.remove-form').data('id');

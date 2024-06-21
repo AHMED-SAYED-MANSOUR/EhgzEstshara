@@ -58,13 +58,19 @@
                         </a>
                     </div>
                 </div>
+                <div >
+                    <a href="{{ route('edit-info') }}" class="icons-btn d-inline-block">
+                        <span class="fa-solid fa-user text-white" style="font-size: 1.5rem;"></span>
+                    </a>
+                </div>
                 <form method="POST" action="{{ route('logout') }}" class="nav-item nav-link text-white">
                     @csrf
                     <button type="submit" class="btn btn-link text-white p-0 m-0">Logout</button>
                 </form>
-                <a href="{{route('edit-info')}}" class="btn btn-link text-white p-0 m-0">info</a>
+
 
             @endauth
+
         </div>
     </nav>
 
