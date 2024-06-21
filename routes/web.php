@@ -3,6 +3,7 @@
 use App\Http\Controllers\ContactCoctroller;
 use App\Http\Controllers\User\CartController;
 use App\Http\Controllers\ProductController;
+use App\Models\CartItem;
 use App\Models\Doctor;
 use App\Models\Trainer;
 use Illuminate\Http\Request;
@@ -34,11 +35,11 @@ Route::get('/', function () {
 
     // Current User
     $user = Auth::user();
-
+    $count = CartItem::where('user_id', $user->id)->count();
     // All Trainers
     $trainers = Trainer::get();
 
-    return view('index', compact('user', 'trainers'));
+    return view('index', compact('user', 'trainers','count'));
 });
 
 
@@ -51,18 +52,24 @@ Route::get('/search', [SearchController::class, 'search'])->name('search');
 // Show Our Doctors
 Route::get('/doctors', function () {
     $doctors = Doctor::get();
-    return view('team', compact('doctors'));
+    $user = Auth::user();
+    $count = CartItem::where('user_id', $user->id)->count();
+    return view('team', compact('doctors' , 'count'));
 });
 
 // Show Our Trainers
 Route::get('/trainers',function(){
     $trainers = Trainer::get();
-    return view('trainers', compact('trainers'));
+    $user = Auth::user();
+    $count = CartItem::where('user_id', $user->id)->count();
+    return view('trainers', compact('trainers' , 'count'));
 });
 
 // Contact Us
 Route::get('/contactus', function () {
-    return view('contactus');
+    $user = Auth::user();
+    $count = CartItem::where('user_id', $user->id)->count();
+    return view('contactus' , compact('count'));
 });
 Route::post('/send-message', [ContactCoctroller::class, 'send_message'])->name('submit-contact-form');
 

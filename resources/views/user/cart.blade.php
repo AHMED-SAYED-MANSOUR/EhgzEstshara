@@ -51,7 +51,7 @@
                 <thead>
                   <tr>
                     <th class="product-thumbnail">Image</th>
-                    <th class="product-name">Product</th>
+                    <th class="product-name">Product Name</th>
                     <th class="product-price">Price</th>
                     <th class="product-quantity">Quantity</th>
                     <th class="product-total">Total</th>
@@ -86,6 +86,7 @@
                   </tr>
 
                 </tbody>
+                @endforeach
               </table>
             </div>
           </form>
@@ -97,23 +98,8 @@
               <div class="col-md-6 mb-3 mb-md-0">
                 <button class="btn btn btn-md ">Update Cart</button>
               </div>
-              <div class="col-md-6">
-                <button class="btn  btn-block">Continue Shopping</button>
-              </div>
             </div>
-             <!-- <div class="row">
-               <div class="col-md-12">
-                <label class="text-black h4" for="coupon">Coupon</label>
-                <p>Enter your coupon code if you have one.</p>
-              </div>
-              <div class="col-md-8 mb-3 mb-md-0">
-                <input type="text" class="form-control py-3" id="coupon" placeholder="Coupon Code">
-              </div>
-              <div class="col-md-4">
-                <button class="btn  btn-md px-4">Apply Coupon</button>
-              </div>
-            </div>
-          </div> -->
+
           <div class="row cart" >
           <div class="col-md-6 ">
             <div class="row justify-content-end">
@@ -142,8 +128,7 @@
 </div>
                 <div class="row">
                   <div class="col-md-12">
-                    <button class="btn  btn-md " onclick="window.location='checkout.html'">Proceed To
-                      Checkout</button>
+                    <button class="btn  btn-md " onclick="window.location='checkout.html'">Proceed To Checkout</button>
                   </div>
                 </div>
               </div>

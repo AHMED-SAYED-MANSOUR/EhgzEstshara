@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Cart;
+use App\Models\CartItem;
 use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -14,12 +15,26 @@ class CartController extends Controller
     public function index()
     {
         $cartItems = Auth::user()->cartItems()->with('product')->get();
-        return view('cart.index', compact('cartItems'));
+
+        $user = Auth::user();
+        $count = CartItem::where('user_id', $user->id)->count();
+
+        return view('cart.index', compact('cartItems' , 'count'));
 
 //        return Auth::user()->cartItems()->with('product')->get();
-
-
     }
+//    public function updateCartNavBar(){
+//        $user = Auth::user();
+//        $count = CartItem::where('user_id', $user->id)->count();
+////        return response()->json(['count' => $count]);
+//    }
+
+    public function getCartItemCount()
+    {
+        $count = Cart::count(); // Assuming you're using a package like Laravel Shopping Cart
+        return response()->json(['count' => $count]);
+    }
+
 
     public function add(Request $request, $productId)
     {
@@ -29,14 +44,17 @@ class CartController extends Controller
         if ($cartItem) {
             $cartItem->quantity += 1;
             $cartItem->save();
+//            return redirect()->route('cart.index');
         } else {
             Auth::user()->cartItems()->create([
                 'product_id' => $productId,
+                'price'=> $product->Price ,
                 'quantity' => 1
+
             ]);
         }
 
-        return redirect()->route('cart.index');
+        return redirect()->route('products.index');
     }
 
     public function update(Request $request, $cartId)
@@ -50,7 +68,7 @@ class CartController extends Controller
 
     public function delete($cartId)
     {
-        Cart::find($cartId)->delete();
+        CartItem::find($cartId)->delete();
         return redirect()->route('cart.index');
     }
 }

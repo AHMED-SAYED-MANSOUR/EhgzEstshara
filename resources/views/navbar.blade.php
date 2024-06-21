@@ -51,10 +51,12 @@
 
             @auth
                 <div>
-                    <a href="{{ url('/cart') }}" class="icons-btn d-inline-block bag">
-                        <span class="fa-solid fa-cart-shopping"></span>
-                        <span class="number">2</span>
-                    </a>
+                    <div>
+                        <a href="{{ route('cart.index') }}" class="icons-btn d-inline-block bag">
+                            <span class="fa-solid fa-cart-shopping">{{$count}}</span>
+                            <span id="cartItemCount" class="number">{{$count}}</span>
+                        </a>
+                    </div>
                 </div>
                 <form method="POST" action="{{ auth()->guard('admin')->check() ? route('admin.logout') : route('logout') }}" class="nav-item nav-link text-white">
                     @csrf
@@ -120,6 +122,16 @@
         </div>
     </div>
 </form>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        fetch('/cart/items/count')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('cartItemCount').textContent = data.count;
+            });
+    });
+</script>
+
 <script>
     document.querySelector('.js-search-open').addEventListener('click', function(event) {
         event.preventDefault();
