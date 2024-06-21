@@ -56,7 +56,7 @@
                         <span class="number">2</span>
                     </a>
                 </div>
-                <form method="POST" action="{{ route('logout') }}" class="nav-item nav-link text-white">
+                <form method="POST" action="{{ auth()->guard('admin')->check() ? route('admin.logout') : route('logout') }}" class="nav-item nav-link text-white">
                     @csrf
                     <button type="submit" class="btn btn-link text-white p-0 m-0">Logout</button>
                 </form>

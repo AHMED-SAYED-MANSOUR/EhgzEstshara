@@ -35,7 +35,7 @@ Route::post('/sign_up_route', [UserController::class,'sign_up'])->name('sign_up_
 
 // Logout
 Route::post('/logout', function () {
-    Auth::guard('user')->logout();
+    Auth::logout();
     return redirect('/');
 })->name('logout');
 
