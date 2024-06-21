@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\ContactCoctroller;
-use App\Http\Controllers\User\CartController;
 use App\Http\Controllers\ProductController;
 use App\Models\CartItem;
 use App\Models\Doctor;
@@ -9,12 +8,7 @@ use App\Models\Trainer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\User\UserController;
-use App\Http\Controllers\Admin\OfferController;
-use App\Http\Controllers\User\FeedbackController;
 use App\Http\Controllers\User\AppointmentController;
-use App\Http\Controllers\Admin\DoctorController;
-use App\Http\Controllers\Admin\TrainerController;
 use App\Http\Controllers\SearchController;
 
 
