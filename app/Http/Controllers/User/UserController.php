@@ -92,6 +92,34 @@ class UserController extends Controller
         }
         return redirect()->back()->with('fail', 'Failed');
     }
+
+
+    public function edit_info()
+    {
+        $user = Auth::user();
+        return view('user.info', compact('user'));
+    }
+
+    public function update_info(Request $request, $id)
+    {
+        $user = User::find($id);
+
+        if ($user) {
+            $user->name = $request['name'];
+            $user->email = $request['email'];
+            $user->phone = $request['phone'];
+            $user->password = bcrypt($request['password']); // Encrypting the password
+            $user->DOB = $request['DOB'];
+            $user->gender = $request['gender'];
+            $user->save();
+
+            return redirect()->back()->with('success', 'Updated Successfully');
+        }
+
+        return redirect()->back()->with('fail', 'User Not Found');
+    }
+
+
 }
 
 

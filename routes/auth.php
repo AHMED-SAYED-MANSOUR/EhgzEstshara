@@ -37,7 +37,7 @@ Route::post('/sign_up_route', [UserController::class,'sign_up'])->name('sign_up_
 
 // Logout
 Route::post('/logout', function () {
-    Auth::logout();
+    Auth::guard('user')->logout();
     return redirect('/');
 })->name('logout');
 
@@ -80,3 +80,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
     Route::patch('/orders/update-status/{orderId}/{status}', [OrderController::class, 'updateStatus'])->name('orders.update-status');
 });
+
+
+Route::get('/edit_info', [UserController::class, 'edit_info'])->name('edit-info')->middleware('auth');
+Route::post('/update_info/{user_id}', [UserController::class, 'update_info'])->name('update-info')->middleware('auth');
