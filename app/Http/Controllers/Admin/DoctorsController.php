@@ -5,7 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Doctor;
 use Illuminate\Http\Request;
 
-class DoctorController extends Controller
+class DoctorsController extends Controller
 {
     public function show()
     {

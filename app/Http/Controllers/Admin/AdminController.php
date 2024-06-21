@@ -38,14 +38,40 @@ class AdminController extends Controller
         ]);
     }
 
-    public function dashboard()
-    {
-        return view('admin.home');
-    }
-
     public function logout(Request $request)
     {
         Auth::guard('admin')->logout();
         return redirect()->route('admin.login');
     }
+
+    public function dashboard()
+    {
+//        $admin = Auth::guard('admin');
+        $admin = Admin::find(1);
+        return view('admin.home', compact('admin'));
+    }
+
+    public function edit_admin_info($id)
+    {
+        $admin = Admin::find(1);
+        return view('admin.edit_info', compact('admin'));
+    }
+
+    public function update_admin_info(Request $request, $id)
+    {
+        $admin = Admin::find(1);
+
+        if ($admin) {
+            $admin->name = $request['name'];
+            $admin->email = $request['email'];
+            $admin->password = ($request['password']); // Not Encrypted
+            $admin->save();
+
+            return redirect()->back()->with('success', 'Updated Successfully');
+        }
+
+        return redirect()->back()->with('fail', 'Admin Not Found');
+
+    }
+
 }

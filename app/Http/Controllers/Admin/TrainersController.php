@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
-use App\Models\Offer;
+use App\Models\Trainer;
 use Illuminate\Http\Request;
 
-class OfferController extends Controller
-{   public function show()
+class TrainersController extends Controller
+{
+    public function show()
     {
-        $offers= Offer::get();
-        return view('admin.offer.show',compact('offers'));
+        $trainers= Trainer::get();
+        return view('trainer.show',compact('trainers'));
 
     }
     public function store(Request $request)
@@ -18,7 +19,7 @@ class OfferController extends Controller
         $request->validate([
             'photo'=>'image|mimes:jpg,jpeg,png',
             'name'=>'required',
-            'price'=>'required|numeric'
+            'title'=>'required|string'
         ]);
         //save the image in folder and get its path
         $file_name='';
@@ -29,22 +30,22 @@ class OfferController extends Controller
             $filename=Null;
         }
         // insert in DB
-      $offer = new Offer();
-      $offer->name= $request->name;
-      $offer->price=$request->price;
-      $offer->image=$filename;
-      $offer->save() ;
-      return redirect(url('show-offers'));
+      $trainer = new Trainer();
+      $trainer->name= $request->name;
+      $trainer->title=$request->title;
+      $trainer->image=$filename;
+      $trainer->save() ;
+      return redirect(url('show-trainers'));
     }
     //delete
     public function delete($id){
-        $offer=Offer::find($id);
-        $offer->delete();
-        return redirect(url('show-offers'));
+        $trainer=Trainer::find($id);
+        $trainer->delete();
+        return redirect(url('show-trainer'));
 }
   public function edit ($id) {
-    $offers=Offer::find($id);
-    return view('admin.offer.edit',compact('offers'));
+    $trainers=Trainer::find($id);
+    return view('trainer.edit',compact('trainers'));
 
   }
   public function update (Request $request){
@@ -57,14 +58,13 @@ class OfferController extends Controller
         }else{
             $file_name=$request->original;
         }
-    $offer=Offer::find($request->id);
-    $offer->update([
+    $trainer=Trainer::find($request->id);
+    $trainer->update([
         'name'=>$request->name ,
-        'price'=>$request->price ,
+        'title'=>$request->title ,
         'image'=>$file_name
     ]);
-    return redirect(url('show-offers'));
+    return redirect(url('show-trainers'));
   }
-
 
 }
