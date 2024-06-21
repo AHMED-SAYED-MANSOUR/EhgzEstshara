@@ -8,54 +8,40 @@ use App\Http\Controllers\Admin\TrainerController;
 
                         // All Admin Routes
 
-    Route::group(['prefix'=>'admin'], function () {
-        Route::get('/login', [AdminController::class, 'showLoginForm'])->name('admin.login');
-        Route::post('/login', [AdminController::class, 'login'])->name('adminGO');
-        Route::post('/logout', [AdminController::class, 'logout'])->name('admin.logout');
-    });
 
-Route::group(['middleware'=>'auth:admin', 'prefix'=>'admin'], function (){
+// Admin login and logout routes
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('/login', [AdminController::class, 'showLoginForm'])->name('admin.login');
+    Route::post('/login', [AdminController::class, 'login'])->name('adminGO');
+    Route::post('/logout', [AdminController::class, 'logout'])->name('admin.logout');
+});
 
-    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
+// Protected admin routes
+Route::group(['middleware' => 'auth:admin', 'prefix' => 'admin'], function () {
+    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
 
+    Route::view('/create-offer', 'admin.offer.create');
+    Route::view('/show-offers', 'admin.offer.show');
+    Route::view('/create-doctor', 'admin.doctor.create');
+    Route::view('/show-doctors', 'admin.doctor.show');
+    Route::view('/create-trainer', 'admin.trainer.create');
+    Route::view('/show-trainers', 'admin.trainer.show');
 
-    route::get('/create-offer',function(){
-        return view('admin.offer.create');
-    });
-    route::get('/show-offers',function(){
-        return view('admin.offer.show');
-    });
-    route::get('/create-doctor',function(){
-        return view('admin.doctor.create');
-    });
-    route::get('/show-doctors',function(){
-        return view('admin.doctor.show');
-    });
-    route::get('/create-trainer',function(){
-        return view('admin.trainer.create');
-    });
-    route::get('/show-trainers',function(){
-        return view('trainer.show');
-    });
+    Route::post('/save-offer', [OfferController::class, 'store']);
+    Route::get('/show-offers', [OfferController::class, 'show']);
+    Route::get('/delete-offers/{id}', [OfferController::class, 'delete']);
+    Route::get('/edit-offers/{id}', [OfferController::class, 'edit']);
+    Route::post('/offer-update', [OfferController::class, 'update']);
 
-    route::post('/save-offer',[offerController::class,'store']);
-    route::get('/show-offers',[offerController::class,'show']);
-    route::get('/delete-offers/{id}',[offerController::class,'delete']);
-    route::get('/edit-offers/{id}',[offerController::class,'edit']);
-    route::post('/offer-update',[offerController::class,'update']);
+    Route::post('/save', [DoctorController::class, 'store']);
+    Route::get('/show', [DoctorController::class, 'show']);
+    Route::get('/delete-doctors/{id}', [DoctorController::class, 'delete']);
+    Route::get('/edit-doctors/{id}', [DoctorController::class, 'edit']);
+    Route::post('/update-doctors', [DoctorController::class, 'update']);
 
-    route::post('/save',[doctorController::class,'store']);
-    route::get('/show',[doctorController::class,'show']);
-    route::get('/delete-doctors/{id}',[doctorController::class,'delete']);
-    route::get('/edit-doctors/{id}',[doctorController::class,'edit']);
-    route::post('/update-doctors',[doctorController::class,'update']);
-
-    route::post('/save-trainers',[trainerController::class,'store']);
-    route::get('/show-trainers',[trainerController::class,'show']);
-    route::get('/delete-trainers/{id}',[trainerController::class,'delete']);
-    route::get('/edit-trainers/{id}',[trainerController::class,'edit']);
-    route::post('/trainer-update',[trainerController::class,'update']);
-
-
-
+    Route::post('/save-trainers', [TrainerController::class, 'store']);
+    Route::get('/show-trainers', [TrainerController::class, 'show']);
+    Route::get('/delete-trainers/{id}', [TrainerController::class, 'delete']);
+    Route::get('/edit-trainers/{id}', [TrainerController::class, 'edit']);
+    Route::post('/trainer-update', [TrainerController::class, 'update']);
 });
