@@ -32,6 +32,10 @@
                         $count = App\Models\CartItem::where('user_id', $user->id)->count();
                     else
                         $count = 0;
+
+                    // retrieve Doctors
+                    $doctors = App\Models\Doctor::get();
+
                 @endphp
 
 
@@ -109,15 +113,17 @@
                     <span class="text-danger" id="time-error"></span>
                 </div>
 
-                <div class="col-xl-6">
-                    <select class="form-select wide" id="default-select" name="doctor">
-                        <option value="" disabled selected>Select Doctor</option>
-                        <option value="Mirazul Alom">Mirazul Alom</option>
-                        <option value="Monzul Alom">Monzul Alom</option>
-                        <option value="Azizul Isalm">Azizul Isalm</option>
-                    </select>
-                    <span class="text-danger" id="doctor-error"></span>
-                </div>
+
+                    <div class="col-xl-6">
+                        <select class="form-select wide" id="default-select" name="doctor">
+                            @foreach ($doctors as $doctor)
+                            <option value="{{$doctor->name}}">{{$doctor->name}}</option>
+                            @endforeach
+                        </select>
+                        <span class="text-danger" id="doctor-error"></span>
+                    </div>
+
+
 
                 <div class="col-xl-6">
                     <input type="text" name="name" placeholder="Name" value="{{ old('name', $user->name ?? '') }}">
