@@ -13,6 +13,10 @@
     <link rel="stylesheet" href="{{asset('back/dist/css/adminlte.min.css')}}">
 </head>
 <body class="hold-transition sidebar-mini">
+
+@php
+    $admin = Illuminate\Support\Facades\Auth::guard('admin')->user();
+@endphp
 <div class="wrapper">
     @auth('admin')
         <!-- Navbar -->

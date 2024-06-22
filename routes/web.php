@@ -29,26 +29,17 @@ Route::get('/', function () {
 
     // Current User
     $user = Auth::user();
-    $count = '';
-
-    if ($user)
-        $count = CartItem::where('user_id', $user->id)->count();
 
     // All Trainers
     $trainers = Trainer::get();
 
-    return view('index', compact('user', 'trainers','count'));
+    return view('index', compact('user', 'trainers'));
 });
 
 // Shope
 Route::get('/oldshop', function () {
-    $user = Auth::user();
-    $count = '';
 
-    if ($user)
-        $count = CartItem::where('user_id', $user->id)->count();
-
-    return view('shop' , compact('count'));
+    return view('shop');
 });
 
 // Sections
@@ -80,38 +71,24 @@ Route::get('/search', [SearchController::class, 'search'])->name('search');
 // Show Our Doctors
 Route::get('/doctors', function () {
     $doctors = Doctor::get();
-    $user = Auth::user();
-    $count = '';
 
-    if ($user)
-        $count = CartItem::where('user_id', $user->id)->count();
-
-    return view('team', compact('doctors' , 'count'));
+    return view('team', compact('doctors' ));
 });
 
 
 // Show Our Trainers
 Route::get('/trainers',function(){
     $trainers = Trainer::get();
-    $user = Auth::user();
-    $count = '';
 
-    if ($user)
-        $count = CartItem::where('user_id', $user->id)->count();
-
-    return view('trainers', compact('trainers' , 'count'));
+    return view('trainers', compact('trainers'));
 });
 
 // Contact Us
 Route::get('/contactus', function () {
-    $user = Auth::user();
-    $count = '';
 
-    if ($user)
-        $count = CartItem::where('user_id', $user->id)->count();
-
-    return view('contactus' , compact('count'));
+    return view('contactus');
 });
+
 Route::post('/send-message', [ContactCoctroller::class, 'send_message'])->name('submit-contact-form');
 
 

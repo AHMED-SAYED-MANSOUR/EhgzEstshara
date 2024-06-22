@@ -17,15 +17,10 @@ Route::get('/', function () {
 
     // Current User
     $user = Auth::user();
-    $count = '';
 
-    if ($user)
-        $count = CartItem::where('user_id', $user->id)->count();
-
-    // All Trainers
     $trainers = Trainer::get();
 
-    return view('index', compact('user', 'trainers' , 'count'));
+    return view('index', compact('user', 'trainers'));
 });
 
 
@@ -52,39 +47,26 @@ Route::post('/check-email',[UserController::class,'find_email']);
 
 // Payment
 route::Post('/payment',function(){
-    $user = Auth::user();
-    $count = '';
 
-    if ($user)
-        $count = CartItem::where('user_id', $user->id)->count();
-
-    return view('user.payment' , compact('count'));
+    return view('user.payment');
 });
 
 
 // Thank Page After Payment
 Route::get('/thankyou',function(){
-    $cartItems = Auth::user()->cartItems()->with('product')->get();
 
-    $user = Auth::user();
-    $count = '';
+    return view('user.thankyou');
 
-    if ($user)
-        $count = CartItem::where('user_id', $user->id)->count();
-
-    return view('user.thankyou' , compact('count'));
 })->name('thankyou');
 
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
     Route::get('/cart/count', [CartController::class, 'updateCartNavBar'])->name('cart.updateCartNavBar');
-//    Route::get('/cart/items/count', 'CartController@getCartItemCount');
 
     Route::post('/cart/add/{productId}', [CartController::class, 'add'])->name('cart.add');
     Route::patch('/cart/update/{cartId}', [CartController::class, 'update'])->name('cart.update');
     Route::delete('/cart/delete/{cartId}', [CartController::class, 'delete'])->name('cart.delete');
-
 
 
     Route::post('/orders/create', [OrderController::class, 'create'])->name('orders.create');

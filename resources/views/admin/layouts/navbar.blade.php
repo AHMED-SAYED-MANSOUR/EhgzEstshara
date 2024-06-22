@@ -9,6 +9,9 @@
             <a href="{{route('admin.dashboard')}}" class="nav-link">Home</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
+            <a href="{{route('admin.edit.info', ['id' => $admin->id])}}" class="nav-link">Admin Information</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
             <form method="POST" action="{{route('admin.logout')}}">
                 @csrf
                 <button type="submit" >Logout</button>

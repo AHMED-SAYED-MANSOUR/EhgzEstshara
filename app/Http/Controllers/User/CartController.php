@@ -16,22 +16,9 @@ class CartController extends Controller
     {
         $cartItems = Auth::user()->cartItems()->with('product')->get();
 
-        $user = Auth::user();
-        $count = '';
+        return view('cart.index', compact('cartItems'));
 
-        if ($user)
-            $count = CartItem::where('user_id', $user->id)->count();
-
-        return view('cart.index', compact('cartItems' , 'count'));
-
-//        return Auth::user()->cartItems()->with('product')->get();
     }
-//    public function updateCartNavBar(){
-//        $user = Auth::user();
-//        $count = CartItem::where('user_id', $user->id)->count();
-////        return response()->json(['count' => $count]);
-//    }
-
     public function getCartItemCount()
     {
         $count = Cart::count(); // Assuming you're using a package like Laravel Shopping Cart
