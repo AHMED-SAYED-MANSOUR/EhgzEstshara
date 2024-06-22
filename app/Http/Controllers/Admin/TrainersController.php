@@ -4,67 +4,79 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Trainer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class TrainersController extends Controller
 {
     public function show()
     {
-        $trainers= Trainer::get();
-        return view('trainer.show',compact('trainers'));
-
+        $trainers = Trainer::all();
+        return view('admin.trainer.show', compact('trainers'));
     }
+
+    public function create()
+    {
+        return view('admin.trainer.create');
+    }
+
     public function store(Request $request)
     {
-        //validate the request
-        $request->validate([
-            'photo'=>'image|mimes:jpg,jpeg,png',
-            'name'=>'required',
-            'title'=>'required|string'
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'title' => 'required|string|max:255',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif',
+            'facebook' => 'nullable|url',
+            'instagram' => 'nullable|url',
+            'twitter' => 'nullable|url',
         ]);
-        //save the image in folder and get its path
-        $file_name='';
-        if($request->hasfile('photo')){
-            $filename=$request->photo->getClientOriginalName();
-            $request->photo->move(public_path('images/'),$filename);
-        }else{
-            $filename=Null;
+
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('public/images/Trainers');
+            $validated['image'] = $imagePath;
         }
-        // insert in DB
-      $trainer = new Trainer();
-      $trainer->name= $request->name;
-      $trainer->title=$request->title;
-      $trainer->image=$filename;
-      $trainer->save() ;
-      return redirect(url('show-trainers'));
+
+        Trainer::create($validated);
+
+        return redirect()->route('admin.trainers.show')->with('success', 'Trainer created successfully.');
     }
-    //delete
-    public function delete($id){
-        $trainer=Trainer::find($id);
-        $trainer->delete();
-        return redirect(url('show-trainer'));
-}
-  public function edit ($id) {
-    $trainers=Trainer::find($id);
-    return view('trainer.edit',compact('trainers'));
 
-  }
-  public function update (Request $request){
+    public function edit($id)
+    {
+        $trainer = Trainer::findOrFail($id);
+        return view('admin.trainer.edit', compact('trainer'));
+    }
 
+    public function update(Request $request, $id)
+    {
+        $trainer = Trainer::findOrFail($id);
 
-        $file_name='';
-        if($request->hasfile('photo')){
-            $file_name=$request->photo->getClientOriginalName();
-            $request->photo->move(public_path('images/'),$file_name);
-        }else{
-            $file_name=$request->original;
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'title' => 'required|string|max:255',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif',
+            'facebook' => 'nullable|url',
+            'instagram' => 'nullable|url',
+            'twitter' => 'nullable|url',
+        ]);
+
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('public/images/Trainers');
+            if ($trainer->image !== null) {
+                Storage::delete($trainer->image);
+            }
+            $validated['image'] = $imagePath;
         }
-    $trainer=Trainer::find($request->id);
-    $trainer->update([
-        'name'=>$request->name ,
-        'title'=>$request->title ,
-        'image'=>$file_name
-    ]);
-    return redirect(url('show-trainers'));
-  }
 
+        $trainer->update($validated);
+
+        return redirect()->route('admin.trainers.show')->with('success', 'Trainer updated successfully.');
+    }
+
+    public function delete($id)
+    {
+        $trainer = Trainer::findOrFail($id);
+        $trainer->delete();
+
+        return redirect()->route('admin.trainers.show')->with('success', 'Trainer deleted successfully.');
+    }
 }

@@ -1,44 +1,56 @@
 @extends('dashboard')
 @section('title')
-create new Trainers
+    Edit Trainer
 @endsection
 @section('content')
-    <div class="card">
-      <div class="card-header">
-        <a href="{{url('show')}}" class="btn btn-success">Show Trainers</a>
-      </div>
-  <div class="card-body">
+    <div class="container mt-5">
+        <h1>Edit Trainer</h1>
 
-    @if(count($errors) > 0)
-    <div class="alert alert-danger">
-      @foreach($errors->all() as $error)
-         <li>{{ $error }}</li>
-    @endforeach
-    </div>
-    @endif
-
-    <form method="post" action="{{url('trainer-update')}}" enctype="multipart/form-data">
-      {{csrf_field()}}
-      <input type="hidden" name="id" class="form-control  mb-3 py-4" value= "{{$trainers->id}}">
-        <label>Trainer Name:</label>
-
-        <input type="text" name="name" placeholder="Offer Name" class="form-control mb-3 py-4"  value="{{$trainers->name}}">
-        <label>Trainer title:</label>
-
-        <input type="text" name="title" placeholder="Offer price" class="form-control  mb-3 py-4" value= "{{$trainers->title}}">
-
-        <label>Trainer photo:</label>
-        <br>
-        @if( $trainers->image != NULL)
-                <img src="{{asset('images/' . $trainers->image)}}"
-                style="width:90px,height:90px">
-
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
         @endif
 
-          <input type="text" name="original" class="form-control  mb-3 py-4" value="{{$trainers->image}}">
-        <input type="file" name="photo" placeholder="Offer photo" class="form-control mb-3 px-4 pt-3 pb-5">
-        <div class="text-center"><input type='submit' value="save changes" class="btn btn-success mt-4"></div>
-    </form>
-  </div>
-</div>
+        <form action="{{ route('admin.trainer.update', ['id' => $trainer->id]) }}" method="POST" enctype="multipart/form-data">
+            @csrf
+
+            <div class="form-group mb-3">
+                <label for="name">Name</label>
+                <input type="text" name="name" class="form-control" id="name" value="{{ $trainer->name }}">
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="title">Title</label>
+                <input type="text" name="title" class="form-control" id="title" value="{{ $trainer->title }}">
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="image">Image</label>
+                <input type="file" name="image" class="form-control">
+                <img src="{{ Storage::url($trainer->image) }}" alt="Trainer Image" width="100">
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="facebook">Facebook</label>
+                <input type="url" name="facebook" class="form-control" id="facebook" value="{{ $trainer->facebook }}">
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="instagram">Instagram</label>
+                <input type="url" name="instagram" class="form-control" id="instagram" value="{{$trainer->instagram}}">
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="twitter">Twitter</label>
+                <input type="url" name="twitter" class="form-control" id="twitter" value="{{$trainer->twitter}}">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Update Trainer</button>
+        </form>
+    </div>
 @endsection

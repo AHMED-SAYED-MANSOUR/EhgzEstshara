@@ -90,8 +90,6 @@ Route::post('/user-delete/{id}', [UsersController::class, 'delete'])->name('admi
 
                         // Appointments
 Route::get('/appointments-show', [AppointmentsController::class, 'show'])->name('admin.appointments.show');
-Route::get('/appointment-create', [AppointmentsController::class, 'create'])->name('admin.appointment.create');
-Route::post('/appointment-store', [AppointmentsController::class, 'store'])->name('admin.appointment.store');
 Route::get('/appointment/edit/{id}', [AppointmentsController::class, 'edit'])->name('admin.appointment.edit');
 Route::post('/appointment/update/{id}', [AppointmentsController::class, 'update'])->name('admin.appointment.update');
 Route::post('/appointment-delete/{id}', [AppointmentsController::class, 'delete'])->name('admin.appointment.delete');
@@ -100,8 +98,6 @@ Route::post('/appointment-delete/{id}', [AppointmentsController::class, 'delete'
 
                         // Connection Messages
 Route::get('/connection_messages-show', [ConnectionMessagesController::class, 'show'])->name('admin.connection_messages.show');
-Route::get('/connection_message-create', [ConnectionMessagesController::class, 'create'])->name('admin.connection_message.create');
-Route::post('/connection_message-store', [ConnectionMessagesController::class, 'store'])->name('admin.connection_message.store');
 Route::get('/connection_message/edit/{id}', [ConnectionMessagesController::class, 'edit'])->name('admin.connection_message.edit');
 Route::post('/connection_message/update/{id}', [ConnectionMessagesController::class, 'update'])->name('admin.connection_message.update');
 Route::post('/connection_message-delete/{id}', [ConnectionMessagesController::class, 'delete'])->name('admin.connection_message.delete');

@@ -3,14 +3,20 @@
 show offers
 @endsection
 @section('content')
-<table class="table table-bordered">
+
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    <table class="table table-bordered">
     <thead>
         <th>offer name</th>
         <th>offer price</th>
         <th>offer photo</th>
     </thead>
     <tbody>
-
             @foreach( $offers as $offer)
             <tr>
             <td >{{$offer->name}}</td>

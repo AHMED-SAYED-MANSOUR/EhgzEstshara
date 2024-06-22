@@ -1,34 +1,49 @@
 @extends('dashboard')
 @section('title')
-show Trainer
+    All Trainers
 @endsection
 @section('content')
-<table class="table table-bordered">
-    <thead>
-        <th>Trainer name</th>
-        <th>Trainer title</th>
-        <th>Trainer photo</th>
-    </thead>
-    <tbody>
+        <h1>All Trainers</h1>
+        <a href="{{ route('admin.trainer.create') }}" class="btn btn-primary mb-3">Create Trainer</a>
 
-            @foreach( $trainers as $trainer)
+        @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+
+        <table class="table">
+            <thead>
             <tr>
-            <td >{{$trainer->name}}</td>
-            <td class="text-center">{{$trainer->title}}</td>
-            <td class="text-center">
-                @if($trainer->image != NULL)
-                <img src="{{asset('images/' . $trainer->image)}}"
-                style="width:10px,height:10px">
-                @else
-                {{'No Photo'}}
-                @endif
-            </td>
-            <td class="text-center">
-                <A href="{{url('edit-trainers',$trainer->id)}}" class="btn btn-primary btn-sm">Edit</A>
-                <A href="{{url('delete-trainers',$trainer->id)}}" class="btn btn-danger btn-sm">delete</A>
-            </td>
-        </tr>
-        @endforeach
-    </tbody>
-</table>
+                <th>Name</th>
+                <th>Title</th>
+                <th>Image</th>
+                <th>Facebook</th>
+                <th>Instagram</th>
+                <th>Twitter</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach($trainers as $trainer)
+                <tr>
+                    <td>{{ $trainer->name }}</td>
+                    <td>{{ $trainer->title }}</td>
+                    <td><img src="{{ asset('images/Trainers/' . $trainer->image) }}" alt="Trainer Image" width="100"></td>
+                    <td><a href="{{ $trainer->facebook }}" target="_blank">{{ $trainer->facebook }}</a></td>
+                    <td><a href="{{ $trainer->instagram }}" target="_blank">{{ $trainer->instagram }}</a></td>
+                    <td><a href="{{ $trainer->twitter }}" target="_blank">{{ $trainer->twitter }}</a></td>
+                    <td>
+                        <div class="btn-group" role="group">
+                            <a href="{{ route('admin.trainer.edit', $trainer->id) }}" class="btn btn-warning">Edit</a>
+                            <form action="{{ route('admin.trainer.delete', $trainer->id) }}" method="POST" style="display:inline;">
+                                @csrf
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
 @endsection
