@@ -98,63 +98,60 @@
                         @enderror
                     </div>
 
-                    <div class="inputbox w50 row">
-                        <label for="gender" class="form-label">Gender</label>
-                        <div class="gender-selection">
-                            <input type="radio" id="male" name="gender" value="male" {{ $user->gender == 'male' ? 'checked' : '' }}>
-                            <label for="male">Male</label>
-                            <input type="radio" id="female" name="gender" value="female" {{ $user->gender == 'female' ? 'checked' : '' }}>
-                            <label for="female">Female</label>
-                        </div>
-                        @error('gender')
-                        <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                    </div>
+{{--                    <div class="inputbox w50 row">--}}
+{{--                        <label for="gender" class="form-label">Gender</label>--}}
+{{--                        <div class="gender-selection">--}}
+{{--                            <input type="radio" id="male" name="gender" value="male" {{ $user->gender == 'male' ? 'checked' : '' }}>--}}
+{{--                            <label for="male">Male</label>--}}
+{{--                            <input type="radio" id="female" name="gender" value="female" {{ $user->gender == 'female' ? 'checked' : '' }}>--}}
+{{--                            <label for="female">Female</label>--}}
+{{--                        </div>--}}
+{{--                        @error('gender')--}}
+{{--                        <span class="text-danger">{{ $message }}</span>--}}
+{{--                        @enderror--}}
+{{--                    </div>--}}
 
                         <input type="hidden" name="updated_at" value="{{now()}}">
                     <div class="inputbox w50 row ">
                         <input type="submit"  value="Update" name="submit" class="show-modal">
                     </div>
+                </div>
             </form>
         </div>
     </div>
+{{--    @php--}}
+{{--        $user = Illuminate\Support\Facades\Auth::user();--}}
+{{--        $appointments = App\Models\Appointment::where('user_id', $user->id)->get();--}}
+{{--    @endphp--}}
 
+    <div class="contact-info">
+        <h2>Your Appointments</h2>
+        <ul class="info">
+            @forelse($appointments as $appointment)
+                <li>
+                    <span><i class="fa-solid fa-calendar"></i></span>
+                    <span>Date: {{ $appointment->date }}</span>
+                </li>
+                <li>
+                    <span><i class="fa-solid fa-clock"></i></span>
+                    <span>Time: {{ $appointment->time }}</span>
+                </li>
+                <li>
+                    <span><i class="fa-solid fa-user-md"></i></span>
+                    <span>Doctor: {{ $appointment->doctor }}</span>
+                </li>
+            @empty
+                <li>No appointments found.</li>
+            @endforelse
+        </ul>
+    </div>
 
-    <div class="contactinfo ">
-        <div>
-            <h2>contact info</h2>
-            <ul class="info">
-                <li>
-                    <span> <i class="fa-solid fa-location-pin"></i></span>
-                    <span>9 iran street-dokki</span>
-                </li>
-                <li>
-                    <span> <i class="fa-regular fa-envelope"></i></span>
-                    <span>phsyiorevive@gmail.com</span>
-                </li>
-                <li>
-                    <span> <i class="fa-solid fa-phone"></i></span>
-                    <span>01197035791</span>
-                </li>
-            </ul>
-            <ul class="icons">
-                <li><i class="fa-brands fa-facebook"></i></li>
-                <li><i class="fa-brands fa-instagram"></i></li>
-                <li><i class="fa-brands fa-linkedin-in"></i></li>
-            </ul>
-        </div>
-    </div>
-    <!-- </div>
-    <div class="background">
-        <img src="{{asset('front/images/background.jpeg')}}">
-    </div>
-</div> -->
     <section>
         <span class="overlay"></span>
         <div class="modal-box">
             <i class="fa-regular fa-circle-check"></i>
             <h2>Completed</h2>
-            <h3>Your Message have been successfully sent.</h3>
+            <h3>Your Message has been successfully sent.</h3>
             <div class="buttons">
                 <button class="close-btn">Ok, Close</button>
             </div>

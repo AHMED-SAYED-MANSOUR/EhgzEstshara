@@ -18,9 +18,9 @@
         <!-- Navbar -->
         @include('admin.layouts.navbar')
         <!-- /.navbar -->
-        <li class="nav-item d-none d-sm-inline-block">
-            <a href="{{route('admin.edit.info', ['id' => $admin->id])}}" class="nav-link">Edit Information</a>
-        </li>
+{{--        <li class="nav-item d-none d-sm-inline-block">--}}
+{{--            <a href="{{route('admin.edit.info', ['id' => $admin->id])}}" class="nav-link">Edit Information</a>--}}
+{{--        </li>--}}
 
         <!-- Main Sidebar Container -->
         @include('admin.layouts.sidebar')

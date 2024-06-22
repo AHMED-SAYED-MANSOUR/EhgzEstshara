@@ -3,6 +3,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\Appointment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
@@ -49,6 +50,13 @@ class AppointmentController extends Controller
             ], 422);
         }
 
+        $userid = NULL;
+        $user = Auth::user();
+
+        if($user)
+            $userid = $user->id;
+
+
         $appointment = Appointment::create([
             'date' => $request->date,
             'time' => $request->time,
@@ -56,6 +64,7 @@ class AppointmentController extends Controller
             'name' => $request->name,
             'phone' => $request->phone,
             'email' => $request->email,
+            'user_id' =>$userid
         ]);
 
         if ($appointment) {

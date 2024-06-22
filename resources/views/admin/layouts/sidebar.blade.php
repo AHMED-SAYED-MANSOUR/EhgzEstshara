@@ -12,9 +12,9 @@
         <div class="image">
           <img src="{{asset('back/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
         </div>
-        <div class="info">
-          <a href="{{route('admin.edit.info', ['id' => $admin->id])}}" class="d-block">{{$admin->name}}</a>
-        </div>
+{{--        <div class="info">--}}
+{{--          <a href="{{route('admin.edit.info', ['id' => $admin->id])}}" class="d-block">{{$admin->name}}</a>--}}
+{{--        </div>--}}
       </div>
 
       <!-- SidebarSearch Form -->

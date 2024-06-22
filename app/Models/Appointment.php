@@ -12,7 +12,11 @@ class Appointment extends Model
 //    protected $guarded;
 
     protected $fillable = [
-        'id', 'date', 'time', 'doctor', 'name', 'phone', 'email', 'created_at', 'updated_at'
+        'id', 'date', 'time', 'doctor', 'name', 'phone', 'email', 'user_id' ,  'created_at', 'updated_at'
     ];
     public $hidden = [];
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

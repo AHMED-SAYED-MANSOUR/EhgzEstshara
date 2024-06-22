@@ -88,12 +88,12 @@ class ProductsController extends Controller
             if ($product->img !== null) {
                 Storage::delete($product->img);
                 Storage::put("product_images/$imagePath", '');
-
             }
             $product->img = $imagePath;
         }
 
         $product->update([
+
             'ProductName' => $request->ProductName,
             'Quantity' => $request->Quantity,
             'Price' => $request->Price,

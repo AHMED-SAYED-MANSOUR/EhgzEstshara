@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Appointment;
 use App\Models\CartItem;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -80,7 +81,10 @@ class UserController extends Controller
     {
         $user = Auth::user(); $user = Auth::user();
         $count = CartItem::where('user_id', $user->id)->count();
-        return view('user.info', compact('user' , 'count'));
+        $appointments = Appointment::where('user_id', $user->id)->get();
+
+
+        return view('user.info', compact('user' , 'count' , 'appointments'));
     }
 
     public function update_info(Request $request, $id)
