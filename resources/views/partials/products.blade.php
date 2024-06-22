@@ -12,30 +12,41 @@
                             $newPrice = $product->Price - ($product->Price * $product->offer / 100);
                             ?>
                         <p>
+                            <span>{{ $newPrice }} LE</span>
                             <span style="text-decoration: line-through; color: red;">{{ $product->Price }} LE</span>
-                            <span>{{ $product->offer }}% Discount</span>
+{{--                            <span>{{ $product->offer }}% Discount</span>--}}
                         </p>
-                        <p>{{ $newPrice }} LE</p>
+
                     @else
                         <p>{{ $product->Price }} LE</p>
-
                     @endif
 
                     @if(Auth::check())
                         <form method="post" action="{{ route('cart.add', ['productId' => $product->id]) }}">
                             @csrf
-                            <button type="submit" class="btn btn-success">Add to Cart</button>
+                            <button type="submit" class="addtocart">Add to Cart</button>
                         </form>
                     @endif
 
-                    <div class="team-social text-center">
-                        <a style="padding-right: 10px" class="btn btn-square" href="{{ Auth::check() ? route('cart.index') : route('sign') }}">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                        </a>
-                        <a class="btn btn-square" href="{{ Auth::check() ? route('cart.index') : route('sign') }}">
-                            <i class="fa fa-heart"></i>
-                        </a>
+                    <div class="team-item">
+                        <!-- Product content -->
+                        <div class="team-offer">
+                            <a>
+                                @if($product->offer)
+                                    <span class="btn-not-square">{{ $product->offer }}% Discount</span>
+                                @endif
+                            </a>
+                        </div>
+                        <div class="team-social">
+                            <a class="btn btn-square" href="{{ Auth::check() ? route('cart.index') : route('sign') }}">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </a>
+                            <a class="btn btn-square" href="{{ Auth::check() ? route('cart.index') : route('sign') }}">
+                                <i class="fa fa-heart"></i>
+                            </a>
+                        </div>
                     </div>
+
 
                 </div>
             </div>
