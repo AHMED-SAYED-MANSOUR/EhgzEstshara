@@ -52,6 +52,7 @@
             @auth
                 <div>
                     <div>
+
                         <a href="{{ route('cart.index') }}" class="icons-btn d-inline-block bag">
                             <span class="fa-solid fa-cart-shopping">{{$count}}</span>
                             <span id="cartItemCount" class="number">{{$count}}</span>
