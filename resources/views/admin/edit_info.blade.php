@@ -19,6 +19,7 @@
             </ul>
         </div>
     @endif
+
     <div class="box ">
         <div class="contact-form ">
             <h1 style="text-align: center">Update Information</h1>
