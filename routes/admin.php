@@ -99,7 +99,7 @@ Route::post('/appointment-delete/{id}', [AppointmentsController::class, 'delete'
 
 
                         // Connection Messages
-Route::get('/connection_messages-show', [ConnectionMessagesController::class, 'show'])->name('admin.connection_message.show');
+Route::get('/connection_messages-show', [ConnectionMessagesController::class, 'show'])->name('admin.connection_messages.show');
 Route::get('/connection_message-create', [ConnectionMessagesController::class, 'create'])->name('admin.connection_message.create');
 Route::post('/connection_message-store', [ConnectionMessagesController::class, 'store'])->name('admin.connection_message.store');
 Route::get('/connection_message/edit/{id}', [ConnectionMessagesController::class, 'edit'])->name('admin.connection_message.edit');
