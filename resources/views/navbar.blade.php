@@ -15,9 +15,15 @@
                 <a href="{{ url('/') }}" class="nav-item nav-link text-white">Home</a>
 
                 @guest
-                    <a href="{{ url('/sign') }}" class="nav-item nav-link text-white">Log In</a>
-{{--                    <a href="{{ url('/sign') }}" class="nav-item nav-link text-white">Sign up</a>--}}
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown">Sign in</a>
+                        <div class="dropdown-menu rounded-0 rounded-bottom m-0">
+                            <a href="{{ url('/sign') }}" class="dropdown-item">User Login</a>
+                            <a href="{{ url('/admin/login') }}" class="dropdown-item">Admin Login</a>
+                        </div>
+                    </div>
                 @endguest
+
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown">Pages</a>
                     <div class="dropdown-menu rounded-0 rounded-bottom m-0">
