@@ -1,19 +1,12 @@
 <!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
 <html lang="en">
 <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('title')</title>
 
-
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback ">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="{{asset('back/plugins/fontawesome-free/css/all.min.css')}}">
     <!-- Theme style -->
@@ -21,13 +14,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
+    @auth('admin')
+        <!-- Navbar -->
+        @include('admin.layouts.navbar')
+        <!-- /.navbar -->
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="{{route('admin.edit.info', ['id' => $admin->id])}}" class="nav-link">Edit Information</a>
+        </li>
 
-    <!-- Navbar -->
-    @include('admin.layouts.navbar')
-    <!-- /.navbar -->
-
-    <!-- Main Sidebar Container -->
-    @include('admin.layouts.sidebar')
+        <!-- Main Sidebar Container -->
+        @include('admin.layouts.sidebar')
+    @endauth
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -37,15 +34,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="row mb-2">
                     <div class="col-sm-6">
                         <h1 class="m-0">Admin Page</h1>
-                    </div><!-- /.col -->
+                    </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
                             <li class="breadcrumb-item active">Starter Page</li>
                         </ol>
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- /.content-header -->
 
@@ -53,9 +50,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <div class="content">
             <div class="container-fluid">
                 @yield('content')
-                <!-- /.row -->
             </div>
-            <!-- /.container-fluid -->
         </div>
         <!-- /.content -->
     </div>
@@ -82,4 +77,3 @@ scratch. This page gets rid of all links and provides the needed markup only.
 @include('admin.layouts.script')
 </body>
 </html>
-

@@ -1,8 +1,8 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="{{route('admin.dashboard')}}" class="brand-link">
       <img src="{{asset('back/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+      <span class="brand-text font-weight-light">Phsyiorevive</span>
     </a>
 
     <!-- Sidebar -->
@@ -13,7 +13,7 @@
           <img src="{{asset('back/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="{{route('admin.edit.info', ['id' => $admin->id])}}" class="d-block">{{$admin->name}}</a>
         </div>
       </div>
 
@@ -57,8 +57,30 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item">
-            <a href="{{url('create')}}" class="nav-link">
+            <li class="nav-item">
+                <a href="{{route('admin.orders.show')}}" class="nav-link">
+                    <i class="nav-icon fas fa-th"></i>
+                    <p>
+                        Orders
+                        <span class="right badge badge-danger">
+                    {{App\Models\Order::count() }}
+                </span>
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('admin.products.show')}}" class="nav-link">
+                    <i class="nav-icon fas fa-th"></i>
+                    <p>
+                        Products
+                        <span class="right badge badge-danger">
+                    {{App\Models\Product::count() }}
+                </span>
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+            <a href="{{route('admin.offers.show')}}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Offers
@@ -69,10 +91,10 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{url('create-doctor')}}" class="nav-link">
+            <a href="{{route('admin.doctors.show')}}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
-                doctors
+                Doctors
                 <span class="right badge badge-danger">
                     {{App\Models\doctor::count() }}
                 </span>
@@ -80,7 +102,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{url('create-trainer')}}" class="nav-link">
+            <a href="{{route('admin.trainers.show')}}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Trainers
@@ -90,7 +112,39 @@
               </p>
             </a>
           </li>
-
+            <li class="nav-item">
+                <a href="{{route('admin.users.show')}}" class="nav-link">
+                    <i class="nav-icon fas fa-th"></i>
+                    <p>
+                        Users
+                        <span class="right badge badge-danger">
+                    {{App\Models\User::count() }}
+                </span>
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('admin.appointments.show')}}" class="nav-link">
+                    <i class="nav-icon fas fa-th"></i>
+                    <p>
+                        Appointments
+                        <span class="right badge badge-danger">
+                    {{App\Models\Appointment::count() }}
+                </span>
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('admin.connection_messages.show')}}" class="nav-link">
+                    <i class="nav-icon fas fa-th"></i>
+                    <p>
+                        Connection Messages
+                        <span class="right badge badge-danger">
+                    {{App\Models\ConnectionMessage::count() }}
+                </span>
+                    </p>
+                </a>
+            </li>
 
 
         </ul>
