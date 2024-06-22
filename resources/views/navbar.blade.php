@@ -24,6 +24,17 @@
                     </div>
                 @endguest
 
+                @php
+                    $user = Illuminate\Support\Facades\Auth::user();
+                    $count = 0;
+
+                    if ($user)
+                        $count = App\Models\CartItem::where('user_id', $user->id)->count();
+                    else
+                        $count = 0;
+                @endphp
+
+
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown">Pages</a>
                     <div class="dropdown-menu rounded-0 rounded-bottom m-0">
