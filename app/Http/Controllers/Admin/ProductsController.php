@@ -37,7 +37,7 @@ class ProductsController extends Controller
 
         // Handle file upload
         if ($request->hasFile('img')) {
-            $imagePath = $request->file('img')->store('products');
+            $imagePath = $request->file('img')->store('products_images');
         } else {
             $imagePath = null;
         }
