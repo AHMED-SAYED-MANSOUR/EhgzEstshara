@@ -5,6 +5,13 @@ Show Products
 @section('content')
     <h1>Products</h1>
     <a href="{{ route('admin.product.create') }}" class="btn btn-primary">Create Product</a>
+
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+
     <table class="table">
         <thead>
         <tr>

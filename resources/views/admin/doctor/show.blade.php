@@ -5,6 +5,13 @@ Show Doctors
 @section('content')
     <h1>Doctors</h1>
     <a href="{{ route('admin.doctor.create') }}" class="btn btn-primary">Create Doctor</a>
+
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+
     <table class="table">
         <thead>
         <tr>
