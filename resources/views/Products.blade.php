@@ -16,6 +16,7 @@
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
+
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap" rel="stylesheet">
 
@@ -83,6 +84,91 @@
         .price-range-container p {
             text-align: center;
         }
+        .team-item {
+            position: relative;
+        }
+
+        .team-offer {
+            position: absolute;
+            bottom: 410px; /* Adjust the value as needed */
+            left: 3px; /* Adjust the value as needed */
+            display: none;
+        }
+
+        .team-item:hover .team-offer {
+            display: flex;
+        }
+
+        .team-offer .btn-not-square {
+            background-color: #193452; /* Change background color as needed */
+            color: white;
+            padding: 10px; /* Adjust padding as needed */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, transform 0.3s;
+            align-self: flex-end; /* Align to the right */
+        }
+
+        .team-offer .btn-not-square:hover {
+            background-color: #f0f0f0; /* Change hover background color as needed */
+            transform: scale(1.1);
+        }
+
+        .team-social {
+            position: absolute;
+            bottom: 370px; /* Adjust the value as needed */
+            left: 230px; /* Adjust the value as needed */
+            display: none;
+            flex-direction: column; /* Arrange icons vertically */
+            gap: 10px; /* Space between icons */
+            align-items: flex-end; /* Align items to the right */
+        }
+
+        .team-item:hover .team-social {
+            display: flex;
+        }
+
+        .team-social .btn-square {
+            background-color: white; /* Change background color as needed */
+            border-radius: 50%;
+            padding: 10px; /* Adjust padding as needed */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .team-social .btn-square:hover {
+            background-color: #f0f0f0; /* Change hover background color as needed */
+            transform: scale(1.1);
+        }
+
+        .addtocart{
+            display: inline-block;
+            outline: none;
+            cursor: pointer;
+            font-size: 14px;
+            line-height: 1;
+            border-radius: 500px;
+            transition-property: background-color,border-color,color,box-shadow,filter;
+            transition-duration: .3s;
+            border: 1px solid transparent;
+            letter-spacing: 2px;
+            min-width: 160px;
+            text-transform: uppercase;
+            white-space: normal;
+            font-weight: 700;
+            text-align: center;
+            padding: 16px 14px 18px;
+            color: #616467;
+            box-shadow: inset 0 0 0 2px #616467;
+            background-color: transparent;
+            height: 48px;
+        }
+
+        .addtocart:hover{
+            color: #fff;
+            background-color: #616467;
+        }
+
+
 
     </style>
 </head>
