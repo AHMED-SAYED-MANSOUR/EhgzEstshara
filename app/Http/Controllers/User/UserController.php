@@ -51,22 +51,22 @@ class UserController extends Controller
     public function sign_up(Request $request)
     {
         $request->validate([
-            'name'=>'required|string|max:50|',
-            'email'=>'required|email|unique:users,email',
-            'phone'=>'required|numeric|min:11',
-            'password'=>'required|min:8||max:15|confirmed',
-            'confirm'=>'required|min:8|max:15',
-            'DOB'=>'nullable|string',
-            'gender'=>'nullable',
+            'name' => 'required|string|max:50',
+            'email' => 'required|email|unique:users,email',
+            'phone' => 'required|numeric|digits:11',
+            'password' => 'required|min:3|max:20|confirmed',
+            'password_confirmation' => 'required|min:3|max:20',
+            'DOB' => 'required|date',
+            'gender' => 'nullable|string',
         ]);
 
         $user = User::create([
-            'name' => $request['name'],
-            'email' => $request['email'],
-            'phone' => $request['phone'],
-            'password' => $request['password'],
-            'DOB' => $request['DOB'],
-            'gender' => $request['gender'],
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'password' => bcrypt($request->password),
+            'DOB' => $request->DOB,
+            'gender' => $request->gender,
         ]);
 
         if ($user) {

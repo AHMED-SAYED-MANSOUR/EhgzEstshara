@@ -21,7 +21,6 @@
     <link rel="stylesheet" href="{{asset('front/css/bootstrap.min.css')}}">
     <script src="{{asset('front/js/all.js')}}"></script>
     <link rel="stylesheet" href="{{asset('front/css/signup.css')}}">
-
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,11 +30,8 @@
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
 </head>
 <body>
-
-
 <body>
 <!-- Spinner Start -->
 <div id="spinner"
@@ -45,25 +41,18 @@
     </div>
 </div>
 <!-- Spinner End -->
-
 <!-- Navbar Start -->
-
 @include('navbar')
 <!-- Navbar End -->
-
 <script>
     setTimeout(function(){
         $('.alert').fadeOut('slow');
     }, 3000); // 3 seconds
 </script>
-
-
-
 <p class="tip"></p>
 <div class="cont">
     <div class="form sign-in">
         <h2>Welcome back,</h2>
-
         {{-- Signin Form --}}
         <form method="POST" action="{{route('sign_in_route')}}">
             @csrf
@@ -75,13 +64,12 @@
                 <span>Password</span>
                 <input type="password" name="password"/>
             </label>
-        <label>
-            <a href="#" class="forgot-pass">Forgot password?</a>
-        </label>
-        <button type="submit" class="submit">Sign In</button>
-        <button type="button" class="fb-btn">Connect with <span>facebook</span></button>
+            <label>
+                <a href="#" class="forgot-pass">Forgot password?</a>
+            </label>
+            <button type="submit" class="submit">Sign In</button>
+            <button type="button" class="fb-btn">Connect with <span>facebook</span></button>
         </form>
-
     </div>
     <div class="sub-cont">
         <div class="img">
@@ -98,12 +86,9 @@
                 <span id="signInBtn" class="m--in">Sign In</span>
             </div>
         </div>
-
-
-                            {{-- SignUp Form --}}
+        {{-- SignUp Form --}}
         <form id="signup-form" method="POST" action="{{ route('sign_up_route') }}">
             @csrf
-
             <div class="form sign-up">
                 <!-- Flash Messages -->
                 @if(Session::has('success'))
@@ -112,28 +97,26 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 @endif
-
                 @if(Session::has('failed'))
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
                         {{ Session::get('failed') }}
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 @endif
-
                 <h2>Time to Get Recovered,</h2>
                 <div class="row">
                     <div class="col-xl-4">
-                        <label class="text-align-center">Name</label>
+                        <label>Name</label>
                         <input type="text" name="name"/>
                         @error('name')
-                        <span class="text-danger">{{$message}}
+                        <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
                     <div class="col-xl-4">
                         <label>Email</label>
                         <input type="email" name="email"/>
                         @error('email')
-                        <span class="text-danger">{{$message}}
+                        <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
                 </div>
@@ -142,60 +125,57 @@
                         <label>Phone</label>
                         <input type="phone" name="phone"/>
                         @error('phone')
-                        <span class="text-danger">{{$message}}
+                        <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
-
                     <div class="col-xl-4">
                         <label>Password</label>
                         <input type="password" name="password"/>
                         @error('password')
-                        <span class="text-danger">{{$message}}
+                        <span class="text-danger">{{ $message }}</span>
                         @enderror
-
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-xl-4">
                         <label>Confirm Password</label>
-                        <input type="password" name="confirm"/>
-                        @error('confirm')
-                        <span class="text-danger">{{$message}}
+                        <input type="password" name="password_confirmation"/>
+                        @error('password_confirmation')
+                        <span class="text-danger">{{ $message }}</span>
                         @enderror
-
                     </div>
                     <div class="col-xl-4">
-                        <label>Date</label>
-                        <input type="date" name="date"/>
+                        <label>Date of Birth</label>
+                        <input type="date" name="DOB"/>
+                        @error('DOB')
+                        <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
                 </div>
-                <div class="gender">Gender:
+                <div class="gender">
+                    Gender:
                     <select name="gender">
-                        <option value=""> Select</option>
+                        <option value="">Select</option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                     </select>
+                    @error('gender')
+                    <span class="text-danger">{{ $message }}</span>
+                    @enderror
                 </div>
-
                 <div>
                     <button type="submit" class="submit">Sign Up</button>
                     <button type="button" class="fb-btn">Join with <span>facebook</span></button>
                 </div>
             </div>
-            </form>
+        </form>
     </div>
 </div>
-
-
 <!-- Footer Start -->
 @include('footer')
 <!-- Footer End -->
-
-
 <!-- Back to Top -->
 <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
-
-
 <script>
     document.getElementById('signUpBtn').addEventListener('click', function () {
         window.location.href = "/sign_up_route";
@@ -206,8 +186,6 @@
     });
 
 </script>
-
-
 <!-- JavaScript Libraries -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -235,9 +213,7 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 <script src="{{asset('front/js/js/google-map.js')}}"></script>
 <script src="{{asset('front/js/index.js')}}"></script>
-
 <script src="{{asset('front/js/signup.js')}}"></script>
-
 <!-- JavaScript Libraries -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -247,6 +223,5 @@
         $('.alert').fadeOut('slow');
     }, 3000); // 3 seconds
 </script>
-
 </body>
 </html>
