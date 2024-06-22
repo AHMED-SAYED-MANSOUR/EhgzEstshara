@@ -54,7 +54,7 @@
                         <div class="input-group-prepend">
                             <button class="btn btn-outline js-btn-minus" type="button">&minus;</button>
                         </div>
-                        <input type="text" class="form-control text-center" value="1" min="1" placeholder=""
+                        <input type="text" class="form-control text-center" value="{{$item->quantity}}" min="1" placeholder=""
                                aria-label="Example text with button addon" aria-describedby="button-addon1">
                         <div class="input-group-append">
                             <button class="btn btn-outline js-btn-plus" type="button">&plus;</button>
