@@ -40,6 +40,16 @@ Route::get('/', function () {
     return view('index', compact('user', 'trainers','count'));
 });
 
+// Shope
+Route::get('/oldshop', function () {
+    $user = Auth::user();
+    $count = '';
+
+    if ($user)
+        $count = CartItem::where('user_id', $user->id)->count();
+
+    return view('shop' , compact('count'));
+});
 
 // Show All Product
 Route::get('/products', [ProductController::class, 'All_Products'])->name('products.index');
@@ -58,6 +68,7 @@ Route::get('/doctors', function () {
 
     return view('team', compact('doctors' , 'count'));
 });
+
 
 // Show Our Trainers
 Route::get('/trainers',function(){
