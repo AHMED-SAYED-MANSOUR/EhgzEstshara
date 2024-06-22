@@ -46,16 +46,15 @@ class AdminController extends Controller
 
     public function dashboard()
     {
-//        $admin = Auth::guard('admin');
-        $admin = Admin::find(1);
+        $admin = Auth::guard('admin')->user();
         return view('admin.home', compact('admin'));
     }
 
-    public function edit_admin_info($id)
-    {
-        $admin = Admin::find(1);
-        return view('admin.edit_info', compact('admin'));
-    }
+        public function edit_admin_info($id)
+        {
+            $admin = Auth::guard('admin')->user();
+            return view('admin.edit_info', compact('admin'));
+        }
 
     public function update_admin_info(Request $request, $id)
     {
