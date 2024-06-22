@@ -4,66 +4,105 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Doctor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class DoctorsController extends Controller
 {
     public function show()
     {
-        $doctors= Doctor::get();
-        return view('doctor.show',compact('doctors'));
-
+        $doctors = Doctor::all();
+        return view('admin.doctor.show', compact('doctors'));
     }
+
+    public function create()
+    {
+        return view('admin.doctor.create');
+    }
+
     public function store(Request $request)
     {
-        //validate the request
         $request->validate([
-            'photo'=>'image|mimes:jpg,jpeg,png',
-            'name'=>'required',
-            'title'=>'required|string'
+            'name' => 'required',
+            'department' => 'required|string',
+            'image' => 'nullable|image',
+            'facebook' => 'nullable|string',
+            'twitter' => 'nullable|string',
+            'instagram' => 'nullable|string',
         ]);
-        //save the image in folder and get its path
-        $file_name='';
-        if($request->hasfile('photo')){
-            $filename=$request->photo->getClientOriginalName();
-            $request->photo->move(public_path('images/'),$filename);
-        }else{
-            $filename=Null;
+
+        // Handle file upload
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store(public_path('/images/Team/'));
+        } else {
+            $imagePath = null;
         }
-        // insert in DB
-      $doctor = new Doctor();
-      $doctor->name= $request->name;
-      $doctor->title=$request->title;
-      $doctor->image=$filename;
-      $doctor->save() ;
-      return redirect(url('show-doctors'));
+
+        Doctor::create([
+            'name' => $request->name,
+            'department' => $request->department,
+            'image' => $imagePath,
+            'facebook' => $request->Price,
+            'twitter' => $request->facebook,
+            'instagram' => $request->instagram,
+        ]);
+
+        return redirect()->route('admin.doctors.show')->with('success', 'Doctor created successfully.');
     }
-    //delete
-    public function delete($id){
-        $doctor=Doctor::find($id);
-        $doctor->delete();
-        return redirect(url('show-doctors'));
-}
-  public function edit ($id) {
-    $doctors=Doctor::find($id);
-    return view('doctor.edit',compact('doctors'));
 
-  }
-  public function update (Request $request){
+    public function edit($id)
+    {
+        $doctor = Doctor::find($id);
 
-        $file_name='';
-        if($request->hasfile('photo')){
-            $file_name=$request->photo->getClientOriginalName();
-            $request->photo->move(public_path('images/'),$file_name);
-        }else{
-            $file_name=$request->original;
+        return view('admin.doctor.edit', compact('doctor'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $doctor = Doctor::find($id);
+
+        $request->validate([
+            'name' => 'required',
+            'department' => 'required|string',
+            'image' => 'nullable|image',
+            'facebook' => 'nullable|string',
+            'twitter' => 'nullable|string',
+            'instagram' => 'nullable|string',
+        ]);
+
+        // Handle file upload
+        if ($request->hasFile('image'))
+        {
+            // Store the image in the 'public/images/Team' directory
+            $imagePath = $request->file('image')->store('public/images/Team');
+
+            // Extract the filename for storing in the database
+            $filename = basename($imagePath);
+
+            // Delete old image if it exists
+            if ($doctor->image !== null) {
+                Storage::delete($doctor->image);
+            }
+            $doctor->image = $filename;
         }
-    $doctor=Doctor::find($request->id);
-    $doctor->update([
-        'name'=>$request->name ,
-        'title'=>$request->title ,
-        'image'=>$file_name
-    ]);
-    return redirect(url('show'));
-  }
+
+        $doctor->update([
+            'name' => $request->name,
+            'department' => $request->department,
+            'image' => $filename,
+            'facebook' => $request->facebook,
+            'twitter' => $request->twitter,
+            'instagram' => $request->instagram,
+        ]);
+
+        return redirect()->route('admin.doctors.show')->with('success', 'Doctor updated successfully.');
+    }
+
+    public function delete($id)
+    {
+        $doctor = Doctor::find($id);
+        $doctor->delete();
+
+        return redirect()->route('admin.doctors.show')->with('success', 'Doctor deleted successfully.');
+    }
 
 }

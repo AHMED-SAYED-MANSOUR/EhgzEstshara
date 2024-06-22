@@ -1,34 +1,41 @@
 @extends('dashboard')
 @section('title')
-show Doctors
+Show Doctors
 @endsection
 @section('content')
-<table class="table table-bordered">
-    <thead>
-        <th>Doctor name</th>
-        <th>Doctor title</th>
-        <th>Doctor photo</th>
-    </thead>
-    <tbody>
-
-            @foreach( $doctors as $doctor)
-            <tr>
-            <td >{{$doctor->name}}</td>
-            <td class="text-center">{{$doctor->title}}</td>
-            <td class="text-center">
-                @if($doctor->image != NULL)
-                <img src="{{asset('images/' . $doctor->image)}}"
-                style="width:10px,height:10px">
-                @else
-                {{'No Photo'}}
-                @endif
-            </td>
-            <td class="text-center">
-                <A href="{{url('edit-doctors',$doctor->id)}}" class="btn btn-primary btn-sm">Edit</A>
-                <A href="{{url('delete-doctors',$doctor->id)}}" class="btn btn-danger btn-sm">delete</A>
-            </td>
+    <h1>Doctors</h1>
+    <a href="{{ route('admin.doctor.create') }}" class="btn btn-primary">Create Doctor</a>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Image</th>
+            <th>Facebook</th>
+            <th>Twitter</th>
+            <th>Instagram</th>
         </tr>
+        </thead>
+        <tbody>
+        @foreach($doctors as $doctor)
+            <tr>
+                <td>{{ $doctor->name }}</td>
+                <td>{{ $doctor->department }}</td>
+                <td><img src="{{ asset('images/Team/' . $doctor->image) }}" alt="{{ $doctor->name }}" style="max-width: 100px;"></td>
+                <td>{{ $doctor->facebook }}</td>
+                <td>{{ $doctor->twitter }}</td>
+                <td>{{ $doctor->instagram }}</td>
+                <td>
+                    <div class="btn-group" role="group">
+                        <a href="{{ route('admin.doctor.edit', ['id' => $doctor->id]) }}" class="btn btn-primary">Edit</a>
+                        <form action="{{ route('admin.doctor.delete', ['id' => $doctor->id]) }}" method="POST">
+                            @csrf
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
         @endforeach
-    </tbody>
-</table>
+        </tbody>
+    </table>
 @endsection
