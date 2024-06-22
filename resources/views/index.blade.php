@@ -280,7 +280,7 @@
     		<div class="row d-flex no-gutters">
     			<div class="col-md-6 d-flex order-md-last">
     				<div class="img img-video d-flex align-self-stretch align-items-center justify-content-center mb-4 mb-sm-0" style="background-image:url({{asset('front/images/images/about.jpg);')}}">
-    					<a href="{{asset('front/images/16.05.2024_00.51.11_REC.mp4')}}" class="icon-video popup-vimeo d-flex justify-content-center align-items-center">
+    					<a href="{{asset('Sections/video.mp4')}}" class="icon-video popup-vimeo d-flex justify-content-center align-items-center">
     						<span class="fa fa-play text-light"></span>
     					</a>
     				</div>
@@ -423,7 +423,9 @@
 	    				</a>
             	<div class="desc w-100 px-4 text-center pt-5 mt-5" >
 	              <div class="text w-100 mb-3 mt-4" >
-	              	<h2><a href="work-single.html">Foot Pain</a></h2>
+	              	<h2>
+                        <a href="{{route('foot')}}">Foot Pain</a>
+                    </h2>
 	              </div>
               </div>
             </div>
@@ -435,7 +437,7 @@
 	    				</a>
             	<div class="desc w-100 px-4 text-center pt-5 mt-5">
 	              <div class="text w-100 mb-3 mt-4">
-	              	<h2><a href="work-single.html">Arm Pain</a></h2>
+	              	<h2><a href="{{route('arm')}}">Arm Pain</a></h2>
 	              </div>
               </div>
             </div>
@@ -447,7 +449,7 @@
 	    				</a>
             	<div class="desc w-100 px-4 text-center pt-5 mt-5">
 	              <div class="text w-100 mb-3 mt-4">
-	              	<h2><a href="work-single.html">Shoulder Pain</a></h2>
+	              	<h2><a href="{{route('shoulder')}}">Shoulder Pain</a></h2>
 	              </div>
               </div>
             </div>
@@ -459,7 +461,9 @@
 	    				</a>
             	<div class="desc w-100 px-4 text-center pt-5 mt-5">
 	              <div class="text w-100 mb-3 mt-4">
-	              	<h2><a href="work-single.html">Back Pain</a></h2>
+	              	<h2>
+                        <a href="{{route('back')}}"> Back Pain</a>
+                    </h2>
 	              </div>
               </div>
             </div>

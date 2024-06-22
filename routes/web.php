@@ -51,6 +51,26 @@ Route::get('/oldshop', function () {
     return view('shop' , compact('count'));
 });
 
+// Sections
+Route::get('/foot', function () {
+
+    return view('documentation');
+})->name('foot');
+
+Route::get('/arm', function () {
+
+    return view('armdoc');
+})->name('arm');
+
+Route::get('/shoulder', function () {
+
+    return view('shoulder');
+})->name('shoulder');
+
+Route::get('/back', function () {
+    return view('back');
+})->name('back');
+
 // Show All Product
 Route::get('/products', [ProductController::class, 'All_Products'])->name('products.index');
 
