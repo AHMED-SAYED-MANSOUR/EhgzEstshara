@@ -4,6 +4,17 @@ Edit Doctor
 @endsection
 
 @section('content')
+
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     <h1>Edit Product</h1>
     <form action="{{ route('admin.doctor.update', ['id' => $doctor->id]) }}" method="POST" enctype="multipart/form-data">
         @csrf
