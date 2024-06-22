@@ -51,21 +51,12 @@
 @include('navbar')
 <!-- Navbar End -->
 
-@if(Session::has('success'))
-    <div class="alert alert-success">
-        {{ Session::get('success') }}
-    </div>
-@elseif(Session()->has('failed'))
-    <div class="alert alert-failed" id="alert">
-        <button type="button" class="close" data-dismiss="alert">x</button>
-        {{session()->get('failed')}}
-    </div>
-@endif
 <script>
     setTimeout(function(){
         $('.alert').fadeOut('slow');
     }, 3000); // 3 seconds
 </script>
+
 
 
 <p class="tip"></p>
@@ -114,6 +105,21 @@
             @csrf
 
             <div class="form sign-up">
+                <!-- Flash Messages -->
+                @if(Session::has('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ Session::get('success') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+
+                @if(Session::has('failed'))
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{ Session::get('failed') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+
                 <h2>Time to Get Recovered,</h2>
                 <div class="row">
                     <div class="col-xl-4">
@@ -198,6 +204,7 @@
     document.getElementById('signInBtn').addEventListener('click', function () {
         window.location.href = "/sign_in_route";
     });
+
 </script>
 
 
@@ -231,6 +238,15 @@
 
 <script src="{{asset('front/js/signup.js')}}"></script>
 
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Other JS files -->
+<script>
+    setTimeout(function(){
+        $('.alert').fadeOut('slow');
+    }, 3000); // 3 seconds
+</script>
 
 </body>
 </html>
