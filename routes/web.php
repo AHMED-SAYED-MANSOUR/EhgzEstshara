@@ -36,11 +36,6 @@ Route::get('/', function () {
     return view('index', compact('user', 'trainers'));
 });
 
-// Shope
-Route::get('/oldshop', function () {
-
-    return view('shop');
-});
 
 // Sections
 Route::get('/foot', function () {

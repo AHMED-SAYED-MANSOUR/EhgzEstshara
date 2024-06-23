@@ -48,7 +48,7 @@
     <link href="{{asset('front/css/bootstrap.min.css')}}" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="{{asset('front/css/team.css')}}" rel="stylesheet">
+    <link href="{{asset('front/css/coaches.css')}}" rel="stylesheet">
 </head>
 
 <body>

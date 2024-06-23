@@ -18,7 +18,7 @@ class OrderController extends Controller
         });
 
         $order = Auth::user()->orders()->create([
-            'status' => 'pending',
+            'status' => 'accepted',
             'total_price' => $totalPrice
         ]);
 

@@ -19,6 +19,8 @@ class ContactCoctroller extends Controller
         ]);
 
         if ($insert)
-            return redirect()->back();
+            return redirect()->back()->with('success', 'Sent Successfully');
+
+        return redirect()->back()->with('failed', 'Resent with Correct Data');
     }
 }

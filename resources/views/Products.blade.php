@@ -50,7 +50,7 @@
     <link href="{{asset('front/css/bootstrap.min.css')}}" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="{{asset('front/css/team.css')}}" rel="stylesheet">
+    <link href="{{asset('front/css/products.css')}}" rel="stylesheet">
 
     <!-- Include necessary CSS and JS here -->
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -192,6 +192,7 @@
     <div class="container py-5">
         <h1 class="display-3 text-white mb-3 animated slideInDown" style="text-align: center">Our Products</h1>
     </div>
+
 </div>
 <!-- Page Header End -->
 

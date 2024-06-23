@@ -46,7 +46,7 @@ class UserController extends Controller
             // Redirect to the homepage or intended page
             return redirect()->intended('/');
         }
-        return redirect()->back()->with('failed', 'Failed To Log in User');
+        return redirect()->back()->with('failed', 'Wrong UserName or Password');
     }
 
     public function sign_up(Request $request)

@@ -113,7 +113,6 @@
                     <span class="text-danger" id="time-error"></span>
                 </div>
 
-
                     <div class="col-xl-6">
                         <select class="form-select wide" id="default-select" name="doctor">
                             @foreach ($doctors as $doctor)

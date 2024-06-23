@@ -79,17 +79,17 @@
                     </p>
                 </a>
             </li>
-            <li class="nav-item">
-            <a href="{{route('admin.offers.show')}}" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                Offers
-                <span class="right badge badge-danger">
-                    {{App\Models\offer::count() }}
-                </span>
-              </p>
-            </a>
-          </li>
+{{--            <li class="nav-item">--}}
+{{--            <a href="{{route('admin.offers.show')}}" class="nav-link">--}}
+{{--              <i class="nav-icon fas fa-th"></i>--}}
+{{--              <p>--}}
+{{--                Offers--}}
+{{--                <span class="right badge badge-danger">--}}
+{{--                    {{App\Models\offer::count() }}--}}
+{{--                </span>--}}
+{{--              </p>--}}
+{{--            </a>--}}
+{{--          </li>--}}
           <li class="nav-item">
             <a href="{{route('admin.doctors.show')}}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>

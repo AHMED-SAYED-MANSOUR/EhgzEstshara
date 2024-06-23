@@ -56,6 +56,18 @@
         {{-- Signin Form --}}
         <form method="POST" action="{{route('sign_in_route')}}">
             @csrf
+            @if(Session::has('success'))
+                <div style="text-align: center" class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ Session::get('success') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
+            @if(Session::has('failed'))
+                <div style="text-align: center" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    {{ Session::get('failed') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
             <label>
                 <span>Email</span>
                 <input type="email" name="email"/>

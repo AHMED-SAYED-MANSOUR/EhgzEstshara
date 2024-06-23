@@ -163,16 +163,18 @@
                         <p><a href="{{url('/products')}}" class="btn-custom">Know more</a></p>
                     </div>
                 </div>
+
                 <div class="d-block d-flex">
                     <div class="icon d-flex justify-content-center align-items-center">
-                        <image src="{{asset('images/Icons/icons8-blog-64.png')}}" />
+                        <image src="{{asset('images/Icons/icons8-blog-64.png')}}"></image>
+                    </div>
+                    <div class="media-body pl-3">
+                        <h3 class="heading" >Our Blogs</h3>
+                        <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+                        <p><a href="{{url('#blog')}}" class="btn-custom">Know more</a></p>
                     </div>
                 </div>
-                <div class="media-body pl-3">
-                    <h3 class="heading" >Our Blogs</h3>
-                    <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
-                    <p><a href="{{url('#blog')}}" class="btn-custom">Know more</a></p>
-                </div>
+
             </div>
         </div>
     </div>
@@ -234,7 +236,8 @@
                     <div class="col-md-12 heading-section ftco-animate">
                         <span class="subheading">Welcome to Phsyiorevive</span>
                         <h2 class="mb-4" id="aboutus">About Phsyiorevive</h2>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+                        <p>your ultimate destination for all things physiotherapy. Our mission is to empower you on your journey to better health and wellness. We offer comprehensive physiotherapy content designed to educate and inspire you, whether you're recovering from an injury, managing a chronic condition, or simply looking to enhance your physical well-being.
+                            At phsyiorevive, we understand that every individual’s needs are unique. That’s why we provide a seamless platform where you can easily book appointments with experienced doctors and skilled trainers who are dedicated to helping you achieve your health goals. Our team of experts is committed to delivering personalized care and support..</p>
                     </div>
                 </div>
                 <div class="row ftco-counter pb-5" id="section-counter">
@@ -286,16 +289,15 @@
                         <div class="testimony">
                             <blockquote>
                                 <img src="{{asset('images/Persons/person_1.jpg')}}" alt="Image" class="img-fluid">
-                                <p>&ldquo;Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo omnis voluptatem consectetur quam tempore obcaecati maiores voluptate aspernatur iusto eveniet, placeat ab quod tenetur ducimus. Minus ratione sit quaerat unde.&rdquo;</p>
+                                <p>&ldquo;Expert Guidance and Personalized Care Our platform connects you with experienced physiotherapists and trainers who provide personalized treatment plans tailored to your specific needs. Whether you're recovering from an injury, managing chronic pain..&rdquo;</p>
                             </blockquote>
                             <p class="author">&mdash; Kelly Holmes</p>
                         </div>
                         <div class="testimony">
                             <blockquote>
                                 <img src="{{asset('images/Persons/person_2.jpg')}}" alt="Image" class="img-fluid">
-                                <p>&ldquo;Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo omnis voluptatem consectetur quam tempore
-                                    obcaecati maiores voluptate aspernatur iusto eveniet, placeat ab quod tenetur ducimus. Minus ratione sit quaerat
-                                    unde.&rdquo;
+                                <p>&ldquo;Comprehensive Resources and Convenient Access We offer a wealth of physiotherapy content, including informative articles, practical tips, and instructional videos, all designed to educate and empower you on your journey to better health..
+                                    .&rdquo;
                                 </p>
                             </blockquote>
                             <p class="author">&mdash; Rebecca Morando</p>
@@ -303,19 +305,15 @@
                         <div class="testimony">
                             <blockquote>
                                 <img src="{{asset('images/Persons/person_3.jpg')}}" alt="Image" class="img-fluid">
-                                <p>&ldquo;Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo omnis voluptatem consectetur quam tempore
-                                    obcaecati maiores voluptate aspernatur iusto eveniet, placeat ab quod tenetur ducimus. Minus ratione sit quaerat
-                                    unde.&rdquo;
-                                </p>
+                                <p>&ldquo;sit amet consectetur adipisicing elit. Nemo omnis voluptatem consectetur quam tempore obcaecati maiores voluptate aspernatur iusto eveniet, placeat ab quod tenetur ducimus. Minus ratione sit quaerat unde.&rdquo;</p>
                             </blockquote>
                             <p class="author">&mdash; Lucas Gallone</p>
                         </div>
                         <div class="testimony">
                             <blockquote>
                                 <img src="{{asset('images/Persons/person_4.jpg')}}" alt="Image" class="img-fluid">
-                                <p>&ldquo;Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo omnis voluptatem consectetur quam tempore
-                                    obcaecati maiores voluptate aspernatur iusto eveniet, placeat ab quod tenetur ducimus. Minus ratione sit quaerat
-                                    unde.&rdquo;
+                                <p>&ldquo;Holistic Approach to Wellness
+                                    At phsyiorevive, we believe in a holistic approach to health and wellness. Our services and products are designed to address your physical, mental, and emotional well-being. By integrating expert care with the latest in physiotherapy products and comprehensive educational resources, we provide a one-stop solution for all your physiotherapy needs, ensuring you receive the best possible support for a healthier, more active life.&rdquo;
                                 </p>
                             </blockquote>
                             <p class="author">&mdash; Andrew Neel</p>
@@ -328,15 +326,18 @@
                     <h2 class="mb-5">Why <strong class="text-primary">Us</strong></h2>
                     <div class="step-number d-flex mb-4">
                         <span>1</span>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo omnis voluptatem consectetur quam tempore</p>
+                        <p>Expert Guidance and Personalized Care Our platform connects you with experienced physiotherapists and trainers who provide personalized treatment plans tailored to your specific needs..
+                        </p>
                     </div>
                     <div class="step-number d-flex mb-4">
                         <span>2</span>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo omnis voluptatem consectetur quam tempore</p>
+                        <p>Comprehensive Resources and Convenient Access
+                            We offer a wealth of physiotherapy content, including informative articles, practical tips, and instructional videos, all designed to educate and empower you on your journey to better health..
+                        </p>
                     </div>
                     <div class="step-number d-flex mb-4">
                         <span>3</span>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo omnis voluptatem consectetur quam tempore</p>
+                        <p>Holistic Approach to Wellness At phsyiorevive, we believe in a holistic approach to health and wellness. Our services and products are designed to address your physical, mental, and emotional well-being..</p>
                     </div>
                 </div>
             </div>
@@ -348,7 +349,7 @@
     <div class="container-fluid px-md-0" >
         <div class="row no-gutters">
             <div class="col-md-3 ftco-animate">
-                <div class="work img d-flex align-items-center" style="background-image: url({{asset('images/Work/work-1.jpg);')}}">
+                <div class="work img d-flex align-items-center" style="background-image: url({{asset('Sections/images/foot.jpg')}}">
                     <a href="{{asset('images/Work/work-1.jpg')}}" class="icon image-popup d-flex justify-content-center align-items-center">
                         <span class="fa-solid fa-up-right-and-down-left-from-center text-light"></span>
                     </a>
@@ -362,8 +363,8 @@
                 </div>
             </div>
             <div class="col-md-3 ftco-animate">
-                <div class="work img d-flex align-items-center" style="background-image: url({{asset('images/Work/work-2.jpg);')}}">
-                    <a href="images/Work/work-2.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+                <div class="work img d-flex align-items-center" style="background-image: url({{asset('images/Work/work-1.jpg);')}}">
+                    <a href="{{asset('images/Work/work-1.jpg')}}" class="icon image-popup d-flex justify-content-center align-items-center">
                         <span class="fa-solid fa-up-right-and-down-left-from-center text-light"></span>
                     </a>
                     <div class="desc w-100 px-4 text-center pt-5 mt-5">
@@ -374,7 +375,7 @@
                 </div>
             </div>
             <div class="col-md-3 ftco-animate">
-                <div class="work img d-flex align-items-center" style="background-image: url({{asset('images/Work/work-3.jpg);')}}">
+                <div class="work img d-flex align-items-center" style="background-image: url({{asset('Sections/images/shoulder.jpg')}}">
                     <a href="{{asset('images/Work/work-3.jpg')}}" class="icon image-popup d-flex justify-content-center align-items-center">
                         <span class="fa-solid fa-up-right-and-down-left-from-center text-light"></span>
                     </a>

@@ -41,19 +41,25 @@
 <!-- Navbar Start -->
 @include('navbar')
 
-   <!-- Navbar End -->
-@if(Session()->has('success'))
-    <div class="alert alert-success" id="alert">
-        <button type="button"class="close" data-dismiss="alert">x</button>
-        {{session()->get('success')}}
-    </div>
-@endif
+
 
 <section>
     <div class="box ">
         <div class="contact-form ">
             <h1>Contact Us</h1>
             <form method="POST" action="{{route('submit-contact-form')}}">
+                @if(Session::has('success'))
+                    <div style="text-align: center" class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ Session::get('success') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+                @if(Session::has('failed'))
+                    <div style="text-align: center" class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{ Session::get('failed') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
                 @csrf
                 <div class="formbox">
                     <div class="inputbox w50">
